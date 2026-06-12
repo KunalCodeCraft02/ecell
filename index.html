@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Cell GCOE Kolhapur | Where Creativity Meets Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #06060a;
+            --bg2: #0d0d14;
+            --bg3: #12121c;
+            --purple: #6D3FCA;
+            --purple-light: #8B5CF6;
+            --purple-dim: rgba(109, 63, 202, 0.14);
+            --purple-border: rgba(109, 63, 202, 0.35);
+            --white: #F0EFFA;
+            --muted: #7B7A8E;
+            --muted2: #5A5968;
+            --border: rgba(255, 255, 255, 0.065);
+            --radius: 10px;
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--purple);
+            border-radius: 2px;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            height: 66px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(6, 6, 10, 0.6);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.35s;
+        }
+
+        nav.scrolled {
+            background: rgba(6, 6, 10, 0.95);
+            border-bottom-color: var(--purple-border);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            background: var(--purple);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--white);
+        }
+
+        .logo-text span {
+            color: var(--purple-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13.5px;
+            font-weight: 400;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: var(--bg3);
+        }
+
+        .nav-links a.active {
+            color: var(--purple-light);
+        }
+
+        .nav-cta {
+            background: var(--purple) !important;
+            color: #fff !important;
+            font-weight: 500 !important;
+            padding: 7px 20px !important;
+            border-radius: 8px !important;
+        }
+
+        .nav-cta:hover {
+            background: #5a32a8 !important;
+        }
+
+        .nav-hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 22px;
+            background: none;
+            border: none;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            position: relative;
+            height: 100vh;
+            min-height: 640px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 5%;
+            padding-top: 66px;
+        }
+
+        /* bg canvas fills full hero */
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at 28% 50%, rgba(109, 63, 202, 0.12) 0%, transparent 65%);
+        }
+
+        /* Two-column inner layout */
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            align-items: center;
+            gap: 48px;
+        }
+
+        /* LEFT: text */
+        .hero-content {}
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--purple-dim);
+            border: 1px solid var(--purple-border);
+            color: var(--purple-light);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2rem, 3.8vw, 3.4rem);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 18px;
+            color: var(--white);
+        }
+
+        .hero-title .accent {
+            background: linear-gradient(120deg, var(--purple-light) 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 400;
+            margin-bottom: 28px;
+            line-height: 1.75;
+            max-width: 420px;
+        }
+
+        .hero-awards {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .award-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(109, 63, 202, 0.1);
+            border: 1px solid rgba(109, 63, 202, 0.25);
+            border-radius: 8px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--white);
+            width: fit-content;
+        }
+
+        .award-chip i {
+            color: #c4b5fd;
+            font-size: 14px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* RIGHT: cube wrapper – explicit fixed size so Three.js can measure it */
+        .hero-3d {
+            width: 480px;
+            height: 480px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        #cube-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        /* scroll hint */
+        .hero-scroll {
+            position: absolute;
+            bottom: 28px;
+            left: 5%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted2);
+            font-size: 10px;
+            font-family: var(--font-mono);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: hscroll 2.5s ease-in-out infinite;
+        }
+
+        .hero-scroll::before {
+            content: '';
+            width: 22px;
+            height: 1px;
+            background: var(--muted2);
+        }
+
+        @keyframes hscroll {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(5px)
+            }
+        }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            background: var(--purple);
+            color: #fff;
+            border: none;
+            padding: 12px 26px;
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s;
+        }
+
+        .btn-primary:hover {
+            background: #5a32a8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(109, 63, 202, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--border);
+            padding: 12px 26px;
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--purple-border);
+            color: var(--purple-light);
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--purple-light);
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+            line-height: 1.12;
+            letter-spacing: -1.2px;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .section-sub {
+            font-size: 15px;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 2px;
+            background: var(--purple);
+            border-radius: 2px;
+            margin: 18px 0 26px;
+        }
+
+        /* ── STATS ── */
+        #stats {
+            padding: 52px 5%;
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 8px 16px;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 2.6rem;
+            background: linear-gradient(135deg, #fff 0%, var(--purple-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            background: var(--bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center;
+        }
+
+        .about-visual {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+        }
+
+        .about-visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .about-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: border-color 0.25s;
+        }
+
+        .about-card:hover {
+            border-color: var(--purple-border);
+        }
+
+        .about-card i {
+            font-size: 22px;
+            color: var(--purple-light);
+        }
+
+        .about-card-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 14.5px;
+        }
+
+        .about-card-sub {
+            font-size: 11.5px;
+            color: var(--muted);
+        }
+
+        .about-nec-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--purple-dim);
+            border: 1px solid var(--purple-border);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+        }
+
+        .nec-text small {
+            display: block;
+            font-size: 10.5px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nec-text strong {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--purple-light);
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ── VISION/MISSION ── */
+        #vision-mission {
+            background: var(--bg2);
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .vm-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 40px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .vm-card:hover {
+            border-color: var(--purple-border);
+        }
+
+        .vm-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--purple-light));
+        }
+
+        .vm-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--purple-dim);
+            border: 1px solid var(--purple-border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--purple-light);
+            margin-bottom: 22px;
+        }
+
+        .vm-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .vm-card p {
+            color: var(--muted);
+            font-size: 14.5px;
+            line-height: 1.82;
+        }
+
+        .vm-pillars {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .vm-pillar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13.5px;
+            color: var(--white);
+        }
+
+        .vm-pillar i {
+            color: var(--purple-light);
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        /* ── EVENTS ── */
+        #events {
+            background: var(--bg);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .event-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            border-color: var(--purple-border);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .event-thumb {
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-thumb-nec {
+            background: linear-gradient(135deg, #0e0518, #2a1060);
+        }
+
+        .event-thumb-hack {
+            background: linear-gradient(135deg, #050e1a, #0a2040);
+        }
+
+        .event-thumb-boot {
+            background: linear-gradient(135deg, #0a0518, #1e0840);
+        }
+
+        .event-thumb-pitch {
+            background: linear-gradient(135deg, #0d0518, #231060);
+        }
+
+        .event-thumb-net {
+            background: linear-gradient(135deg, #0e100a, #1a2a0e);
+        }
+
+        .event-thumb-workshop {
+            background: linear-gradient(135deg, #08051a, #150a40);
+        }
+
+        .event-tag {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-family: var(--font-mono);
+            font-size: 9.5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .tag-upcoming {
+            background: rgba(109, 63, 202, 0.2);
+            color: var(--purple-light);
+            border: 1px solid var(--purple-border);
+        }
+
+        .tag-past {
+            background: rgba(123, 122, 142, 0.12);
+            color: var(--muted);
+            border: 1px solid rgba(123, 122, 142, 0.2);
+        }
+
+        .tag-award {
+            background: rgba(196, 181, 253, 0.12);
+            color: #c4b5fd;
+            border: 1px solid rgba(196, 181, 253, 0.25);
+        }
+
+        .event-body {
+            padding: 22px;
+        }
+
+        .event-date {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .event-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .event-footer {
+            padding: 14px 22px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .event-footer-info {
+            font-size: 11.5px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-arrow {
+            color: var(--purple-light);
+            font-size: 17px;
+            transition: transform 0.2s;
+        }
+
+        .event-card:hover .event-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ── GALLERY ── */
+        #gallery {
+            background: var(--bg2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 175px);
+            gap: 10px;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--purple-border);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item.span-2 {
+            grid-column: span 2;
+        }
+
+        .gallery-item.span-row {
+            grid-row: span 2;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(109, 63, 202, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-overlay i {
+            font-size: 26px;
+            color: var(--purple-light);
+        }
+
+        .gallery-overlay span {
+            font-size: 11px;
+            color: var(--white);
+            margin-top: 6px;
+            font-family: var(--font-mono);
+        }
+
+        .gallery-g1 {
+            background: linear-gradient(135deg, #0e0518, #2a1060);
+        }
+
+        .gallery-g2 {
+            background: linear-gradient(135deg, #050818, #0f1540);
+        }
+
+        .gallery-g3 {
+            background: linear-gradient(135deg, #0a0518, #200840);
+        }
+
+        .gallery-g4 {
+            background: linear-gradient(135deg, #04100a, #062018);
+        }
+
+        .gallery-g5 {
+            background: linear-gradient(135deg, #100e02, #28200a);
+        }
+
+        .gallery-g6 {
+            background: linear-gradient(135deg, #08051a, #170a35);
+        }
+
+        .gallery-g7 {
+            background: linear-gradient(135deg, #04080a, #0a1520);
+        }
+
+        .gallery-g8 {
+            background: linear-gradient(135deg, #100508, #280010);
+        }
+
+        .gallery-g9 {
+            background: linear-gradient(135deg, #050810, #0d1028);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* ── TEAM ── */
+        #team {
+            background: var(--bg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+        }
+
+        .team-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 22px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            border-color: var(--purple-border);
+            transform: translateY(-3px);
+        }
+
+        .team-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 18px;
+            color: #fff;
+            background: var(--purple);
+        }
+
+        .team-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.97rem;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 14px;
+            font-family: var(--font-mono);
+        }
+
+        .team-socials {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .team-socials a {
+            color: var(--muted2);
+            font-size: 15px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .team-socials a:hover {
+            color: var(--purple-light);
+        }
+
+        /* ── CONTACT ── */
+        #contact {
+            background: var(--bg2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 72px;
+            align-items: start;
+        }
+
+        .contact-info p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--purple-dim);
+            border: 1px solid var(--purple-border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple-light);
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .contact-detail strong {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .contact-detail span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .contact-form {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 36px;
+        }
+
+        .contact-form h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 26px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 11px 14px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--purple-border);
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        .form-group select option {
+            background: var(--bg2);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 60px 5% 32px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-top: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 8px;
+        }
+
+        .footer-socials a {
+            width: 34px;
+            height: 34px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--purple-light);
+            border-color: var(--purple-border);
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .footer-col ul a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13.5px;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 12.5px;
+            color: var(--muted2);
+        }
+
+        .nec-trophy {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: #c4b5fd;
+            background: rgba(109, 63, 202, 0.1);
+            border: 1px solid rgba(109, 63, 202, 0.25);
+            border-radius: 6px;
+            padding: 5px 12px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-3d {
+                width: 340px;
+                height: 340px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .vm-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .gallery-item.span-2,
+            .gallery-item.span-row {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 66px;
+                left: 0;
+                right: 0;
+                background: rgba(6, 6, 10, 0.97);
+                padding: 20px 5% 28px;
+                border-bottom: 1px solid var(--border);
+                gap: 4px;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .hero-3d {
+                width: 280px;
+                height: 280px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 68px 5%;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">
+            <div class="logo-mark">EC</div>
+            <span class="logo-text">E-Cell <span>GCOE</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#vision-mission">Vision</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact" class="nav-cta">Join Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburgerBtn"><i class="ri-menu-3-line"></i></button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+
+            <!-- LEFT TEXT -->
+            <div class="hero-content">
+                <div class="hero-badge"><i class="ri-flashlight-fill"></i> Entrepreneurship Cell · GCOE Kolhapur</div>
+                <h1 class="hero-title">
+                    Where<br>
+                    <span class="accent">Creativity</span><br>
+                    Meets Commerce
+                </h1>
+                <p class="hero-tagline">Fueling the next generation of innovators, builders &amp; changemakers from
+                    Maharashtra.</p>
+                <div class="hero-awards">
+                    <div class="award-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Basic)</div>
+                    <div class="award-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Advanced)
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#events" class="btn-primary"><i class="ri-rocket-2-line"></i> Explore Events</a>
+                    <a href="#contact" class="btn-secondary"><i class="ri-user-add-line"></i> Join E-Cell</a>
+                </div>
+            </div>
+
+            <!-- RIGHT: 3D CUBE -->
+            <div class="hero-3d" id="cubeWrapper">
+                <canvas id="cube-canvas"></canvas>
+            </div>
+
+        </div>
+        <div class="hero-scroll">Scroll down</div>
+    </section>
+
+    <!-- STATS -->
+    <div id="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">2×</div>
+                <div class="stat-label">NEC IIT Bombay Runner-up</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Student Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Events Organised</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Startups Mentored</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Industry Partners</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-visual">
+                <div class="about-visual-grid">
+                    <div class="about-card"><i class="ri-lightbulb-flash-line"></i>
+                        <div class="about-card-title">Ideation</div>
+                        <div class="about-card-sub">Workshops &amp; bootcamps</div>
+                    </div>
+                    <div class="about-card"><i class="ri-team-line"></i>
+                        <div class="about-card-title">Mentorship</div>
+                        <div class="about-card-sub">Expert guidance network</div>
+                    </div>
+                    <div class="about-card"><i class="ri-funds-line"></i>
+                        <div class="about-card-title">Funding</div>
+                        <div class="about-card-sub">Pitch &amp; investor connects</div>
+                    </div>
+                    <div class="about-card"><i class="ri-medal-2-line"></i>
+                        <div class="about-card-title">Recognition</div>
+                        <div class="about-card-sub">National-level competitions</div>
+                    </div>
+                </div>
+                <div class="about-nec-badge">
+                    <i class="ri-award-fill" style="font-size:26px;color:#c4b5fd;flex-shrink:0"></i>
+                    <div class="nec-text">
+                        <small>National Entrepreneurship Challenge · IIT Bombay</small>
+                        <strong>2nd Runner-up × 2 — Basic &amp; Advanced Tracks</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <div class="section-label">About Us</div>
+                <h2 class="section-title">The startup heartbeat of GCOE Kolhapur</h2>
+                <div class="divider"></div>
+                <p>E-Cell GCOE Kolhapur is the entrepreneurship cell of Government College of Engineering — a
+                    student-run powerhouse bridging academic learning with real-world innovation.</p>
+                <p>From hackathons and pitch fests to competing at IIT Bombay's NEC and placing 2nd Runner-up in both
+                    the Basic and Advanced tracks — we prove great ideas come from anywhere.</p>
+                <p>We build the ecosystem: the mentors, the events, the connections, and the courage for students to
+                    think like founders.</p>
+                <a href="#vision-mission" class="btn-primary" style="margin-top:14px;">Our Mission <i
+                        class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section id="vision-mission">
+        <div class="section-header" style="text-align:center;max-width:580px;margin:0 auto 60px;">
+            <div class="section-label">What Drives Us</div>
+            <h2 class="section-title">Vision &amp; Mission</h2>
+            <p class="section-sub" style="margin:0 auto;">Our compass for building a generation of problem-solvers,
+                risk-takers, and value creators.</p>
+        </div>
+        <div class="vm-grid">
+            <div class="vm-card">
+                <div class="vm-icon"><i class="ri-eye-line"></i></div>
+                <h3>Our Vision</h3>
+                <p>To create a thriving entrepreneurial ecosystem at GCOE Kolhapur — where every student feels empowered
+                    to solve real problems and build ventures that matter.</p>
+                <div class="vm-pillars">
+                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> National recognition through NEC IIT
+                        Bombay</div>
+                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> A startup-first campus culture</div>
+                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Bridging local talent to global
+                        platforms</div>
+                </div>
+            </div>
+            <div class="vm-card">
+                <div class="vm-icon"><i class="ri-focus-3-line"></i></div>
+                <h3>Our Mission</h3>
+                <p>To educate, inspire, and support aspiring entrepreneurs with access to knowledge, mentorship, funding
+                    pathways, and a vibrant community of like-minded innovators.</p>
+                <div class="vm-pillars">
+                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Hands-on entrepreneurship education
+                    </div>
+                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Mentorship from industry leaders
+                    </div>
+                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Pitch competitions &amp; funding
+                        exposure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">Events &amp; Initiatives</h2>
+            <p class="section-sub">From idea to execution — the events that shape entrepreneurs.</p>
+        </div>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-thumb event-thumb-nec">🏆<span class="event-tag tag-award">🥉 Award</span></div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> 2023 &amp; 2024</div>
+                    <div class="event-name">National Entrepreneurship Challenge</div>
+                    <div class="event-desc">Competed at IIT Bombay's flagship NEC — securing 2nd Runner-up in both Basic
+                        and Advanced tracks across two editions.</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="ri-map-pin-line"></i> IIT Bombay</div><i
+                        class="ri-arrow-right-line event-arrow"></i>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-thumb event-thumb-hack">💡<span class="event-tag tag-upcoming">Upcoming</span></div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> Coming Soon</div>
+                    <div class="event-name">Startup Hackathon 2025</div>
+                    <div class="event-desc">48-hour challenge to build MVPs. Teams compete across fintech, agritech,
+                        edtech, and sustainability tracks.</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="ri-group-line"></i> Open to all years</div><i
+                        class="ri-arrow-right-line event-arrow"></i>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-thumb event-thumb-pitch">🎤<span class="event-tag tag-past">Completed</span></div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> March 2024</div>
+                    <div class="event-name">Pitch Perfect</div>
+                    <div class="event-desc">Annual inter-college pitch competition with real investor panels, live
+                        feedback, and prizes for the top 3 ideas.</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="ri-group-line"></i> 60+ participants</div><i
+                        class="ri-arrow-right-line event-arrow"></i>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-thumb event-thumb-boot">🚀<span class="event-tag tag-past">Completed</span></div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> January 2024</div>
+                    <div class="event-name">Startup Bootcamp</div>
+                    <div class="event-desc">Intensive 2-day workshop on lean startup methodology, customer discovery,
+                        MVPs, and go-to-market strategy.</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="ri-group-line"></i> 120+ attendees</div><i
+                        class="ri-arrow-right-line event-arrow"></i>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-thumb event-thumb-net">🤝<span class="event-tag tag-past">Completed</span></div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> November 2023</div>
+                    <div class="event-name">Founders Networking Night</div>
+                    <div class="event-desc">An evening connecting students with founders, VCs, and professionals from
+                        the Kolhapur and Pune startup ecosystems.</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="ri-group-line"></i> 25+ mentors</div><i
+                        class="ri-arrow-right-line event-arrow"></i>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-thumb event-thumb-workshop">📚<span class="event-tag tag-upcoming">Upcoming</span>
+                </div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> July 2025</div>
+                    <div class="event-name">AI for Entrepreneurs Workshop</div>
+                    <div class="event-desc">Hands-on workshop exploring how founders can leverage AI tools for product
+                        building, marketing, and operations.</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="ri-group-line"></i> Limited seats</div><i
+                        class="ri-arrow-right-line event-arrow"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="section-header">
+            <div class="section-label">Moments</div>
+            <h2 class="section-title">Our Gallery</h2>
+            <p class="section-sub">Snapshots from events, competitions, and the journey that made us.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item gallery-g1 span-2 span-row">🏆<span class="gallery-label">NEC IIT Bombay — Award
+                    Ceremony</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
+            </div>
+            <div class="gallery-item gallery-g2">🎤<span class="gallery-label">Pitch Perfect</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+            <div class="gallery-item gallery-g3">💡<span class="gallery-label">Hackathon</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+            <div class="gallery-item gallery-g4">🚀<span class="gallery-label">Bootcamp</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+            <div class="gallery-item gallery-g5">🤝<span class="gallery-label">Networking</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+            <div class="gallery-item gallery-g6 span-2">📸<span class="gallery-label">Team E-Cell 2024</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
+            </div>
+            <div class="gallery-item gallery-g7">🎯<span class="gallery-label">Workshop</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+            <div class="gallery-item gallery-g8">🌟<span class="gallery-label">Awards Night</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+            <div class="gallery-item gallery-g9">📊<span class="gallery-label">Investor Meet</span>
+                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+        <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 60px;">
+            <div class="section-label">The People</div>
+            <h2 class="section-title">Meet the Team</h2>
+            <p class="section-sub" style="margin:0 auto;">The builders and dreamers powering E-Cell GCOE Kolhapur.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">AK</div>
+                <div class="team-name">Aarav Kulkarni</div>
+                <div class="team-role">President</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#7c3aed;">PM</div>
+                <div class="team-name">Priya Mahajan</div>
+                <div class="team-role">Vice President</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#059669;">RS</div>
+                <div class="team-name">Rohit Shinde</div>
+                <div class="team-role">Head of Events</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#dc2626;">ND</div>
+                <div class="team-name">Neha Deshmukh</div>
+                <div class="team-role">Head of Marketing</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#0891b2;">KP</div>
+                <div class="team-name">Kunal Patil</div>
+                <div class="team-role">Head of Tech</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-github-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#d97706;">SM</div>
+                <div class="team-name">Sakshi More</div>
+                <div class="team-role">Finance Lead</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#be185d;">AG</div>
+                <div class="team-name">Arjun Gaikwad</div>
+                <div class="team-role">Design Lead</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar" style="background:#4f46e5;">VJ</div>
+                <div class="team-name">Vishal Jadhav</div>
+                <div class="team-role">Outreach Lead</div>
+                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Let's Build Something Together</h2>
+                <div class="divider"></div>
+                <p>Whether you're a student with an idea, a mentor who wants to give back, or a company looking to
+                    partner — we'd love to connect.</p>
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
+                        <div class="contact-detail"><strong>Address</strong><span>Government College of Engineering,
+                                Kolhapur, Maharashtra 416004</span></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ri-mail-line"></i></div>
+                        <div class="contact-detail"><strong>Email</strong><span>ecell@gcoekolhapur.ac.in</span></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ri-instagram-line"></i></div>
+                        <div class="contact-detail"><strong>Instagram</strong><span>@ecell.gcoe.kolhapur</span></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ri-linkedin-box-line"></i></div>
+                        <div class="contact-detail"><strong>LinkedIn</strong><span>E-Cell GCOE Kolhapur</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send us a message</h3>
+                <div class="form-row">
+                    <div class="form-group"><label>First name</label><input type="text" placeholder="Aarav" /></div>
+                    <div class="form-group"><label>Last name</label><input type="text" placeholder="Kulkarni" /></div>
+                </div>
+                <div class="form-group"><label>Email address</label><input type="email"
+                        placeholder="aarav@example.com" /></div>
+                <div class="form-group"><label>I'm reaching out as a</label><select>
+                        <option>Student with an idea</option>
+                        <option>Mentor / Industry Expert</option>
+                        <option>Company / Sponsor</option>
+                        <option>Media / Press</option>
+                        <option>Other</option>
+                    </select></div>
+                <div class="form-group"><label>Message</label><textarea
+                        placeholder="Tell us about yourself or your idea..."></textarea></div>
+                <button class="btn-primary" style="width:100%;justify-content:center;" onclick="handleSubmit()"><i
+                        class="ri-send-plane-line"></i> Send Message</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo" style="margin-bottom:4px;">
+                    <div class="logo-mark">EC</div>
+                    <span class="logo-text">E-Cell <span>GCOE</span></span>
+                </div>
+                <p>Entrepreneurship Cell of Government College of Engineering, Kolhapur. Building the next wave of
+                    innovators from Maharashtra.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-linkedin-box-line"></i></a>
+                    <a href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#"><i class="ri-youtube-line"></i></a>
+                    <a href="#"><i class="ri-whatsapp-line"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Navigate</h5>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#vision-mission">Vision &amp; Mission</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Programs</h5>
+                <ul>
+                    <li><a href="#">NEC IIT Bombay</a></li>
+                    <li><a href="#">Hackathons</a></li>
+                    <li><a href="#">Pitch Competitions</a></li>
+                    <li><a href="#">Bootcamps</a></li>
+                    <li><a href="#">Networking Events</a></li>
+                    <li><a href="#">Mentorship Program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#">Join as Member</a></li>
+                    <li><a href="#">Become a Mentor</a></li>
+                    <li><a href="#">Partner with Us</a></li>
+                    <li><a href="#">GCOE Official</a></li>
+                    <li><a href="#">CESSA GCOE</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 E-Cell GCOE Kolhapur. Made with <i class="ri-heart-fill" style="color:var(--purple-light)"></i> by
+                students, for students.</p>
+            <div class="nec-trophy"><i class="ri-trophy-line"></i> NEC IIT Bombay — 2× Second Runner-up</div>
+        </div>
+    </footer>
+
+    <!-- ═══ THREE.JS — Background particles ═══ -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <script>
+        (function () {
+            const canvas = document.getElementById('hero-canvas');
+            const R = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+            R.setPixelRatio(Math.min(devicePixelRatio, 2));
+            R.setSize(innerWidth, innerHeight);
+
+            const scene = new THREE.Scene();
+            const cam = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 100);
+            cam.position.z = 6;
+            scene.add(new THREE.AmbientLight(0xffffff, 0.2));
+
+            // Particles
+            const N = 350, pos = new Float32Array(N * 3);
+            for (let i = 0; i < N; i++) {
+                pos[i * 3] = (Math.random() - .5) * 20;
+                pos[i * 3 + 1] = (Math.random() - .5) * 20;
+                pos[i * 3 + 2] = (Math.random() - .5) * 12 - 3;
+            }
+            const pg = new THREE.BufferGeometry();
+            pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const pm = new THREE.PointsMaterial({ color: 0x6D3FCA, size: 0.025, transparent: true, opacity: 0.55 });
+            scene.add(new THREE.Points(pg, pm));
+
+            // Grid
+            const grid = new THREE.GridHelper(40, 40, 0x6D3FCA, 0x1a0d40);
+            grid.material.transparent = true;
+            grid.material.opacity = 0.1;
+            grid.position.y = -5;
+            scene.add(grid);
+
+            window.addEventListener('resize', () => {
+                R.setSize(innerWidth, innerHeight);
+                cam.aspect = innerWidth / innerHeight;
+                cam.updateProjectionMatrix();
+            });
+
+            const clk = new THREE.Clock();
+            (function loop() {
+                requestAnimationFrame(loop);
+                const t = clk.getElapsedTime();
+                scene.children[1].rotation.y = t * .01;
+                R.render(scene, cam);
+            })();
+        })();
+    </script>
+
+    <!-- ═══ THREE.JS — Metallic Cube ═══ -->
+    <script>
+        (function () {
+            // Wait for fonts then init so canvas textures render text correctly
+            function init() {
+                const wrapper = document.getElementById('cubeWrapper');
+                const canvas = document.getElementById('cube-canvas');
+
+                // Explicit pixel dimensions from wrapper
+                const W = wrapper.offsetWidth || 480;
+                const H = wrapper.offsetHeight || 480;
+
+                const R = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+                R.setPixelRatio(Math.min(devicePixelRatio, 2));
+                R.setSize(W, H);
+                R.toneMapping = THREE.ACESFilmicToneMapping;
+                R.toneMappingExposure = 1.2;
+
+                const scene = new THREE.Scene();
+                const cam = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
+                cam.position.set(0, 0.8, 5.5);
+                cam.lookAt(0, 0, 0);
+
+                // ── LIGHTS ──
+                scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+
+                const key = new THREE.DirectionalLight(0xffffff, 3.0);
+                key.position.set(4, 6, 5);
+                scene.add(key);
+
+                const purpleL = new THREE.DirectionalLight(0x8B5CF6, 1.8);
+                purpleL.position.set(-4, -2, 3);
+                scene.add(purpleL);
+
+                const rimL = new THREE.DirectionalLight(0xc4b5fd, 1.2);
+                rimL.position.set(2, -4, -4);
+                scene.add(rimL);
+
+                const pt1 = new THREE.PointLight(0x6D3FCA, 4, 10);
+                pt1.position.set(-3, 2, 2);
+                scene.add(pt1);
+
+                const pt2 = new THREE.PointLight(0xffffff, 2, 8);
+                pt2.position.set(3, 3, 3);
+                scene.add(pt2);
+
+                // ── FACE TEXTURE BUILDER ──
+                function makeFace(cfg) {
+                    const SZ = 512;
+                    const c = document.createElement('canvas');
+                    c.width = c.height = SZ;
+                    const ctx = c.getContext('2d');
+
+                    // Base deep background
+                    ctx.fillStyle = cfg.bg || '#090618';
+                    ctx.fillRect(0, 0, SZ, SZ);
+
+                    // Gradient sheen
+                    const g = ctx.createRadialGradient(SZ / 2, SZ / 2, 0, SZ / 2, SZ / 2, SZ * .72);
+                    g.addColorStop(0, 'rgba(139,92,246,0.28)');
+                    g.addColorStop(0.5, 'rgba(109,63,202,0.18)');
+                    g.addColorStop(1, 'rgba(30,10,80,0.05)');
+                    ctx.fillStyle = g;
+                    ctx.fillRect(0, 0, SZ, SZ);
+
+                    // Outer border glow
+                    ctx.strokeStyle = 'rgba(139,92,246,0.75)';
+                    ctx.lineWidth = 12;
+                    ctx.strokeRect(6, 6, SZ - 12, SZ - 12);
+
+                    // Inner border
+                    ctx.strokeStyle = 'rgba(196,181,253,0.35)';
+                    ctx.lineWidth = 2.5;
+                    ctx.strokeRect(20, 20, SZ - 40, SZ - 40);
+
+                    // Corner L-brackets
+                    const cl = 44, cw = 4;
+                    const corners = [[28, 28], [SZ - 28, 28], [28, SZ - 28], [SZ - 28, SZ - 28]];
+                    corners.forEach(([cx, cy], idx) => {
+                        ctx.strokeStyle = '#8B5CF6';
+                        ctx.lineWidth = cw;
+                        ctx.beginPath();
+                        const sx = idx < 2 ? 1 : -1;
+                        const sy = idx % 2 === 0 ? 1 : -1;
+                        // horizontal
+                        ctx.moveTo(cx, cy);
+                        ctx.lineTo(cx + sx * cl, cy);
+                        ctx.stroke();
+                        // vertical
+                        ctx.beginPath();
+                        ctx.moveTo(cx, cy);
+                        ctx.lineTo(cx, cy + sy * cl);
+                        ctx.stroke();
+                    });
+
+                    // Draw each text line
+                    (cfg.lines || []).forEach(ln => {
+                        ctx.save();
+                        if (ln.shadow) {
+                            ctx.shadowColor = ln.shadowColor || '#6D3FCA';
+                            ctx.shadowBlur = ln.shadowBlur || 28;
+                        }
+                        ctx.font = ln.font || 'bold 72px Outfit, Arial, sans-serif';
+                        ctx.fillStyle = ln.color || '#ffffff';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(ln.text, SZ / 2, ln.y);
+                        ctx.restore();
+                    });
+
+                    // Optional icon row (emoji)
+                    if (cfg.icon) {
+                        ctx.font = '90px serif';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(cfg.icon, SZ / 2, cfg.iconY || 140);
+                    }
+
+                    return new THREE.CanvasTexture(c);
+                }
+
+                // ── SIX FACES ──
+                const texFront = makeFace({
+                    lines: [
+                        { text: 'E-CELL', font: '900 96px Outfit,Arial,sans-serif', color: '#ffffff', y: 170, shadow: true, shadowBlur: 30 },
+                        { text: 'GCOEK', font: '800 82px Outfit,Arial,sans-serif', color: '#c4b5fd', y: 280, shadow: true, shadowColor: '#8B5CF6' },
+                        { text: 'EST. 2019', font: '500 34px JetBrains Mono,monospace', color: 'rgba(196,181,253,0.75)', y: 390 },
+                    ]
+                });
+
+                const texBack = makeFace({
+                    icon: '🏆', iconY: 160,
+                    lines: [
+                        { text: 'NEC', font: '900 80px Outfit,Arial,sans-serif', color: '#ffffff', y: 300, shadow: true },
+                        { text: 'IIT BOMBAY', font: '600 40px Outfit,Arial,sans-serif', color: 'rgba(196,181,253,0.85)', y: 388 },
+                    ]
+                });
+
+                const texTop = makeFace({
+                    lines: [
+                        { text: 'INNOVATE', font: '800 66px Outfit,Arial,sans-serif', color: '#ffffff', y: 185, shadow: true },
+                        { text: '&', font: '900 80px Outfit,Arial,sans-serif', color: '#8B5CF6', y: 280 },
+                        { text: 'BUILD', font: '800 66px Outfit,Arial,sans-serif', color: '#ffffff', y: 375, shadow: true },
+                    ]
+                });
+
+                const texBottom = makeFace({
+                    lines: [
+                        { text: '2×', font: '900 130px Outfit,Arial,sans-serif', color: '#c4b5fd', y: 210, shadow: true, shadowBlur: 36 },
+                        { text: 'RUNNER-UP', font: '700 50px Outfit,Arial,sans-serif', color: '#ffffff', y: 340 },
+                    ]
+                });
+
+                const texRight = makeFace({
+                    icon: '🚀', iconY: 150,
+                    lines: [
+                        { text: 'IDEAS', font: '900 82px Outfit,Arial,sans-serif', color: '#ffffff', y: 295, shadow: true },
+                        { text: 'TAKE OFF', font: '700 56px Outfit,Arial,sans-serif', color: '#8B5CF6', y: 390 },
+                    ]
+                });
+
+                const texLeft = makeFace({
+                    lines: [
+                        { text: 'GCOE', font: '900 82px Outfit,Arial,sans-serif', color: '#ffffff', y: 220, shadow: true },
+                        { text: 'KOLHAPUR', font: '600 52px Outfit,Arial,sans-serif', color: '#c4b5fd', y: 320 },
+                        { text: '🎓', font: '70px serif', color: '#c4b5fd', y: 420 },
+                    ]
+                });
+
+                // Materials — high metalness for chrome look
+                function mat(tex) {
+                    return new THREE.MeshStandardMaterial({
+                        map: tex,
+                        metalness: 0.92,
+                        roughness: 0.06,
+                        envMapIntensity: 1.0,
+                    });
+                }
+
+                // THREE BoxGeometry face order: +X, -X, +Y, -Y, +Z, -Z
+                const mats = [
+                    mat(texRight),   // +X
+                    mat(texLeft),    // -X
+                    mat(texTop),     // +Y
+                    mat(texBottom),  // -Y
+                    mat(texFront),   // +Z  ← faces camera
+                    mat(texBack),    // -Z
+                ];
+
+                const geo = new THREE.BoxGeometry(2.2, 2.2, 2.2);
+                const cube = new THREE.Mesh(geo, mats);
+                scene.add(cube);
+
+                // Glowing edges
+                const edgeGeo = new THREE.EdgesGeometry(geo);
+                const edgeMat = new THREE.LineBasicMaterial({ color: 0x8B5CF6, transparent: true, opacity: 0.75 });
+                cube.add(new THREE.LineSegments(edgeGeo, edgeMat));
+
+                // Subtle glow sphere behind cube
+                const glowMesh = new THREE.Mesh(
+                    new THREE.SphereGeometry(2.0, 32, 32),
+                    new THREE.MeshBasicMaterial({ color: 0x6D3FCA, transparent: true, opacity: 0.05 })
+                );
+                scene.add(glowMesh);
+
+                // Orbiting mini-spheres
+                const orbs = [];
+                for (let i = 0; i < 18; i++) {
+                    const m = new THREE.Mesh(
+                        new THREE.SphereGeometry(0.02 + Math.random() * 0.025, 8, 8),
+                        new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? 0x8B5CF6 : 0xc4b5fd, transparent: true, opacity: 0.9 })
+                    );
+                    const angle = (i / 18) * Math.PI * 2;
+                    const r = 2.0 + Math.random() * 0.9;
+                    m.userData = { angle, speed: 0.2 + Math.random() * 0.4, r, yo: (Math.random() - .5) * 1.4 };
+                    scene.add(m);
+                    orbs.push(m);
+                }
+
+                // Mouse
+                const mouse = { x: 0, y: 0 };
+                window.addEventListener('mousemove', e => {
+                    mouse.x = (e.clientX / innerWidth - .5) * 2;
+                    mouse.y = (e.clientY / innerHeight - .5) * 2;
+                });
+
+                // Resize
+                window.addEventListener('resize', () => {
+                    const nW = wrapper.offsetWidth;
+                    const nH = wrapper.offsetHeight;
+                    R.setSize(nW, nH);
+                    cam.aspect = nW / nH;
+                    cam.updateProjectionMatrix();
+                });
+
+                const clk = new THREE.Clock();
+                (function loop() {
+                    requestAnimationFrame(loop);
+                    const t = clk.getElapsedTime();
+
+                    // Smooth auto-rotate with mouse nudge
+                    cube.rotation.y = t * 0.42 + mouse.x * 0.35;
+                    cube.rotation.x = Math.sin(t * 0.25) * 0.28 + mouse.y * 0.18;
+
+                    // Animate dynamic point light
+                    pt1.position.set(Math.sin(t * .8) * 3.5, Math.cos(t * .5) * 2, 2.5);
+
+                    // Orbs
+                    orbs.forEach(o => {
+                        o.userData.angle += o.userData.speed * 0.016;
+                        const a = o.userData.angle;
+                        o.position.set(
+                            Math.cos(a) * o.userData.r,
+                            o.userData.yo + Math.sin(t * 0.7 + a) * 0.35,
+                            Math.sin(a) * o.userData.r
+                        );
+                    });
+
+                    R.render(scene, cam);
+                })();
+            }
+
+            // Init after page load so wrapper has layout dimensions
+            if (document.readyState === 'complete') {
+                init();
+            } else {
+                window.addEventListener('load', init);
+            }
+        })();
+    </script>
+
+    <!-- NAV BEHAVIOR -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburgerBtn');
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', scrollY > 60);
+        });
+        hamburger.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>';
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.innerHTML = '<i class="ri-menu-3-line"></i>';
+            });
+        });
+
+        const secs = document.querySelectorAll('section[id]');
+        new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    navLinks.querySelectorAll('a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+                    });
+                }
+            });
+        }, { threshold: 0.3 }).observe(...secs); // observe all
+        secs.forEach(s => document.querySelector('.nav-links') && new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) navLinks.querySelectorAll('a').forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); }); });
+        }, { threshold: 0.3 }).observe(s));
+
+        function handleSubmit() {
+            alert('Thank you for reaching out! We\'ll get back to you shortly. 🚀');
+        }
+    </script>
+</body>
+
+</html>
