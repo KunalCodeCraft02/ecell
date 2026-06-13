@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
     <style>
         *,
         *::before,
@@ -21,21 +22,22 @@
         }
 
         :root {
-            --bg: #06060a;
-            --bg2: #0d0d14;
-            --bg3: #12121c;
-            --purple: #6D3FCA;
-            --purple-light: #8B5CF6;
-            --purple-dim: rgba(109, 63, 202, 0.14);
-            --purple-border: rgba(109, 63, 202, 0.35);
-            --white: #F0EFFA;
-            --muted: #7B7A8E;
-            --muted2: #5A5968;
-            --border: rgba(255, 255, 255, 0.065);
-            --radius: 10px;
-            --font-display: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --bg: #080808;
+            --bg2: #0f0f0f;
+            --bg3: #161616;
+            --bg4: #1e1e1e;
+            --white: #f5f5f5;
+            --white2: #d0d0d0;
+            --muted: #888;
+            --muted2: #555;
+            --border: rgba(255, 255, 255, 0.07);
+            --border2: rgba(255, 255, 255, 0.14);
+            --silver: #c8c8c8;
+            --chrome: #e8e8e8;
+            --radius: 8px;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
         }
 
         html {
@@ -51,8 +53,12 @@
             overflow-x: hidden;
         }
 
+        ::selection {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
         ::-webkit-scrollbar {
-            width: 3px;
+            width: 2px;
         }
 
         ::-webkit-scrollbar-track {
@@ -60,7 +66,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--purple);
+            background: #444;
             border-radius: 2px;
         }
 
@@ -72,51 +78,53 @@
             right: 0;
             z-index: 1000;
             padding: 0 5%;
-            height: 66px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(6, 6, 10, 0.6);
-            backdrop-filter: blur(24px);
+            background: rgba(8, 8, 8, 0.55);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            transition: all 0.35s;
+            transition: all 0.3s;
         }
 
         nav.scrolled {
-            background: rgba(6, 6, 10, 0.95);
-            border-bottom-color: var(--purple-border);
+            background: rgba(8, 8, 8, 0.96);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 10px;
             text-decoration: none;
         }
 
         .logo-mark {
-            width: 34px;
-            height: 34px;
-            background: var(--purple);
-            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 14px;
-            color: #fff;
+            font-weight: 700;
+            font-size: 12px;
+            color: #000;
+            letter-spacing: -0.5px;
         }
 
         .logo-text {
             font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 16px;
+            font-weight: 600;
+            font-size: 15px;
             color: var(--white);
+            letter-spacing: -0.3px;
         }
 
         .logo-text span {
-            color: var(--purple-light);
+            color: var(--muted);
         }
 
         .nav-links {
@@ -129,32 +137,35 @@
         .nav-links a {
             text-decoration: none;
             color: var(--muted);
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 400;
-            padding: 6px 14px;
-            border-radius: 8px;
+            letter-spacing: 0.1px;
+            padding: 6px 13px;
+            border-radius: 6px;
             transition: all 0.2s;
         }
 
         .nav-links a:hover {
             color: var(--white);
-            background: var(--bg3);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .nav-links a.active {
-            color: var(--purple-light);
+            color: var(--white);
         }
 
         .nav-cta {
-            background: var(--purple) !important;
-            color: #fff !important;
-            font-weight: 500 !important;
-            padding: 7px 20px !important;
-            border-radius: 8px !important;
+            background: var(--white) !important;
+            color: #000 !important;
+            font-weight: 600 !important;
+            font-size: 12.5px !important;
+            padding: 7px 18px !important;
+            border-radius: 6px !important;
+            letter-spacing: 0.2px;
         }
 
         .nav-cta:hover {
-            background: #5a32a8 !important;
+            background: var(--white2) !important;
         }
 
         .nav-hamburger {
@@ -169,16 +180,13 @@
         /* ── HERO ── */
         #hero {
             position: relative;
-            height: 100vh;
-            min-height: 640px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             overflow: hidden;
-            padding: 0 5%;
-            padding-top: 66px;
+            padding: 100px 5% 60px;
         }
 
-        /* bg canvas fills full hero */
         #hero-canvas {
             position: absolute;
             inset: 0;
@@ -186,97 +194,105 @@
             pointer-events: none;
         }
 
-        .hero-overlay {
+        .hero-noise {
             position: absolute;
             inset: 0;
             z-index: 1;
             pointer-events: none;
-            background: radial-gradient(ellipse at 28% 50%, rgba(109, 63, 202, 0.12) 0%, transparent 65%);
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 160px;
         }
 
-        /* Two-column inner layout */
         .hero-inner {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 480px;
+            grid-template-columns: 1fr 500px;
             align-items: center;
-            gap: 48px;
+            gap: 60px;
         }
 
-        /* LEFT: text */
-        .hero-content {}
+        /* hero content takes full width when stacked */
+        .hero-content {
+            width: 100%;
+        }
 
-        .hero-badge {
-            display: inline-flex;
+        /* Animated line accent */
+        .hero-eyebrow {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            background: var(--purple-dim);
-            border: 1px solid var(--purple-border);
-            color: var(--purple-light);
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .hero-eyebrow-line {
+            width: 36px;
+            height: 1px;
+            background: var(--white2);
+        }
+
+        .hero-eyebrow-text {
             font-family: var(--font-mono);
             font-size: 10px;
-            font-weight: 500;
-            padding: 5px 14px;
-            border-radius: 100px;
-            margin-bottom: 24px;
-            letter-spacing: 1px;
+            font-weight: 400;
+            color: var(--muted);
+            letter-spacing: 2.5px;
             text-transform: uppercase;
         }
 
         .hero-title {
             font-family: var(--font-display);
-            font-weight: 900;
-            font-size: clamp(2rem, 3.8vw, 3.4rem);
-            line-height: 1.08;
-            letter-spacing: -1.5px;
-            margin-bottom: 18px;
+            font-weight: 700;
+            font-size: clamp(2.4rem, 4.2vw, 4rem);
+            line-height: 1.04;
+            letter-spacing: -2.5px;
+            margin-bottom: 20px;
             color: var(--white);
         }
 
-        .hero-title .accent {
-            background: linear-gradient(120deg, var(--purple-light) 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero-title .hollow {
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
+            color: transparent;
         }
 
         .hero-tagline {
             font-size: 15px;
             color: var(--muted);
-            font-weight: 400;
-            margin-bottom: 28px;
-            line-height: 1.75;
-            max-width: 420px;
+            font-weight: 300;
+            margin-bottom: 32px;
+            line-height: 1.8;
+            max-width: 400px;
         }
 
-        .hero-awards {
+        .hero-chips {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 32px;
+            gap: 7px;
+            margin-bottom: 36px;
         }
 
-        .award-chip {
+        .hero-chip {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(109, 63, 202, 0.1);
-            border: 1px solid rgba(109, 63, 202, 0.25);
-            border-radius: 8px;
-            padding: 7px 14px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--white);
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border2);
+            border-radius: 6px;
+            padding: 8px 14px;
             width: fit-content;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--white2);
+            font-family: var(--font-mono);
         }
 
-        .award-chip i {
-            color: #c4b5fd;
-            font-size: 14px;
+        .hero-chip i {
+            color: var(--silver);
+            font-size: 13px;
         }
 
         .hero-actions {
@@ -286,10 +302,9 @@
             flex-wrap: wrap;
         }
 
-        /* RIGHT: cube wrapper – explicit fixed size so Three.js can measure it */
         .hero-3d {
-            width: 480px;
-            height: 480px;
+            width: 500px;
+            height: 500px;
             position: relative;
             flex-shrink: 0;
         }
@@ -302,7 +317,6 @@
             display: block;
         }
 
-        /* scroll hint */
         .hero-scroll {
             position: absolute;
             bottom: 28px;
@@ -310,20 +324,17 @@
             z-index: 2;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             color: var(--muted2);
-            font-size: 10px;
             font-family: var(--font-mono);
-            letter-spacing: 1px;
+            font-size: 9px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            animation: hscroll 2.5s ease-in-out infinite;
+            animation: hscroll 2.4s ease-in-out infinite;
         }
 
-        .hero-scroll::before {
-            content: '';
-            width: 22px;
-            height: 1px;
-            background: var(--muted2);
+        .hero-scroll i {
+            font-size: 14px;
         }
 
         @keyframes hscroll {
@@ -340,48 +351,93 @@
 
         /* ── BUTTONS ── */
         .btn-primary {
-            background: var(--purple);
-            color: #fff;
+            background: var(--white);
+            color: #000;
             border: none;
-            padding: 12px 26px;
+            padding: 12px 24px;
             border-radius: var(--radius);
-            font-family: var(--font-body);
-            font-size: 14px;
-            font-weight: 500;
+            font-family: var(--font-display);
+            font-size: 13.5px;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.25s;
+            letter-spacing: 0.1px;
+            transition: all 0.22s;
         }
 
         .btn-primary:hover {
-            background: #5a32a8;
+            background: var(--white2);
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(109, 63, 202, 0.4);
+            box-shadow: 0 10px 32px rgba(255, 255, 255, 0.1);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            border: 1px solid var(--border);
-            padding: 12px 26px;
+            border: 1px solid var(--border2);
+            padding: 12px 24px;
             border-radius: var(--radius);
-            font-family: var(--font-body);
-            font-size: 14px;
+            font-family: var(--font-display);
+            font-size: 13.5px;
             font-weight: 400;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.25s;
+            transition: all 0.22s;
         }
 
         .btn-secondary:hover {
-            border-color: var(--purple-border);
-            color: var(--purple-light);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ── MARQUEE STRIP ── */
+        .marquee-section {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            background: var(--bg2);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 48px;
+            white-space: nowrap;
+            animation: marquee 28s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted2);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .marquee-item i {
+            color: var(--silver);
+            font-size: 13px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
         }
 
         /* ── SECTIONS ── */
@@ -391,20 +447,30 @@
 
         .section-label {
             font-family: var(--font-mono);
-            font-size: 10.5px;
-            font-weight: 500;
+            font-size: 10px;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--purple-light);
-            margin-bottom: 14px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--muted2);
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-weight: 800;
-            font-size: clamp(1.7rem, 3.2vw, 2.6rem);
-            line-height: 1.12;
-            letter-spacing: -1.2px;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
             margin-bottom: 16px;
             color: var(--white);
         }
@@ -412,25 +478,18 @@
         .section-sub {
             font-size: 15px;
             color: var(--muted);
-            max-width: 520px;
+            max-width: 500px;
             line-height: 1.8;
+            font-weight: 300;
         }
 
         .section-header {
-            margin-bottom: 60px;
-        }
-
-        .divider {
-            width: 40px;
-            height: 2px;
-            background: var(--purple);
-            border-radius: 2px;
-            margin: 18px 0 26px;
+            margin-bottom: 64px;
         }
 
         /* ── STATS ── */
         #stats {
-            padding: 52px 5%;
+            padding: 60px 5%;
             background: var(--bg2);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -439,11 +498,13 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .stat-item {
             text-align: center;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-right: 1px solid var(--border);
         }
 
@@ -453,21 +514,19 @@
 
         .stat-number {
             font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 2.6rem;
-            background: linear-gradient(135deg, #fff 0%, var(--purple-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--white);
+            letter-spacing: -3px;
             line-height: 1;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--muted);
-            font-weight: 400;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
         }
 
         /* ── ABOUT ── */
@@ -478,52 +537,54 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 72px;
+            gap: 80px;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-visual {
-            background: var(--bg3);
+            background: var(--bg2);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 36px;
+            border-radius: 16px;
+            padding: 32px;
         }
 
         .about-visual-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 22px;
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
         .about-card {
-            background: var(--bg);
+            background: var(--bg3);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            transition: border-color 0.25s;
+            gap: 6px;
+            transition: border-color 0.2s;
         }
 
         .about-card:hover {
-            border-color: var(--purple-border);
+            border-color: var(--border2);
         }
 
         .about-card i {
-            font-size: 22px;
-            color: var(--purple-light);
+            font-size: 18px;
+            color: var(--silver);
         }
 
         .about-card-title {
             font-family: var(--font-display);
             font-weight: 600;
-            font-size: 14.5px;
+            font-size: 13.5px;
         }
 
         .about-card-sub {
-            font-size: 11.5px;
+            font-size: 11px;
             color: var(--muted);
         }
 
@@ -531,15 +592,21 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: var(--purple-dim);
-            border: 1px solid var(--purple-border);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border2);
             border-radius: var(--radius);
-            padding: 16px 18px;
+            padding: 16px;
+        }
+
+        .about-nec-badge i {
+            font-size: 22px;
+            color: var(--silver);
+            flex-shrink: 0;
         }
 
         .nec-text small {
             display: block;
-            font-size: 10.5px;
+            font-size: 10px;
             color: var(--muted);
             font-family: var(--font-mono);
             letter-spacing: 0.5px;
@@ -547,16 +614,17 @@
         }
 
         .nec-text strong {
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--purple-light);
+            color: var(--white);
         }
 
         .about-text p {
             color: var(--muted);
             margin-bottom: 16px;
             font-size: 15px;
-            line-height: 1.8;
+            line-height: 1.85;
+            font-weight: 300;
         }
 
         /* ── VISION/MISSION ── */
@@ -567,13 +635,15 @@
         .vm-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .vm-card {
             background: var(--bg3);
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: 14px;
             padding: 40px 36px;
             position: relative;
             overflow: hidden;
@@ -581,7 +651,7 @@
         }
 
         .vm-card:hover {
-            border-color: var(--purple-border);
+            border-color: var(--border2);
         }
 
         .vm-card::after {
@@ -590,28 +660,28 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--purple), var(--purple-light));
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
         }
 
         .vm-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--purple-dim);
-            border: 1px solid var(--purple-border);
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border2);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            color: var(--purple-light);
-            margin-bottom: 22px;
+            font-size: 20px;
+            color: var(--silver);
+            margin-bottom: 20px;
         }
 
         .vm-card h3 {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             margin-bottom: 14px;
             letter-spacing: -0.5px;
         }
@@ -619,27 +689,28 @@
         .vm-card p {
             color: var(--muted);
             font-size: 14.5px;
-            line-height: 1.82;
+            line-height: 1.85;
+            font-weight: 300;
         }
 
         .vm-pillars {
-            margin-top: 24px;
+            margin-top: 22px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 9px;
         }
 
         .vm-pillar {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 13.5px;
-            color: var(--white);
+            font-size: 13px;
+            color: var(--white2);
         }
 
         .vm-pillar i {
-            color: var(--purple-light);
-            font-size: 15px;
+            color: var(--silver);
+            font-size: 14px;
             flex-shrink: 0;
         }
 
@@ -651,99 +722,85 @@
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .event-card {
             background: var(--bg2);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all 0.28s;
             cursor: pointer;
         }
 
         .event-card:hover {
-            border-color: var(--purple-border);
+            border-color: var(--border2);
             transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
         .event-thumb {
-            height: 170px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 52px;
+            font-size: 44px;
             position: relative;
             overflow: hidden;
+            background: var(--bg3);
         }
 
-        .event-thumb-nec {
-            background: linear-gradient(135deg, #0e0518, #2a1060);
-        }
-
-        .event-thumb-hack {
-            background: linear-gradient(135deg, #050e1a, #0a2040);
-        }
-
-        .event-thumb-boot {
-            background: linear-gradient(135deg, #0a0518, #1e0840);
-        }
-
-        .event-thumb-pitch {
-            background: linear-gradient(135deg, #0d0518, #231060);
-        }
-
-        .event-thumb-net {
-            background: linear-gradient(135deg, #0e100a, #1a2a0e);
-        }
-
-        .event-thumb-workshop {
-            background: linear-gradient(135deg, #08051a, #150a40);
+        .event-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 60%);
         }
 
         .event-tag {
             position: absolute;
-            top: 14px;
-            right: 14px;
+            top: 12px;
+            right: 12px;
             font-family: var(--font-mono);
-            font-size: 9.5px;
-            font-weight: 500;
+            font-size: 9px;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 4px 10px;
-            border-radius: 6px;
+            letter-spacing: 1.5px;
+            padding: 4px 9px;
+            border-radius: 4px;
         }
 
         .tag-upcoming {
-            background: rgba(109, 63, 202, 0.2);
-            color: var(--purple-light);
-            border: 1px solid var(--purple-border);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white2);
+            border: 1px solid var(--border2);
         }
 
         .tag-past {
-            background: rgba(123, 122, 142, 0.12);
+            background: rgba(255, 255, 255, 0.04);
             color: var(--muted);
-            border: 1px solid rgba(123, 122, 142, 0.2);
+            border: 1px solid var(--border);
         }
 
         .tag-award {
-            background: rgba(196, 181, 253, 0.12);
-            color: #c4b5fd;
-            border: 1px solid rgba(196, 181, 253, 0.25);
+            background: rgba(200, 200, 200, 0.1);
+            color: var(--silver);
+            border: 1px solid rgba(200, 200, 200, 0.2);
         }
 
         .event-body {
-            padding: 22px;
+            padding: 20px;
         }
 
         .event-date {
             font-family: var(--font-mono);
-            font-size: 10.5px;
+            font-size: 10px;
             color: var(--muted);
-            text-transform: uppercase;
             letter-spacing: 1px;
+            text-transform: uppercase;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
@@ -752,20 +809,21 @@
 
         .event-name {
             font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.3px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
         }
 
         .event-desc {
             font-size: 13px;
             color: var(--muted);
             line-height: 1.7;
+            font-weight: 300;
         }
 
         .event-footer {
-            padding: 14px 22px;
+            padding: 13px 20px;
             border-top: 1px solid var(--border);
             display: flex;
             align-items: center;
@@ -773,21 +831,23 @@
         }
 
         .event-footer-info {
-            font-size: 11.5px;
+            font-size: 11px;
             color: var(--muted);
             display: flex;
             align-items: center;
             gap: 6px;
+            font-family: var(--font-mono);
         }
 
         .event-arrow {
-            color: var(--purple-light);
-            font-size: 17px;
-            transition: transform 0.2s;
+            color: var(--muted);
+            font-size: 16px;
+            transition: transform 0.2s, color 0.2s;
         }
 
         .event-card:hover .event-arrow {
             transform: translateX(4px);
+            color: var(--white);
         }
 
         /* ── GALLERY ── */
@@ -798,8 +858,10 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 175px);
-            gap: 10px;
+            grid-template-rows: repeat(3, 170px);
+            gap: 8px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .gallery-item {
@@ -811,12 +873,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 28px;
             transition: all 0.3s;
+            background: var(--bg3);
         }
 
         .gallery-item:hover {
-            border-color: var(--purple-border);
+            border-color: var(--border2);
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -834,7 +897,7 @@
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(109, 63, 202, 0.18);
+            background: rgba(255, 255, 255, 0.03);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -844,51 +907,16 @@
         }
 
         .gallery-overlay i {
-            font-size: 26px;
-            color: var(--purple-light);
+            font-size: 22px;
+            color: var(--silver);
         }
 
         .gallery-overlay span {
-            font-size: 11px;
-            color: var(--white);
+            font-size: 10px;
+            color: var(--white2);
             margin-top: 6px;
             font-family: var(--font-mono);
-        }
-
-        .gallery-g1 {
-            background: linear-gradient(135deg, #0e0518, #2a1060);
-        }
-
-        .gallery-g2 {
-            background: linear-gradient(135deg, #050818, #0f1540);
-        }
-
-        .gallery-g3 {
-            background: linear-gradient(135deg, #0a0518, #200840);
-        }
-
-        .gallery-g4 {
-            background: linear-gradient(135deg, #04100a, #062018);
-        }
-
-        .gallery-g5 {
-            background: linear-gradient(135deg, #100e02, #28200a);
-        }
-
-        .gallery-g6 {
-            background: linear-gradient(135deg, #08051a, #170a35);
-        }
-
-        .gallery-g7 {
-            background: linear-gradient(135deg, #04080a, #0a1520);
-        }
-
-        .gallery-g8 {
-            background: linear-gradient(135deg, #100508, #280010);
-        }
-
-        .gallery-g9 {
-            background: linear-gradient(135deg, #050810, #0d1028);
+            letter-spacing: 1px;
         }
 
         .gallery-label {
@@ -896,8 +924,8 @@
             bottom: 10px;
             left: 12px;
             font-family: var(--font-mono);
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.45);
+            font-size: 9.5px;
+            color: rgba(255, 255, 255, 0.3);
         }
 
         /* ── TEAM ── */
@@ -907,68 +935,71 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .team-card {
             background: var(--bg2);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px 22px;
+            border-radius: 12px;
+            padding: 26px 20px;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.25s;
         }
 
         .team-card:hover {
-            border-color: var(--purple-border);
+            border-color: var(--border2);
             transform: translateY(-3px);
         }
 
         .team-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            margin: 0 auto 16px;
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            margin: 0 auto 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 18px;
-            color: #fff;
-            background: var(--purple);
+            font-size: 16px;
+            color: #000;
+            background: var(--white);
         }
 
         .team-name {
             font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.97rem;
-            margin-bottom: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 3px;
         }
 
         .team-role {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--muted);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             font-family: var(--font-mono);
+            letter-spacing: 0.3px;
         }
 
         .team-socials {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .team-socials a {
             color: var(--muted2);
-            font-size: 15px;
+            font-size: 14px;
             transition: color 0.2s;
             text-decoration: none;
         }
 
         .team-socials a:hover {
-            color: var(--purple-light);
+            color: var(--silver);
         }
 
         /* ── CONTACT ── */
@@ -979,88 +1010,92 @@
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            gap: 72px;
+            gap: 80px;
             align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .contact-info p {
             color: var(--muted);
             font-size: 15px;
             margin-bottom: 32px;
-            line-height: 1.8;
+            line-height: 1.85;
+            font-weight: 300;
         }
 
         .contact-items {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
+            gap: 12px;
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--purple-dim);
-            border: 1px solid var(--purple-border);
-            border-radius: 10px;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border2);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--purple-light);
-            font-size: 17px;
+            color: var(--silver);
+            font-size: 16px;
             flex-shrink: 0;
         }
 
         .contact-detail strong {
             display: block;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 500;
             margin-bottom: 2px;
         }
 
         .contact-detail span {
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--muted);
         }
 
         .contact-form {
             background: var(--bg3);
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: 14px;
             padding: 36px;
         }
 
         .contact-form h3 {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 26px;
+            font-size: 1.15rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 14px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .form-group label {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
             margin-bottom: 6px;
             color: var(--muted);
             font-family: var(--font-mono);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
@@ -1070,8 +1105,8 @@
             width: 100%;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 11px 14px;
+            border-radius: 7px;
+            padding: 11px 13px;
             color: var(--white);
             font-family: var(--font-body);
             font-size: 14px;
@@ -1082,11 +1117,11 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: var(--purple-border);
+            border-color: var(--border2);
         }
 
         .form-group textarea {
-            height: 110px;
+            height: 100px;
             resize: none;
         }
 
@@ -1103,50 +1138,51 @@
 
         .footer-top {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 48px;
         }
 
         .footer-brand p {
-            font-size: 13.5px;
+            font-size: 13px;
             color: var(--muted);
-            line-height: 1.75;
+            line-height: 1.8;
             margin-top: 12px;
             margin-bottom: 20px;
+            font-weight: 300;
         }
 
         .footer-socials {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .footer-socials a {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             background: var(--bg3);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 7px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--muted);
-            font-size: 15px;
+            font-size: 14px;
             text-decoration: none;
             transition: all 0.2s;
         }
 
         .footer-socials a:hover {
-            color: var(--purple-light);
-            border-color: var(--purple-border);
+            color: var(--white);
+            border-color: var(--border2);
         }
 
         .footer-col h5 {
             font-family: var(--font-mono);
-            font-size: 10.5px;
-            font-weight: 600;
+            font-size: 9.5px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: var(--muted);
             margin-bottom: 16px;
         }
@@ -1155,7 +1191,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 8px;
         }
 
         .footer-col ul a {
@@ -1163,6 +1199,7 @@
             color: var(--muted);
             font-size: 13.5px;
             transition: color 0.2s;
+            font-weight: 300;
         }
 
         .footer-col ul a:hover {
@@ -1180,8 +1217,9 @@
         }
 
         .footer-bottom p {
-            font-size: 12.5px;
+            font-size: 12px;
             color: var(--muted2);
+            font-family: var(--font-mono);
         }
 
         .nec-trophy {
@@ -1189,23 +1227,55 @@
             align-items: center;
             gap: 6px;
             font-family: var(--font-mono);
-            font-size: 11px;
-            color: #c4b5fd;
-            background: rgba(109, 63, 202, 0.1);
-            border: 1px solid rgba(109, 63, 202, 0.25);
-            border-radius: 6px;
+            font-size: 10px;
+            color: var(--silver);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border2);
+            border-radius: 5px;
             padding: 5px 12px;
+        }
+
+        /* ── FADE-IN ANIMATIONS ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .hero-inner {
                 grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .hero-eyebrow {
+                justify-content: center;
+            }
+
+            .hero-tagline {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-chips {
+                align-items: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
             }
 
             .hero-3d {
-                width: 340px;
-                height: 340px;
+                width: 380px;
+                height: 380px;
                 margin: 0 auto;
             }
         }
@@ -1235,7 +1305,7 @@
 
             .footer-top {
                 grid-template-columns: 1fr 1fr;
-                gap: 28px;
+                gap: 24px;
             }
 
             .stats-grid {
@@ -1244,6 +1314,12 @@
         }
 
         @media (max-width: 640px) {
+
+            /* NAV mobile menu — bigger, readable */
+            .nav-hamburger {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -1252,24 +1328,95 @@
                 display: flex;
                 flex-direction: column;
                 position: fixed;
-                top: 66px;
+                top: 64px;
                 left: 0;
                 right: 0;
-                background: rgba(6, 6, 10, 0.97);
-                padding: 20px 5% 28px;
-                border-bottom: 1px solid var(--border);
-                gap: 4px;
+                background: rgba(8, 8, 8, 0.99);
+                padding: 28px 6% 36px;
+                border-bottom: 1px solid var(--border2);
+                gap: 0;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
             }
 
-            .nav-hamburger {
+            .nav-links.open li {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open a {
+                font-size: 17px !important;
+                font-weight: 500 !important;
+                color: var(--white2) !important;
+                padding: 16px 4px !important;
                 display: block;
+                border-radius: 0 !important;
+                background: transparent !important;
+                letter-spacing: 0.2px;
+            }
+
+            .nav-links.open a:hover {
+                color: var(--white) !important;
+            }
+
+            .nav-links.open .nav-cta {
+                margin-top: 16px !important;
+                background: var(--white) !important;
+                color: #000 !important;
+                text-align: center !important;
+                border-radius: 8px !important;
+                padding: 7px 12px !important;
+                font-size: 15px !important;
+                font-weight: 700 !important;
+            }
+
+            /* HERO mobile */
+            #hero {
+                padding: 100px 6% 56px;
+                min-height: auto;
+            }
+
+            .hero-inner {
+                gap: 40px;
+            }
+
+            .hero-eyebrow {
+                margin-bottom: 20px;
+            }
+
+            .hero-eyebrow-text {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                letter-spacing: -1.5px;
+                margin-bottom: 16px;
+            }
+
+            .hero-tagline {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            .hero-chips {
+                margin-bottom: 28px;
+            }
+
+            .hero-chip {
+                font-size: 11px;
+                padding: 8px 12px;
             }
 
             .hero-3d {
-                width: 280px;
-                height: 280px;
+                width: 300px;
+                height: 300px;
             }
 
+            .hero-scroll {
+                display: none;
+            }
+
+            /* Other */
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -1279,7 +1426,7 @@
             }
 
             section {
-                padding: 68px 5%;
+                padding: 70px 5%;
             }
 
             .stats-grid {
@@ -1292,15 +1439,18 @@
             }
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(14px)
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 2rem;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0)
+            .hero-3d {
+                width: 260px;
+                height: 260px;
+            }
+
+            .hero-chip {
+                font-size: 10px;
             }
         }
     </style>
@@ -1328,22 +1478,23 @@
     <!-- HERO -->
     <section id="hero">
         <canvas id="hero-canvas"></canvas>
-        <div class="hero-overlay"></div>
+        <div class="hero-noise"></div>
         <div class="hero-inner">
-
-            <!-- LEFT TEXT -->
             <div class="hero-content">
-                <!-- <div class="hero-badge"><i class="ri-flashlight-fill"></i> Entrepreneurship Cell · GCOE Kolhapur</div> -->
+                <div class="hero-eyebrow">
+                    <div class="hero-eyebrow-line"></div>
+                    <span class="hero-eyebrow-text">Entrepreneurship Cell · GCOE Kolhapur</span>
+                </div>
                 <h1 class="hero-title">
                     Where<br>
-                    <span class="accent">Creativity</span><br>
+                    <span class="hollow">Creativity</span><br>
                     Meets Commerce
                 </h1>
                 <p class="hero-tagline">Fueling the next generation of innovators, builders &amp; changemakers from
                     Maharashtra.</p>
-                <div class="hero-awards">
-                    <div class="award-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Basic)</div>
-                    <div class="award-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Advanced)
+                <div class="hero-chips">
+                    <div class="hero-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Basic)</div>
+                    <div class="hero-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Advanced)
                     </div>
                 </div>
                 <div class="hero-actions">
@@ -1351,36 +1502,52 @@
                     <a href="#contact" class="btn-secondary"><i class="ri-user-add-line"></i> Join E-Cell</a>
                 </div>
             </div>
-
-            <!-- RIGHT: 3D CUBE -->
             <div class="hero-3d" id="cubeWrapper">
                 <canvas id="cube-canvas"></canvas>
             </div>
-
         </div>
-        <div class="hero-scroll">Scroll down</div>
+        <div class="hero-scroll"><i class="ri-arrow-down-line"></i> Scroll down</div>
     </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><i class="ri-trophy-line"></i> NEC IIT Bombay · 2× Runner-up</div>
+            <div class="marquee-item"><i class="ri-group-line"></i> 500+ Student Members</div>
+            <div class="marquee-item"><i class="ri-calendar-event-line"></i> 30+ Events Organised</div>
+            <div class="marquee-item"><i class="ri-lightbulb-line"></i> 15+ Startups Mentored</div>
+            <div class="marquee-item"><i class="ri-building-line"></i> 10+ Industry Partners</div>
+            <div class="marquee-item"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
+            <!-- duplicate for seamless loop -->
+            <div class="marquee-item"><i class="ri-trophy-line"></i> NEC IIT Bombay · 2× Runner-up</div>
+            <div class="marquee-item"><i class="ri-group-line"></i> 500+ Student Members</div>
+            <div class="marquee-item"><i class="ri-calendar-event-line"></i> 30+ Events Organised</div>
+            <div class="marquee-item"><i class="ri-lightbulb-line"></i> 15+ Startups Mentored</div>
+            <div class="marquee-item"><i class="ri-building-line"></i> 10+ Industry Partners</div>
+            <div class="marquee-item"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
+        </div>
+    </div>
 
     <!-- STATS -->
     <div id="stats">
         <div class="stats-grid">
-            <div class="stat-item">
+            <div class="stat-item reveal">
                 <div class="stat-number">2×</div>
-                <div class="stat-label">NEC IIT Bombay Runner-up</div>
+                <div class="stat-label">NEC Runner-up</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item reveal">
                 <div class="stat-number">500+</div>
                 <div class="stat-label">Student Members</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item reveal">
                 <div class="stat-number">30+</div>
                 <div class="stat-label">Events Organised</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item reveal">
                 <div class="stat-number">15+</div>
                 <div class="stat-label">Startups Mentored</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item reveal">
                 <div class="stat-number">10+</div>
                 <div class="stat-label">Industry Partners</div>
             </div>
@@ -1390,7 +1557,7 @@
     <!-- ABOUT -->
     <section id="about">
         <div class="about-grid">
-            <div class="about-visual">
+            <div class="about-visual reveal">
                 <div class="about-visual-grid">
                     <div class="about-card"><i class="ri-lightbulb-flash-line"></i>
                         <div class="about-card-title">Ideation</div>
@@ -1410,17 +1577,16 @@
                     </div>
                 </div>
                 <div class="about-nec-badge">
-                    <i class="ri-award-fill" style="font-size:26px;color:#c4b5fd;flex-shrink:0"></i>
+                    <i class="ri-award-fill"></i>
                     <div class="nec-text">
                         <small>National Entrepreneurship Challenge · IIT Bombay</small>
                         <strong>2nd Runner-up × 2 — Basic &amp; Advanced Tracks</strong>
                     </div>
                 </div>
             </div>
-            <div class="about-text">
+            <div class="about-text reveal">
                 <div class="section-label">About Us</div>
                 <h2 class="section-title">The startup heartbeat of GCOE Kolhapur</h2>
-                <div class="divider"></div>
                 <p>E-Cell GCOE Kolhapur is the entrepreneurship cell of Government College of Engineering — a
                     student-run powerhouse bridging academic learning with real-world innovation.</p>
                 <p>From hackathons and pitch fests to competing at IIT Bombay's NEC and placing 2nd Runner-up in both
@@ -1435,14 +1601,14 @@
 
     <!-- VISION & MISSION -->
     <section id="vision-mission">
-        <div class="section-header" style="text-align:center;max-width:580px;margin:0 auto 60px;">
-            <div class="section-label">What Drives Us</div>
+        <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 64px;">
+            <div class="section-label" style="justify-content:center;">What Drives Us</div>
             <h2 class="section-title">Vision &amp; Mission</h2>
             <p class="section-sub" style="margin:0 auto;">Our compass for building a generation of problem-solvers,
                 risk-takers, and value creators.</p>
         </div>
         <div class="vm-grid">
-            <div class="vm-card">
+            <div class="vm-card reveal">
                 <div class="vm-icon"><i class="ri-eye-line"></i></div>
                 <h3>Our Vision</h3>
                 <p>To create a thriving entrepreneurial ecosystem at GCOE Kolhapur — where every student feels empowered
@@ -1455,7 +1621,7 @@
                         platforms</div>
                 </div>
             </div>
-            <div class="vm-card">
+            <div class="vm-card reveal">
                 <div class="vm-icon"><i class="ri-focus-3-line"></i></div>
                 <h3>Our Mission</h3>
                 <p>To educate, inspire, and support aspiring entrepreneurs with access to knowledge, mentorship, funding
@@ -1480,8 +1646,9 @@
             <p class="section-sub">From idea to execution — the events that shape entrepreneurs.</p>
         </div>
         <div class="events-grid">
-            <div class="event-card">
-                <div class="event-thumb event-thumb-nec">🏆<span class="event-tag tag-award">🥉 Award</span></div>
+            <div class="event-card reveal">
+                <div class="event-thumb" style="background:linear-gradient(135deg,#111,#1c1c1c);">🏆<span
+                        class="event-tag tag-award">🥉 Award</span></div>
                 <div class="event-body">
                     <div class="event-date"><i class="ri-calendar-line"></i> 2023 &amp; 2024</div>
                     <div class="event-name">National Entrepreneurship Challenge</div>
@@ -1493,8 +1660,9 @@
                         class="ri-arrow-right-line event-arrow"></i>
                 </div>
             </div>
-            <div class="event-card">
-                <div class="event-thumb event-thumb-hack">💡<span class="event-tag tag-upcoming">Upcoming</span></div>
+            <div class="event-card reveal">
+                <div class="event-thumb" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">💡<span
+                        class="event-tag tag-upcoming">Upcoming</span></div>
                 <div class="event-body">
                     <div class="event-date"><i class="ri-calendar-line"></i> Coming Soon</div>
                     <div class="event-name">Startup Hackathon 2025</div>
@@ -1506,8 +1674,9 @@
                         class="ri-arrow-right-line event-arrow"></i>
                 </div>
             </div>
-            <div class="event-card">
-                <div class="event-thumb event-thumb-pitch">🎤<span class="event-tag tag-past">Completed</span></div>
+            <div class="event-card reveal">
+                <div class="event-thumb" style="background:linear-gradient(135deg,#101010,#1c1c1c);">🎤<span
+                        class="event-tag tag-past">Completed</span></div>
                 <div class="event-body">
                     <div class="event-date"><i class="ri-calendar-line"></i> March 2024</div>
                     <div class="event-name">Pitch Perfect</div>
@@ -1519,8 +1688,9 @@
                         class="ri-arrow-right-line event-arrow"></i>
                 </div>
             </div>
-            <div class="event-card">
-                <div class="event-thumb event-thumb-boot">🚀<span class="event-tag tag-past">Completed</span></div>
+            <div class="event-card reveal">
+                <div class="event-thumb" style="background:linear-gradient(135deg,#0c0c0c,#181818);">🚀<span
+                        class="event-tag tag-past">Completed</span></div>
                 <div class="event-body">
                     <div class="event-date"><i class="ri-calendar-line"></i> January 2024</div>
                     <div class="event-name">Startup Bootcamp</div>
@@ -1532,8 +1702,9 @@
                         class="ri-arrow-right-line event-arrow"></i>
                 </div>
             </div>
-            <div class="event-card">
-                <div class="event-thumb event-thumb-net">🤝<span class="event-tag tag-past">Completed</span></div>
+            <div class="event-card reveal">
+                <div class="event-thumb" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">🤝<span
+                        class="event-tag tag-past">Completed</span></div>
                 <div class="event-body">
                     <div class="event-date"><i class="ri-calendar-line"></i> November 2023</div>
                     <div class="event-name">Founders Networking Night</div>
@@ -1545,9 +1716,9 @@
                         class="ri-arrow-right-line event-arrow"></i>
                 </div>
             </div>
-            <div class="event-card">
-                <div class="event-thumb event-thumb-workshop">📚<span class="event-tag tag-upcoming">Upcoming</span>
-                </div>
+            <div class="event-card reveal">
+                <div class="event-thumb" style="background:linear-gradient(135deg,#0a0a0a,#171717);">📚<span
+                        class="event-tag tag-upcoming">Upcoming</span></div>
                 <div class="event-body">
                     <div class="event-date"><i class="ri-calendar-line"></i> July 2025</div>
                     <div class="event-name">AI for Entrepreneurs Workshop</div>
@@ -1570,32 +1741,40 @@
             <p class="section-sub">Snapshots from events, competitions, and the journey that made us.</p>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item gallery-g1 span-2 span-row">🏆<span class="gallery-label">NEC IIT Bombay — Award
-                    Ceremony</span>
+            <div class="gallery-item span-2 span-row" style="background:linear-gradient(135deg,#111,#1d1d1d);">🏆<span
+                    class="gallery-label">NEC IIT Bombay — Award Ceremony</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
             </div>
-            <div class="gallery-item gallery-g2">🎤<span class="gallery-label">Pitch Perfect</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">🎤<span
+                    class="gallery-label">Pitch Perfect</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
-            <div class="gallery-item gallery-g3">💡<span class="gallery-label">Hackathon</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">💡<span
+                    class="gallery-label">Hackathon</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
-            <div class="gallery-item gallery-g4">🚀<span class="gallery-label">Bootcamp</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0c0c0c,#181818);">🚀<span
+                    class="gallery-label">Bootcamp</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
-            <div class="gallery-item gallery-g5">🤝<span class="gallery-label">Networking</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">🤝<span
+                    class="gallery-label">Networking</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
-            <div class="gallery-item gallery-g6 span-2">📸<span class="gallery-label">Team E-Cell 2024</span>
+            <div class="gallery-item span-2" style="background:linear-gradient(135deg,#101010,#1e1e1e);">📸<span
+                    class="gallery-label">Team E-Cell 2024</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
             </div>
-            <div class="gallery-item gallery-g7">🎯<span class="gallery-label">Workshop</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0b0b0b,#181818);">🎯<span
+                    class="gallery-label">Workshop</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
-            <div class="gallery-item gallery-g8">🌟<span class="gallery-label">Awards Night</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">🌟<span
+                    class="gallery-label">Awards Night</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
-            <div class="gallery-item gallery-g9">📊<span class="gallery-label">Investor Meet</span>
+            <div class="gallery-item" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">📊<span
+                    class="gallery-label">Investor Meet</span>
                 <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
             </div>
         </div>
@@ -1603,63 +1782,63 @@
 
     <!-- TEAM -->
     <section id="team">
-        <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 60px;">
-            <div class="section-label">The People</div>
+        <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 64px;">
+            <div class="section-label" style="justify-content:center;">The People</div>
             <h2 class="section-title">Meet the Team</h2>
             <p class="section-sub" style="margin:0 auto;">The builders and dreamers powering E-Cell GCOE Kolhapur.</p>
         </div>
         <div class="team-grid">
-            <div class="team-card">
+            <div class="team-card reveal">
                 <div class="team-avatar">AK</div>
                 <div class="team-name">Aarav Kulkarni</div>
                 <div class="team-role">President</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#7c3aed;">PM</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#e0e0e0;">PM</div>
                 <div class="team-name">Priya Mahajan</div>
                 <div class="team-role">Vice President</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#059669;">RS</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#d0d0d0;">RS</div>
                 <div class="team-name">Rohit Shinde</div>
                 <div class="team-role">Head of Events</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#dc2626;">ND</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#c8c8c8;">ND</div>
                 <div class="team-name">Neha Deshmukh</div>
                 <div class="team-role">Head of Marketing</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#0891b2;">KP</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#e8e8e8;">KP</div>
                 <div class="team-name">Kunal Patil</div>
                 <div class="team-role">Head of Tech</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-github-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#d97706;">SM</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#dcdcdc;">SM</div>
                 <div class="team-name">Sakshi More</div>
                 <div class="team-role">Finance Lead</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#be185d;">AG</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#d4d4d4;">AG</div>
                 <div class="team-name">Arjun Gaikwad</div>
                 <div class="team-role">Design Lead</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
                             class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
             </div>
-            <div class="team-card">
-                <div class="team-avatar" style="background:#4f46e5;">VJ</div>
+            <div class="team-card reveal">
+                <div class="team-avatar" style="background:#e4e4e4;">VJ</div>
                 <div class="team-name">Vishal Jadhav</div>
                 <div class="team-role">Outreach Lead</div>
                 <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
@@ -1671,10 +1850,9 @@
     <!-- CONTACT -->
     <section id="contact">
         <div class="contact-grid">
-            <div class="contact-info">
+            <div class="contact-info reveal">
                 <div class="section-label">Get In Touch</div>
                 <h2 class="section-title">Let's Build Something Together</h2>
-                <div class="divider"></div>
                 <p>Whether you're a student with an idea, a mentor who wants to give back, or a company looking to
                     partner — we'd love to connect.</p>
                 <div class="contact-items">
@@ -1697,7 +1875,7 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-form">
+            <div class="contact-form reveal">
                 <h3>Send us a message</h3>
                 <div class="form-row">
                     <div class="form-group"><label>First name</label><input type="text" placeholder="Aarav" /></div>
@@ -1772,14 +1950,15 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 E-Cell GCOE Kolhapur. Made with <i class="ri-heart-fill" style="color:var(--purple-light)"></i> by
-                students, for students.</p>
+            <p>© 2025 E-Cell GCOE Kolhapur. Made with ♥ by students, for students.</p>
             <div class="nec-trophy"><i class="ri-trophy-line"></i> NEC IIT Bombay — 2× Second Runner-up</div>
         </div>
     </footer>
 
-    <!-- ═══ THREE.JS — Background particles ═══ -->
+    <!-- THREE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+
+    <!-- BACKGROUND PARTICLES -->
     <script>
         (function () {
             const canvas = document.getElementById('hero-canvas');
@@ -1790,26 +1969,35 @@
             const scene = new THREE.Scene();
             const cam = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 100);
             cam.position.z = 6;
-            scene.add(new THREE.AmbientLight(0xffffff, 0.2));
 
-            // Particles
-            const N = 350, pos = new Float32Array(N * 3);
+            // Particles — pure white/grey
+            const N = 400, pos = new Float32Array(N * 3);
             for (let i = 0; i < N; i++) {
-                pos[i * 3] = (Math.random() - .5) * 20;
-                pos[i * 3 + 1] = (Math.random() - .5) * 20;
-                pos[i * 3 + 2] = (Math.random() - .5) * 12 - 3;
+                pos[i * 3] = (Math.random() - .5) * 22;
+                pos[i * 3 + 1] = (Math.random() - .5) * 22;
+                pos[i * 3 + 2] = (Math.random() - .5) * 14 - 3;
             }
             const pg = new THREE.BufferGeometry();
             pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-            const pm = new THREE.PointsMaterial({ color: 0x6D3FCA, size: 0.025, transparent: true, opacity: 0.55 });
+            const pm = new THREE.PointsMaterial({ color: 0x444444, size: 0.022, transparent: true, opacity: 0.6 });
             scene.add(new THREE.Points(pg, pm));
 
-            // Grid
-            const grid = new THREE.GridHelper(40, 40, 0x6D3FCA, 0x1a0d40);
+            // Subtle grid
+            const grid = new THREE.GridHelper(50, 50, 0x1e1e1e, 0x141414);
             grid.material.transparent = true;
-            grid.material.opacity = 0.1;
-            grid.position.y = -5;
+            grid.material.opacity = 0.5;
+            grid.position.y = -6;
             scene.add(grid);
+
+            // Moving cross-lines
+            const lineMat = new THREE.LineBasicMaterial({ color: 0x222222, transparent: true, opacity: 0.4 });
+            for (let i = 0; i < 5; i++) {
+                const geo = new THREE.BufferGeometry().setFromPoints([
+                    new THREE.Vector3(-14, (Math.random() - .5) * 8, -5),
+                    new THREE.Vector3(14, (Math.random() - .5) * 8, -5),
+                ]);
+                scene.add(new THREE.Line(geo, lineMat));
+            }
 
             window.addEventListener('resize', () => {
                 R.setSize(innerWidth, innerHeight);
@@ -1821,56 +2009,57 @@
             (function loop() {
                 requestAnimationFrame(loop);
                 const t = clk.getElapsedTime();
-                scene.children[1].rotation.y = t * .01;
+                scene.children[1].rotation.y = t * 0.008;
                 R.render(scene, cam);
             })();
         })();
     </script>
 
-    <!-- ═══ THREE.JS — Metallic Cube ═══ -->
+    <!-- METALLIC B&W CUBE -->
     <script>
         (function () {
-            // Wait for fonts then init so canvas textures render text correctly
             function init() {
                 const wrapper = document.getElementById('cubeWrapper');
                 const canvas = document.getElementById('cube-canvas');
-
-                // Explicit pixel dimensions from wrapper
-                const W = wrapper.offsetWidth || 480;
-                const H = wrapper.offsetHeight || 480;
+                const W = wrapper.offsetWidth || 500;
+                const H = wrapper.offsetHeight || 500;
 
                 const R = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
                 R.setPixelRatio(Math.min(devicePixelRatio, 2));
                 R.setSize(W, H);
                 R.toneMapping = THREE.ACESFilmicToneMapping;
-                R.toneMappingExposure = 1.2;
+                R.toneMappingExposure = 1.4;
 
                 const scene = new THREE.Scene();
-                const cam = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
-                cam.position.set(0, 0.8, 5.5);
+                const cam = new THREE.PerspectiveCamera(36, W / H, 0.1, 100);
+                cam.position.set(0, 0.5, 5.8);
                 cam.lookAt(0, 0, 0);
 
-                // ── LIGHTS ──
-                scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+                // ── CHROME LIGHTING SETUP ──
+                scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
-                const key = new THREE.DirectionalLight(0xffffff, 3.0);
-                key.position.set(4, 6, 5);
+                // Key: very bright white
+                const key = new THREE.DirectionalLight(0xffffff, 5.0);
+                key.position.set(5, 8, 6);
                 scene.add(key);
 
-                const purpleL = new THREE.DirectionalLight(0x8B5CF6, 1.8);
-                purpleL.position.set(-4, -2, 3);
-                scene.add(purpleL);
+                // Fill: soft white from opposite
+                const fill = new THREE.DirectionalLight(0xeeeeee, 2.0);
+                fill.position.set(-6, -3, 4);
+                scene.add(fill);
 
-                const rimL = new THREE.DirectionalLight(0xc4b5fd, 1.2);
-                rimL.position.set(2, -4, -4);
-                scene.add(rimL);
+                // Rim: cold white
+                const rim = new THREE.DirectionalLight(0xffffff, 2.5);
+                rim.position.set(2, -6, -5);
+                scene.add(rim);
 
-                const pt1 = new THREE.PointLight(0x6D3FCA, 4, 10);
-                pt1.position.set(-3, 2, 2);
+                // Dynamic point — creates that chrome "moving reflection" feel
+                const pt1 = new THREE.PointLight(0xffffff, 6, 12);
+                pt1.position.set(3, 3, 3);
                 scene.add(pt1);
 
-                const pt2 = new THREE.PointLight(0xffffff, 2, 8);
-                pt2.position.set(3, 3, 3);
+                const pt2 = new THREE.PointLight(0xe0e0e0, 3, 10);
+                pt2.position.set(-4, 1, 2);
                 scene.add(pt2);
 
                 // ── FACE TEXTURE BUILDER ──
@@ -1880,56 +2069,49 @@
                     c.width = c.height = SZ;
                     const ctx = c.getContext('2d');
 
-                    // Base deep background
-                    ctx.fillStyle = cfg.bg || '#090618';
+                    // Rich black base with subtle gradient
+                    const bg = ctx.createLinearGradient(0, 0, SZ, SZ);
+                    bg.addColorStop(0, cfg.bgDark || '#0a0a0a');
+                    bg.addColorStop(1, cfg.bgLight || '#161616');
+                    ctx.fillStyle = bg;
                     ctx.fillRect(0, 0, SZ, SZ);
 
-                    // Gradient sheen
-                    const g = ctx.createRadialGradient(SZ / 2, SZ / 2, 0, SZ / 2, SZ / 2, SZ * .72);
-                    g.addColorStop(0, 'rgba(139,92,246,0.28)');
-                    g.addColorStop(0.5, 'rgba(109,63,202,0.18)');
-                    g.addColorStop(1, 'rgba(30,10,80,0.05)');
-                    ctx.fillStyle = g;
+                    // Sheen overlay
+                    const sheen = ctx.createRadialGradient(SZ * .35, SZ * .3, 0, SZ * .35, SZ * .3, SZ * .9);
+                    sheen.addColorStop(0, 'rgba(255,255,255,0.06)');
+                    sheen.addColorStop(0.5, 'rgba(255,255,255,0.02)');
+                    sheen.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = sheen;
                     ctx.fillRect(0, 0, SZ, SZ);
 
-                    // Outer border glow
-                    ctx.strokeStyle = 'rgba(139,92,246,0.75)';
-                    ctx.lineWidth = 12;
-                    ctx.strokeRect(6, 6, SZ - 12, SZ - 12);
+                    // Outer border — bright white line
+                    ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+                    ctx.lineWidth = 6;
+                    ctx.strokeRect(3, 3, SZ - 6, SZ - 6);
 
-                    // Inner border
-                    ctx.strokeStyle = 'rgba(196,181,253,0.35)';
-                    ctx.lineWidth = 2.5;
-                    ctx.strokeRect(20, 20, SZ - 40, SZ - 40);
+                    // Inner thin border
+                    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+                    ctx.lineWidth = 1.5;
+                    ctx.strokeRect(18, 18, SZ - 36, SZ - 36);
 
-                    // Corner L-brackets
-                    const cl = 44, cw = 4;
-                    const corners = [[28, 28], [SZ - 28, 28], [28, SZ - 28], [SZ - 28, SZ - 28]];
-                    corners.forEach(([cx, cy], idx) => {
-                        ctx.strokeStyle = '#8B5CF6';
-                        ctx.lineWidth = cw;
-                        ctx.beginPath();
-                        const sx = idx < 2 ? 1 : -1;
-                        const sy = idx % 2 === 0 ? 1 : -1;
-                        // horizontal
-                        ctx.moveTo(cx, cy);
-                        ctx.lineTo(cx + sx * cl, cy);
-                        ctx.stroke();
-                        // vertical
-                        ctx.beginPath();
-                        ctx.moveTo(cx, cy);
-                        ctx.lineTo(cx, cy + sy * cl);
-                        ctx.stroke();
+                    // Micro corner marks
+                    const cm = 36;
+                    [[24, 24], [SZ - 24, 24], [24, SZ - 24], [SZ - 24, SZ - 24]].forEach(([cx, cy], i) => {
+                        const sx = i < 2 ? 1 : -1, sy = i % 2 === 0 ? 1 : -1;
+                        ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+                        ctx.lineWidth = 3;
+                        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + sx * cm, cy); ctx.stroke();
+                        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx, cy + sy * cm); ctx.stroke();
                     });
 
-                    // Draw each text line
+                    // Draw text lines
                     (cfg.lines || []).forEach(ln => {
                         ctx.save();
                         if (ln.shadow) {
-                            ctx.shadowColor = ln.shadowColor || '#6D3FCA';
-                            ctx.shadowBlur = ln.shadowBlur || 28;
+                            ctx.shadowColor = ln.shadowColor || 'rgba(255,255,255,0.6)';
+                            ctx.shadowBlur = ln.shadowBlur || 24;
                         }
-                        ctx.font = ln.font || 'bold 72px Outfit, Arial, sans-serif';
+                        ctx.font = ln.font || 'bold 72px "Space Grotesk",Arial,sans-serif';
                         ctx.fillStyle = ln.color || '#ffffff';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
@@ -1937,9 +2119,9 @@
                         ctx.restore();
                     });
 
-                    // Optional icon row (emoji)
+                    // Optional icon
                     if (cfg.icon) {
-                        ctx.font = '90px serif';
+                        ctx.font = '88px serif';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
                         ctx.fillText(cfg.icon, SZ / 2, cfg.iconY || 140);
@@ -1950,113 +2132,116 @@
 
                 // ── SIX FACES ──
                 const texFront = makeFace({
+                    bgDark: '#050505', bgLight: '#131313',
                     lines: [
-                        { text: 'E-CELL', font: '900 96px Outfit,Arial,sans-serif', color: '#ffffff', y: 170, shadow: true, shadowBlur: 30 },
-                        { text: 'GCOEK', font: '800 82px Outfit,Arial,sans-serif', color: '#c4b5fd', y: 280, shadow: true, shadowColor: '#8B5CF6' },
-                        { text: 'EST. 2019', font: '500 34px JetBrains Mono,monospace', color: 'rgba(196,181,253,0.75)', y: 390 },
+                        { text: 'E-CELL', font: '700 100px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 178, shadow: true, shadowBlur: 32 },
+                        { text: 'GCOEK', font: '700 84px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.75)', y: 288, shadow: true, shadowColor: 'rgba(255,255,255,0.4)', shadowBlur: 16 },
+                        { text: 'EST. 2019', font: '400 30px "Space Mono",monospace', color: 'rgba(255,255,255,0.35)', y: 390 },
                     ]
                 });
 
                 const texBack = makeFace({
-                    icon: '🏆', iconY: 160,
+                    bgDark: '#060606', bgLight: '#141414',
+                    icon: '🏆', iconY: 155,
                     lines: [
-                        { text: 'NEC', font: '900 80px Outfit,Arial,sans-serif', color: '#ffffff', y: 300, shadow: true },
-                        { text: 'IIT BOMBAY', font: '600 40px Outfit,Arial,sans-serif', color: 'rgba(196,181,253,0.85)', y: 388 },
+                        { text: 'NEC', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 298, shadow: true, shadowBlur: 28 },
+                        { text: 'IIT BOMBAY', font: '500 38px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.6)', y: 382 },
                     ]
                 });
 
                 const texTop = makeFace({
+                    bgDark: '#040404', bgLight: '#111111',
                     lines: [
-                        { text: 'INNOVATE', font: '800 66px Outfit,Arial,sans-serif', color: '#ffffff', y: 185, shadow: true },
-                        { text: '&', font: '900 80px Outfit,Arial,sans-serif', color: '#8B5CF6', y: 280 },
-                        { text: 'BUILD', font: '800 66px Outfit,Arial,sans-serif', color: '#ffffff', y: 375, shadow: true },
+                        { text: 'INNOVATE', font: '700 68px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 182, shadow: true, shadowBlur: 22 },
+                        { text: '&', font: '700 86px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.4)', y: 280 },
+                        { text: 'BUILD', font: '700 68px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 378, shadow: true, shadowBlur: 22 },
                     ]
                 });
 
                 const texBottom = makeFace({
+                    bgDark: '#060606', bgLight: '#121212',
                     lines: [
-                        { text: '2×', font: '900 130px Outfit,Arial,sans-serif', color: '#c4b5fd', y: 210, shadow: true, shadowBlur: 36 },
-                        { text: 'RUNNER-UP', font: '700 50px Outfit,Arial,sans-serif', color: '#ffffff', y: 340 },
+                        { text: '2×', font: '700 136px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 210, shadow: true, shadowBlur: 36 },
+                        { text: 'RUNNER-UP', font: '600 46px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.7)', y: 340 },
                     ]
                 });
 
                 const texRight = makeFace({
+                    bgDark: '#050505', bgLight: '#131313',
                     icon: '🚀', iconY: 150,
                     lines: [
-                        { text: 'IDEAS', font: '900 82px Outfit,Arial,sans-serif', color: '#ffffff', y: 295, shadow: true },
-                        { text: 'TAKE OFF', font: '700 56px Outfit,Arial,sans-serif', color: '#8B5CF6', y: 390 },
+                        { text: 'IDEAS', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 295, shadow: true, shadowBlur: 24 },
+                        { text: 'TAKE OFF', font: '500 52px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.55)', y: 385 },
                     ]
                 });
 
                 const texLeft = makeFace({
+                    bgDark: '#040404', bgLight: '#111111',
                     lines: [
-                        { text: 'GCOE', font: '900 82px Outfit,Arial,sans-serif', color: '#ffffff', y: 220, shadow: true },
-                        { text: 'KOLHAPUR', font: '600 52px Outfit,Arial,sans-serif', color: '#c4b5fd', y: 320 },
-                        { text: '🎓', font: '70px serif', color: '#c4b5fd', y: 420 },
+                        { text: 'GCOE', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 210, shadow: true, shadowBlur: 26 },
+                        { text: 'KOLHAPUR', font: '600 48px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.65)', y: 316 },
+                        { text: '🎓', font: '64px serif', color: 'rgba(255,255,255,0.8)', y: 416 },
                     ]
                 });
 
-                // Materials — high metalness for chrome look
-                function mat(tex) {
+                // ── PURE CHROME MATERIAL ──
+                function chromeMat(tex) {
                     return new THREE.MeshStandardMaterial({
                         map: tex,
-                        metalness: 0.92,
-                        roughness: 0.06,
-                        envMapIntensity: 1.0,
+                        metalness: 0.98,    // near-perfect metal
+                        roughness: 0.03,    // mirror-like
+                        envMapIntensity: 1.2,
                     });
                 }
 
-                // THREE BoxGeometry face order: +X, -X, +Y, -Y, +Z, -Z
+                // BoxGeometry face order: +X, -X, +Y, -Y, +Z, -Z
                 const mats = [
-                    mat(texRight),   // +X
-                    mat(texLeft),    // -X
-                    mat(texTop),     // +Y
-                    mat(texBottom),  // -Y
-                    mat(texFront),   // +Z  ← faces camera
-                    mat(texBack),    // -Z
+                    chromeMat(texRight),
+                    chromeMat(texLeft),
+                    chromeMat(texTop),
+                    chromeMat(texBottom),
+                    chromeMat(texFront),  // faces camera
+                    chromeMat(texBack),
                 ];
 
-                const geo = new THREE.BoxGeometry(2.2, 2.2, 2.2);
+                const geo = new THREE.BoxGeometry(2.4, 2.4, 2.4);
                 const cube = new THREE.Mesh(geo, mats);
                 scene.add(cube);
 
-                // Glowing edges
-                const edgeGeo = new THREE.EdgesGeometry(geo);
-                const edgeMat = new THREE.LineBasicMaterial({ color: 0x8B5CF6, transparent: true, opacity: 0.75 });
-                cube.add(new THREE.LineSegments(edgeGeo, edgeMat));
+                // Bright white edge lines
+                const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95 });
+                cube.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat));
 
-                // Subtle glow sphere behind cube
-                const glowMesh = new THREE.Mesh(
-                    new THREE.SphereGeometry(2.0, 32, 32),
-                    new THREE.MeshBasicMaterial({ color: 0x6D3FCA, transparent: true, opacity: 0.05 })
-                );
-                scene.add(glowMesh);
-
-                // Orbiting mini-spheres
+                // Orbiting light orbs (white/silver) — they create dynamic reflections on chrome
                 const orbs = [];
-                for (let i = 0; i < 18; i++) {
+                for (let i = 0; i < 14; i++) {
                     const m = new THREE.Mesh(
-                        new THREE.SphereGeometry(0.02 + Math.random() * 0.025, 8, 8),
-                        new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? 0x8B5CF6 : 0xc4b5fd, transparent: true, opacity: 0.9 })
+                        new THREE.SphereGeometry(0.015 + Math.random() * 0.02, 8, 8),
+                        new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? 0xffffff : 0xaaaaaa, transparent: true, opacity: 0.85 })
                     );
-                    const angle = (i / 18) * Math.PI * 2;
-                    const r = 2.0 + Math.random() * 0.9;
-                    m.userData = { angle, speed: 0.2 + Math.random() * 0.4, r, yo: (Math.random() - .5) * 1.4 };
-                    scene.add(m);
-                    orbs.push(m);
+                    const angle = (i / 14) * Math.PI * 2;
+                    const r = 1.9 + Math.random() * 0.8;
+                    m.userData = { angle, speed: 0.18 + Math.random() * 0.38, r, yo: (Math.random() - .5) * 1.5 };
+                    scene.add(m); orbs.push(m);
                 }
 
-                // Mouse
+                // Reflection ring — thin white torus behind cube for depth
+                const ring = new THREE.Mesh(
+                    new THREE.TorusGeometry(2.6, 0.008, 8, 80),
+                    new THREE.MeshBasicMaterial({ color: 0x333333, transparent: true, opacity: 0.5 })
+                );
+                ring.rotation.x = Math.PI * 0.3;
+                scene.add(ring);
+
+                // Mouse tracking
                 const mouse = { x: 0, y: 0 };
                 window.addEventListener('mousemove', e => {
                     mouse.x = (e.clientX / innerWidth - .5) * 2;
                     mouse.y = (e.clientY / innerHeight - .5) * 2;
                 });
 
-                // Resize
                 window.addEventListener('resize', () => {
-                    const nW = wrapper.offsetWidth;
-                    const nH = wrapper.offsetHeight;
+                    const nW = wrapper.offsetWidth, nH = wrapper.offsetHeight;
                     R.setSize(nW, nH);
                     cam.aspect = nW / nH;
                     cam.updateProjectionMatrix();
@@ -2067,12 +2252,17 @@
                     requestAnimationFrame(loop);
                     const t = clk.getElapsedTime();
 
-                    // Smooth auto-rotate with mouse nudge
-                    cube.rotation.y = t * 0.42 + mouse.x * 0.35;
-                    cube.rotation.x = Math.sin(t * 0.25) * 0.28 + mouse.y * 0.18;
+                    // Smooth rotate + mouse tilt
+                    cube.rotation.y = t * 0.38 + mouse.x * 0.3;
+                    cube.rotation.x = Math.sin(t * 0.22) * 0.22 + mouse.y * 0.14;
 
-                    // Animate dynamic point light
-                    pt1.position.set(Math.sin(t * .8) * 3.5, Math.cos(t * .5) * 2, 2.5);
+                    // Animate key point light in circle — creates shifting specular on chrome
+                    pt1.position.set(Math.sin(t * 0.9) * 4, Math.cos(t * 0.55) * 3, 3);
+                    pt2.position.set(Math.cos(t * 0.7) * 3.5, Math.sin(t * 0.4) * 2, 2);
+
+                    // Ring pulse
+                    ring.rotation.z = t * 0.05;
+                    ring.rotation.y = t * 0.02;
 
                     // Orbs
                     orbs.forEach(o => {
@@ -2080,7 +2270,7 @@
                         const a = o.userData.angle;
                         o.position.set(
                             Math.cos(a) * o.userData.r,
-                            o.userData.yo + Math.sin(t * 0.7 + a) * 0.35,
+                            o.userData.yo + Math.sin(t * 0.6 + a) * 0.3,
                             Math.sin(a) * o.userData.r
                         );
                     });
@@ -2089,12 +2279,8 @@
                 })();
             }
 
-            // Init after page load so wrapper has layout dimensions
-            if (document.readyState === 'complete') {
-                init();
-            } else {
-                window.addEventListener('load', init);
-            }
+            if (document.readyState === 'complete') init();
+            else window.addEventListener('load', init);
         })();
     </script>
 
@@ -2118,24 +2304,33 @@
             });
         });
 
+        // Active nav
         const secs = document.querySelectorAll('section[id]');
-        new IntersectionObserver(entries => {
+        secs.forEach(s => {
+            new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting)
+                        navLinks.querySelectorAll('a').forEach(a => {
+                            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+                        });
+                });
+            }, { threshold: 0.3 }).observe(s);
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObs = new IntersectionObserver(entries => {
             entries.forEach(e => {
-                if (e.isIntersecting) {
-                    navLinks.querySelectorAll('a').forEach(a => {
-                        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
-                    });
-                }
+                if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
             });
-        }, { threshold: 0.3 }).observe(...secs); // observe all
-        secs.forEach(s => document.querySelector('.nav-links') && new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) navLinks.querySelectorAll('a').forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); }); });
-        }, { threshold: 0.3 }).observe(s));
+        }, { threshold: 0.12 });
+        reveals.forEach(r => revealObs.observe(r));
 
         function handleSubmit() {
-            alert('Thank you for reaching out! We\'ll get back to you shortly. 🚀');
+            alert("Thank you for reaching out! We'll get back to you shortly. 🚀");
         }
     </script>
+
 </body>
 
 </html>
