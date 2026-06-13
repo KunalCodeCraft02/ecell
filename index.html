@@ -11,6 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Locomotive Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
 
     <style>
         *,
@@ -51,6 +53,11 @@
             font-size: 16px;
             line-height: 1.7;
             overflow-x: hidden;
+        }
+
+        /* Locomotive scroll container */
+        #scroll-container {
+            overflow: hidden;
         }
 
         ::selection {
@@ -216,12 +223,10 @@
             gap: 60px;
         }
 
-        /* hero content takes full width when stacked */
         .hero-content {
             width: 100%;
         }
 
-        /* Animated line accent */
         .hero-eyebrow {
             display: flex;
             align-items: center;
@@ -393,11 +398,10 @@
 
         .btn-secondary:hover {
             border-color: rgba(255, 255, 255, 0.25);
-            color: var(--white);
             background: rgba(255, 255, 255, 0.04);
         }
 
-        /* ── MARQUEE STRIP ── */
+        /* ── MARQUEE ── */
         .marquee-section {
             overflow: hidden;
             border-top: 1px solid var(--border);
@@ -427,7 +431,7 @@
 
         .marquee-item i {
             color: var(--silver);
-            font-size: 13px;
+            font-size: 14px;
         }
 
         @keyframes marquee {
@@ -573,7 +577,7 @@
         }
 
         .about-card i {
-            font-size: 18px;
+            font-size: 20px;
             color: var(--silver);
         }
 
@@ -599,7 +603,7 @@
         }
 
         .about-nec-badge i {
-            font-size: 22px;
+            font-size: 24px;
             color: var(--silver);
             flex-shrink: 0;
         }
@@ -710,7 +714,7 @@
 
         .vm-pillar i {
             color: var(--silver);
-            font-size: 14px;
+            font-size: 15px;
             flex-shrink: 0;
         }
 
@@ -753,6 +757,12 @@
             background: var(--bg3);
         }
 
+        /* Replace emoji with icon in thumbs */
+        .event-thumb-icon {
+            font-size: 52px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
         .event-thumb::after {
             content: '';
             position: absolute;
@@ -764,6 +774,7 @@
             position: absolute;
             top: 12px;
             right: 12px;
+            z-index: 1;
             font-family: var(--font-mono);
             font-size: 9px;
             font-weight: 400;
@@ -873,9 +884,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
             transition: all 0.3s;
             background: var(--bg3);
+        }
+
+        .gallery-item-icon {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.12);
         }
 
         .gallery-item:hover {
@@ -1235,14 +1250,14 @@
             padding: 5px 12px;
         }
 
-        /* ── FADE-IN ANIMATIONS ── */
-        .reveal {
+        /* ── SCROLL REVEAL ── */
+        [data-scroll] {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
         }
 
-        .reveal.visible {
+        [data-scroll].is-inview {
             opacity: 1;
             transform: translateY(0);
         }
@@ -1314,8 +1329,6 @@
         }
 
         @media (max-width: 640px) {
-
-            /* NAV mobile menu — bigger, readable */
             .nav-hamburger {
                 display: block;
             }
@@ -1350,7 +1363,6 @@
                 display: block;
                 border-radius: 0 !important;
                 background: transparent !important;
-                letter-spacing: 0.2px;
             }
 
             .nav-links.open a:hover {
@@ -1363,12 +1375,11 @@
                 color: #000 !important;
                 text-align: center !important;
                 border-radius: 8px !important;
-                padding: 7px 12px !important;
+                padding: 15px 4px !important;
                 font-size: 15px !important;
                 font-weight: 700 !important;
             }
 
-            /* HERO mobile */
             #hero {
                 padding: 100px 6% 56px;
                 min-height: auto;
@@ -1376,15 +1387,6 @@
 
             .hero-inner {
                 gap: 40px;
-            }
-
-            .hero-eyebrow {
-                margin-bottom: 20px;
-            }
-
-            .hero-eyebrow-text {
-                font-size: 9px;
-                letter-spacing: 2px;
             }
 
             .hero-title {
@@ -1396,10 +1398,6 @@
             .hero-tagline {
                 font-size: 14px;
                 margin-bottom: 24px;
-            }
-
-            .hero-chips {
-                margin-bottom: 28px;
             }
 
             .hero-chip {
@@ -1416,7 +1414,6 @@
                 display: none;
             }
 
-            /* Other */
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -1448,515 +1445,546 @@
                 width: 260px;
                 height: 260px;
             }
-
-            .hero-chip {
-                font-size: 10px;
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <nav id="navbar">
-        <a href="#hero" class="nav-logo">
-            <div class="logo-mark">EC</div>
-            <span class="logo-text">E-Cell <span>GCOE</span></span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#vision-mission">Vision</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact" class="nav-cta">Join Us</a></li>
-        </ul>
-        <button class="nav-hamburger" id="hamburgerBtn"><i class="ri-menu-3-line"></i></button>
-    </nav>
+    <!-- Locomotive scroll wrapper -->
+    <div id="scroll-container" data-scroll-container>
 
-    <!-- HERO -->
-    <section id="hero">
-        <canvas id="hero-canvas"></canvas>
-        <div class="hero-noise"></div>
-        <div class="hero-inner">
-            <div class="hero-content">
-                <div class="hero-eyebrow">
-                    <div class="hero-eyebrow-line"></div>
-                    <span class="hero-eyebrow-text">Entrepreneurship Cell · GCOE Kolhapur</span>
-                </div>
-                <h1 class="hero-title">
-                    Where<br>
-                    <span class="hollow">Creativity</span><br>
-                    Meets Commerce
-                </h1>
-                <p class="hero-tagline">Fueling the next generation of innovators, builders &amp; changemakers from
-                    Maharashtra.</p>
-                <div class="hero-chips">
-                    <div class="hero-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Basic)</div>
-                    <div class="hero-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Advanced)
-                    </div>
-                </div>
-                <div class="hero-actions">
-                    <a href="#events" class="btn-primary"><i class="ri-rocket-2-line"></i> Explore Events</a>
-                    <a href="#contact" class="btn-secondary"><i class="ri-user-add-line"></i> Join E-Cell</a>
-                </div>
-            </div>
-            <div class="hero-3d" id="cubeWrapper">
-                <canvas id="cube-canvas"></canvas>
-            </div>
-        </div>
-        <div class="hero-scroll"><i class="ri-arrow-down-line"></i> Scroll down</div>
-    </section>
+        <!-- NAV -->
+        <nav id="navbar">
+            <a href="#hero" class="nav-logo">
+                <div class="logo-mark">EC</div>
+                <span class="logo-text">E-Cell <span>GCOE</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#vision-mission">Vision</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact" class="nav-cta">Join Us</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburgerBtn"><i class="ri-menu-3-line"></i></button>
+        </nav>
 
-    <!-- MARQUEE -->
-    <div class="marquee-section">
-        <div class="marquee-track">
-            <div class="marquee-item"><i class="ri-trophy-line"></i> NEC IIT Bombay · 2× Runner-up</div>
-            <div class="marquee-item"><i class="ri-group-line"></i> 500+ Student Members</div>
-            <div class="marquee-item"><i class="ri-calendar-event-line"></i> 30+ Events Organised</div>
-            <div class="marquee-item"><i class="ri-lightbulb-line"></i> 15+ Startups Mentored</div>
-            <div class="marquee-item"><i class="ri-building-line"></i> 10+ Industry Partners</div>
-            <div class="marquee-item"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
-            <!-- duplicate for seamless loop -->
-            <div class="marquee-item"><i class="ri-trophy-line"></i> NEC IIT Bombay · 2× Runner-up</div>
-            <div class="marquee-item"><i class="ri-group-line"></i> 500+ Student Members</div>
-            <div class="marquee-item"><i class="ri-calendar-event-line"></i> 30+ Events Organised</div>
-            <div class="marquee-item"><i class="ri-lightbulb-line"></i> 15+ Startups Mentored</div>
-            <div class="marquee-item"><i class="ri-building-line"></i> 10+ Industry Partners</div>
-            <div class="marquee-item"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
-        </div>
-    </div>
+        <!-- HERO -->
+        <section id="hero" data-scroll-section>
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-noise"></div>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-eyebrow">
+                        <div class="hero-eyebrow-line"></div>
+                        <span class="hero-eyebrow-text">Entrepreneurship Cell · GCOE Kolhapur</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Where<br>
+                        <span class="hollow">Creativity</span><br>
+                        Meets Commerce
+                    </h1>
+                    <p class="hero-tagline">Fueling the next generation of innovators, builders &amp; changemakers from
+                        Maharashtra.</p>
+                    <div class="hero-chips">
+                        <div class="hero-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Basic)
+                        </div>
+                        <div class="hero-chip"><i class="ri-trophy-line"></i> 2nd Runner-up · NEC IIT Bombay (Advanced)
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#events" class="btn-primary"><i class="ri-rocket-2-line"></i> Explore Events</a>
+                        <a href="#contact" class="btn-secondary"><i class="ri-user-add-line"></i> Join E-Cell</a>
+                    </div>
+                </div>
+                <div class="hero-3d" id="cubeWrapper">
+                    <canvas id="cube-canvas"></canvas>
+                </div>
+            </div>
+            <div class="hero-scroll"><i class="ri-arrow-down-line"></i> Scroll down</div>
+        </section>
 
-    <!-- STATS -->
-    <div id="stats">
-        <div class="stats-grid">
-            <div class="stat-item reveal">
-                <div class="stat-number">2×</div>
-                <div class="stat-label">NEC Runner-up</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Student Members</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">Events Organised</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Startups Mentored</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Industry Partners</div>
+        <!-- MARQUEE -->
+        <div class="marquee-section" data-scroll-section>
+            <div class="marquee-track">
+                <div class="marquee-item"><i class="ri-trophy-line"></i> NEC IIT Bombay · 2× Runner-up</div>
+                <div class="marquee-item"><i class="ri-group-line"></i> 500+ Student Members</div>
+                <div class="marquee-item"><i class="ri-calendar-event-line"></i> 30+ Events Organised</div>
+                <div class="marquee-item"><i class="ri-lightbulb-line"></i> 15+ Startups Mentored</div>
+                <div class="marquee-item"><i class="ri-building-line"></i> 10+ Industry Partners</div>
+                <div class="marquee-item"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
+                <div class="marquee-item"><i class="ri-trophy-line"></i> NEC IIT Bombay · 2× Runner-up</div>
+                <div class="marquee-item"><i class="ri-group-line"></i> 500+ Student Members</div>
+                <div class="marquee-item"><i class="ri-calendar-event-line"></i> 30+ Events Organised</div>
+                <div class="marquee-item"><i class="ri-lightbulb-line"></i> 15+ Startups Mentored</div>
+                <div class="marquee-item"><i class="ri-building-line"></i> 10+ Industry Partners</div>
+                <div class="marquee-item"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
             </div>
         </div>
-    </div>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="about-grid">
-            <div class="about-visual reveal">
-                <div class="about-visual-grid">
-                    <div class="about-card"><i class="ri-lightbulb-flash-line"></i>
-                        <div class="about-card-title">Ideation</div>
-                        <div class="about-card-sub">Workshops &amp; bootcamps</div>
-                    </div>
-                    <div class="about-card"><i class="ri-team-line"></i>
-                        <div class="about-card-title">Mentorship</div>
-                        <div class="about-card-sub">Expert guidance network</div>
-                    </div>
-                    <div class="about-card"><i class="ri-funds-line"></i>
-                        <div class="about-card-title">Funding</div>
-                        <div class="about-card-sub">Pitch &amp; investor connects</div>
-                    </div>
-                    <div class="about-card"><i class="ri-medal-2-line"></i>
-                        <div class="about-card-title">Recognition</div>
-                        <div class="about-card-sub">National-level competitions</div>
-                    </div>
+        <!-- STATS -->
+        <div id="stats" data-scroll-section>
+            <div class="stats-grid">
+                <div class="stat-item" data-scroll data-scroll-delay="0.05">
+                    <div class="stat-number">2×</div>
+                    <div class="stat-label">NEC Runner-up</div>
                 </div>
-                <div class="about-nec-badge">
-                    <i class="ri-award-fill"></i>
-                    <div class="nec-text">
-                        <small>National Entrepreneurship Challenge · IIT Bombay</small>
-                        <strong>2nd Runner-up × 2 — Basic &amp; Advanced Tracks</strong>
-                    </div>
+                <div class="stat-item" data-scroll data-scroll-delay="0.1">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Student Members</div>
                 </div>
-            </div>
-            <div class="about-text reveal">
-                <div class="section-label">About Us</div>
-                <h2 class="section-title">The startup heartbeat of GCOE Kolhapur</h2>
-                <p>E-Cell GCOE Kolhapur is the entrepreneurship cell of Government College of Engineering — a
-                    student-run powerhouse bridging academic learning with real-world innovation.</p>
-                <p>From hackathons and pitch fests to competing at IIT Bombay's NEC and placing 2nd Runner-up in both
-                    the Basic and Advanced tracks — we prove great ideas come from anywhere.</p>
-                <p>We build the ecosystem: the mentors, the events, the connections, and the courage for students to
-                    think like founders.</p>
-                <a href="#vision-mission" class="btn-primary" style="margin-top:14px;">Our Mission <i
-                        class="ri-arrow-right-line"></i></a>
+                <div class="stat-item" data-scroll data-scroll-delay="0.15">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Events Organised</div>
+                </div>
+                <div class="stat-item" data-scroll data-scroll-delay="0.2">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Startups Mentored</div>
+                </div>
+                <div class="stat-item" data-scroll data-scroll-delay="0.25">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Industry Partners</div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- VISION & MISSION -->
-    <section id="vision-mission">
-        <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 64px;">
-            <div class="section-label" style="justify-content:center;">What Drives Us</div>
-            <h2 class="section-title">Vision &amp; Mission</h2>
-            <p class="section-sub" style="margin:0 auto;">Our compass for building a generation of problem-solvers,
-                risk-takers, and value creators.</p>
-        </div>
-        <div class="vm-grid">
-            <div class="vm-card reveal">
-                <div class="vm-icon"><i class="ri-eye-line"></i></div>
-                <h3>Our Vision</h3>
-                <p>To create a thriving entrepreneurial ecosystem at GCOE Kolhapur — where every student feels empowered
-                    to solve real problems and build ventures that matter.</p>
-                <div class="vm-pillars">
-                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> National recognition through NEC IIT
-                        Bombay</div>
-                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> A startup-first campus culture</div>
-                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Bridging local talent to global
-                        platforms</div>
+        <!-- ABOUT -->
+        <section id="about" data-scroll-section>
+            <div class="about-grid">
+                <div class="about-visual" data-scroll data-scroll-delay="0.05">
+                    <div class="about-visual-grid">
+                        <div class="about-card"><i class="ri-lightbulb-flash-line"></i>
+                            <div class="about-card-title">Ideation</div>
+                            <div class="about-card-sub">Workshops &amp; bootcamps</div>
+                        </div>
+                        <div class="about-card"><i class="ri-team-line"></i>
+                            <div class="about-card-title">Mentorship</div>
+                            <div class="about-card-sub">Expert guidance network</div>
+                        </div>
+                        <div class="about-card"><i class="ri-funds-line"></i>
+                            <div class="about-card-title">Funding</div>
+                            <div class="about-card-sub">Pitch &amp; investor connects</div>
+                        </div>
+                        <div class="about-card"><i class="ri-medal-2-line"></i>
+                            <div class="about-card-title">Recognition</div>
+                            <div class="about-card-sub">National-level competitions</div>
+                        </div>
+                    </div>
+                    <div class="about-nec-badge">
+                        <i class="ri-award-fill"></i>
+                        <div class="nec-text">
+                            <small>National Entrepreneurship Challenge · IIT Bombay</small>
+                            <strong>2nd Runner-up × 2 — Basic &amp; Advanced Tracks</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text" data-scroll data-scroll-delay="0.15">
+                    <div class="section-label">About Us</div>
+                    <h2 class="section-title">The startup heartbeat of GCOE Kolhapur</h2>
+                    <p>E-Cell GCOE Kolhapur is the entrepreneurship cell of Government College of Engineering — a
+                        student-run powerhouse bridging academic learning with real-world innovation.</p>
+                    <p>From hackathons and pitch fests to competing at IIT Bombay's NEC and placing 2nd Runner-up in
+                        both the Basic and Advanced tracks — we prove great ideas come from anywhere.</p>
+                    <p>We build the ecosystem: the mentors, the events, the connections, and the courage for students to
+                        think like founders.</p>
+                    <a href="#vision-mission" class="btn-primary" style="margin-top:14px;">Our Mission <i
+                            class="ri-arrow-right-line"></i></a>
                 </div>
             </div>
-            <div class="vm-card reveal">
-                <div class="vm-icon"><i class="ri-focus-3-line"></i></div>
-                <h3>Our Mission</h3>
-                <p>To educate, inspire, and support aspiring entrepreneurs with access to knowledge, mentorship, funding
-                    pathways, and a vibrant community of like-minded innovators.</p>
-                <div class="vm-pillars">
-                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Hands-on entrepreneurship education
-                    </div>
-                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Mentorship from industry leaders
-                    </div>
-                    <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Pitch competitions &amp; funding
-                        exposure</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- EVENTS -->
-    <section id="events">
-        <div class="section-header">
-            <div class="section-label">What We Do</div>
-            <h2 class="section-title">Events &amp; Initiatives</h2>
-            <p class="section-sub">From idea to execution — the events that shape entrepreneurs.</p>
-        </div>
-        <div class="events-grid">
-            <div class="event-card reveal">
-                <div class="event-thumb" style="background:linear-gradient(135deg,#111,#1c1c1c);">🏆<span
-                        class="event-tag tag-award">🥉 Award</span></div>
-                <div class="event-body">
-                    <div class="event-date"><i class="ri-calendar-line"></i> 2023 &amp; 2024</div>
-                    <div class="event-name">National Entrepreneurship Challenge</div>
-                    <div class="event-desc">Competed at IIT Bombay's flagship NEC — securing 2nd Runner-up in both Basic
-                        and Advanced tracks across two editions.</div>
-                </div>
-                <div class="event-footer">
-                    <div class="event-footer-info"><i class="ri-map-pin-line"></i> IIT Bombay</div><i
-                        class="ri-arrow-right-line event-arrow"></i>
-                </div>
+        <!-- VISION & MISSION -->
+        <section id="vision-mission" data-scroll-section>
+            <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 64px;" data-scroll>
+                <div class="section-label" style="justify-content:center;">What Drives Us</div>
+                <h2 class="section-title">Vision &amp; Mission</h2>
+                <p class="section-sub" style="margin:0 auto;">Our compass for building a generation of problem-solvers,
+                    risk-takers, and value creators.</p>
             </div>
-            <div class="event-card reveal">
-                <div class="event-thumb" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">💡<span
-                        class="event-tag tag-upcoming">Upcoming</span></div>
-                <div class="event-body">
-                    <div class="event-date"><i class="ri-calendar-line"></i> Coming Soon</div>
-                    <div class="event-name">Startup Hackathon 2025</div>
-                    <div class="event-desc">48-hour challenge to build MVPs. Teams compete across fintech, agritech,
-                        edtech, and sustainability tracks.</div>
-                </div>
-                <div class="event-footer">
-                    <div class="event-footer-info"><i class="ri-group-line"></i> Open to all years</div><i
-                        class="ri-arrow-right-line event-arrow"></i>
-                </div>
-            </div>
-            <div class="event-card reveal">
-                <div class="event-thumb" style="background:linear-gradient(135deg,#101010,#1c1c1c);">🎤<span
-                        class="event-tag tag-past">Completed</span></div>
-                <div class="event-body">
-                    <div class="event-date"><i class="ri-calendar-line"></i> March 2024</div>
-                    <div class="event-name">Pitch Perfect</div>
-                    <div class="event-desc">Annual inter-college pitch competition with real investor panels, live
-                        feedback, and prizes for the top 3 ideas.</div>
-                </div>
-                <div class="event-footer">
-                    <div class="event-footer-info"><i class="ri-group-line"></i> 60+ participants</div><i
-                        class="ri-arrow-right-line event-arrow"></i>
-                </div>
-            </div>
-            <div class="event-card reveal">
-                <div class="event-thumb" style="background:linear-gradient(135deg,#0c0c0c,#181818);">🚀<span
-                        class="event-tag tag-past">Completed</span></div>
-                <div class="event-body">
-                    <div class="event-date"><i class="ri-calendar-line"></i> January 2024</div>
-                    <div class="event-name">Startup Bootcamp</div>
-                    <div class="event-desc">Intensive 2-day workshop on lean startup methodology, customer discovery,
-                        MVPs, and go-to-market strategy.</div>
-                </div>
-                <div class="event-footer">
-                    <div class="event-footer-info"><i class="ri-group-line"></i> 120+ attendees</div><i
-                        class="ri-arrow-right-line event-arrow"></i>
-                </div>
-            </div>
-            <div class="event-card reveal">
-                <div class="event-thumb" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">🤝<span
-                        class="event-tag tag-past">Completed</span></div>
-                <div class="event-body">
-                    <div class="event-date"><i class="ri-calendar-line"></i> November 2023</div>
-                    <div class="event-name">Founders Networking Night</div>
-                    <div class="event-desc">An evening connecting students with founders, VCs, and professionals from
-                        the Kolhapur and Pune startup ecosystems.</div>
-                </div>
-                <div class="event-footer">
-                    <div class="event-footer-info"><i class="ri-group-line"></i> 25+ mentors</div><i
-                        class="ri-arrow-right-line event-arrow"></i>
-                </div>
-            </div>
-            <div class="event-card reveal">
-                <div class="event-thumb" style="background:linear-gradient(135deg,#0a0a0a,#171717);">📚<span
-                        class="event-tag tag-upcoming">Upcoming</span></div>
-                <div class="event-body">
-                    <div class="event-date"><i class="ri-calendar-line"></i> July 2025</div>
-                    <div class="event-name">AI for Entrepreneurs Workshop</div>
-                    <div class="event-desc">Hands-on workshop exploring how founders can leverage AI tools for product
-                        building, marketing, and operations.</div>
-                </div>
-                <div class="event-footer">
-                    <div class="event-footer-info"><i class="ri-group-line"></i> Limited seats</div><i
-                        class="ri-arrow-right-line event-arrow"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section id="gallery">
-        <div class="section-header">
-            <div class="section-label">Moments</div>
-            <h2 class="section-title">Our Gallery</h2>
-            <p class="section-sub">Snapshots from events, competitions, and the journey that made us.</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item span-2 span-row" style="background:linear-gradient(135deg,#111,#1d1d1d);">🏆<span
-                    class="gallery-label">NEC IIT Bombay — Award Ceremony</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">🎤<span
-                    class="gallery-label">Pitch Perfect</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">💡<span
-                    class="gallery-label">Hackathon</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0c0c0c,#181818);">🚀<span
-                    class="gallery-label">Bootcamp</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">🤝<span
-                    class="gallery-label">Networking</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-            <div class="gallery-item span-2" style="background:linear-gradient(135deg,#101010,#1e1e1e);">📸<span
-                    class="gallery-label">Team E-Cell 2024</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0b0b0b,#181818);">🎯<span
-                    class="gallery-label">Workshop</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">🌟<span
-                    class="gallery-label">Awards Night</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-            <div class="gallery-item" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">📊<span
-                    class="gallery-label">Investor Meet</span>
-                <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team">
-        <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 64px;">
-            <div class="section-label" style="justify-content:center;">The People</div>
-            <h2 class="section-title">Meet the Team</h2>
-            <p class="section-sub" style="margin:0 auto;">The builders and dreamers powering E-Cell GCOE Kolhapur.</p>
-        </div>
-        <div class="team-grid">
-            <div class="team-card reveal">
-                <div class="team-avatar">AK</div>
-                <div class="team-name">Aarav Kulkarni</div>
-                <div class="team-role">President</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#e0e0e0;">PM</div>
-                <div class="team-name">Priya Mahajan</div>
-                <div class="team-role">Vice President</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#d0d0d0;">RS</div>
-                <div class="team-name">Rohit Shinde</div>
-                <div class="team-role">Head of Events</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#c8c8c8;">ND</div>
-                <div class="team-name">Neha Deshmukh</div>
-                <div class="team-role">Head of Marketing</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#e8e8e8;">KP</div>
-                <div class="team-name">Kunal Patil</div>
-                <div class="team-role">Head of Tech</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-github-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#dcdcdc;">SM</div>
-                <div class="team-name">Sakshi More</div>
-                <div class="team-role">Finance Lead</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#d4d4d4;">AG</div>
-                <div class="team-name">Arjun Gaikwad</div>
-                <div class="team-role">Design Lead</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-            <div class="team-card reveal">
-                <div class="team-avatar" style="background:#e4e4e4;">VJ</div>
-                <div class="team-name">Vishal Jadhav</div>
-                <div class="team-role">Outreach Lead</div>
-                <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
-                            class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="contact-grid">
-            <div class="contact-info reveal">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Let's Build Something Together</h2>
-                <p>Whether you're a student with an idea, a mentor who wants to give back, or a company looking to
-                    partner — we'd love to connect.</p>
-                <div class="contact-items">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
-                        <div class="contact-detail"><strong>Address</strong><span>Government College of Engineering,
-                                Kolhapur, Maharashtra 416004</span></div>
+            <div class="vm-grid">
+                <div class="vm-card" data-scroll data-scroll-delay="0.05">
+                    <div class="vm-icon"><i class="ri-eye-line"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To create a thriving entrepreneurial ecosystem at GCOE Kolhapur — where every student feels
+                        empowered to solve real problems and build ventures that matter.</p>
+                    <div class="vm-pillars">
+                        <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> National recognition through NEC
+                            IIT Bombay</div>
+                        <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> A startup-first campus culture
+                        </div>
+                        <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Bridging local talent to global
+                            platforms</div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="ri-mail-line"></i></div>
-                        <div class="contact-detail"><strong>Email</strong><span>ecell@gcoekolhapur.ac.in</span></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="ri-instagram-line"></i></div>
-                        <div class="contact-detail"><strong>Instagram</strong><span>@ecell.gcoe.kolhapur</span></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="ri-linkedin-box-line"></i></div>
-                        <div class="contact-detail"><strong>LinkedIn</strong><span>E-Cell GCOE Kolhapur</span></div>
+                </div>
+                <div class="vm-card" data-scroll data-scroll-delay="0.15">
+                    <div class="vm-icon"><i class="ri-focus-3-line"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To educate, inspire, and support aspiring entrepreneurs with access to knowledge, mentorship,
+                        funding pathways, and a vibrant community of like-minded innovators.</p>
+                    <div class="vm-pillars">
+                        <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Hands-on entrepreneurship
+                            education</div>
+                        <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Mentorship from industry leaders
+                        </div>
+                        <div class="vm-pillar"><i class="ri-checkbox-circle-line"></i> Pitch competitions &amp; funding
+                            exposure</div>
                     </div>
                 </div>
             </div>
-            <div class="contact-form reveal">
-                <h3>Send us a message</h3>
-                <div class="form-row">
-                    <div class="form-group"><label>First name</label><input type="text" placeholder="Aarav" /></div>
-                    <div class="form-group"><label>Last name</label><input type="text" placeholder="Kulkarni" /></div>
-                </div>
-                <div class="form-group"><label>Email address</label><input type="email"
-                        placeholder="aarav@example.com" /></div>
-                <div class="form-group"><label>I'm reaching out as a</label><select>
-                        <option>Student with an idea</option>
-                        <option>Mentor / Industry Expert</option>
-                        <option>Company / Sponsor</option>
-                        <option>Media / Press</option>
-                        <option>Other</option>
-                    </select></div>
-                <div class="form-group"><label>Message</label><textarea
-                        placeholder="Tell us about yourself or your idea..."></textarea></div>
-                <button class="btn-primary" style="width:100%;justify-content:center;" onclick="handleSubmit()"><i
-                        class="ri-send-plane-line"></i> Send Message</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-top">
-            <div class="footer-brand">
-                <div class="nav-logo" style="margin-bottom:4px;">
-                    <div class="logo-mark">EC</div>
-                    <span class="logo-text">E-Cell <span>GCOE</span></span>
+        <!-- EVENTS -->
+        <section id="events" data-scroll-section>
+            <div class="section-header" data-scroll>
+                <div class="section-label">What We Do</div>
+                <h2 class="section-title">Events &amp; Initiatives</h2>
+                <p class="section-sub">From idea to execution — the events that shape entrepreneurs.</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card" data-scroll data-scroll-delay="0.05">
+                    <div class="event-thumb" style="background:linear-gradient(135deg,#111,#1c1c1c);">
+                        <i class="event-thumb-icon ri-trophy-line"></i>
+                        <span class="event-tag tag-award"><i class="ri-medal-line"></i> Award</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> 2023 &amp; 2024</div>
+                        <div class="event-name">National Entrepreneurship Challenge</div>
+                        <div class="event-desc">Competed at IIT Bombay's flagship NEC — securing 2nd Runner-up in both
+                            Basic and Advanced tracks across two editions.</div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-info"><i class="ri-map-pin-line"></i> IIT Bombay</div><i
+                            class="ri-arrow-right-line event-arrow"></i>
+                    </div>
                 </div>
-                <p>Entrepreneurship Cell of Government College of Engineering, Kolhapur. Building the next wave of
-                    innovators from Maharashtra.</p>
-                <div class="footer-socials">
-                    <a href="#"><i class="ri-instagram-line"></i></a>
-                    <a href="#"><i class="ri-linkedin-box-line"></i></a>
-                    <a href="#"><i class="ri-twitter-x-line"></i></a>
-                    <a href="#"><i class="ri-youtube-line"></i></a>
-                    <a href="#"><i class="ri-whatsapp-line"></i></a>
+                <div class="event-card" data-scroll data-scroll-delay="0.1">
+                    <div class="event-thumb" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">
+                        <i class="event-thumb-icon ri-code-s-slash-line"></i>
+                        <span class="event-tag tag-upcoming"><i class="ri-time-line"></i> Upcoming</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> Coming Soon</div>
+                        <div class="event-name">Startup Hackathon 2025</div>
+                        <div class="event-desc">48-hour challenge to build MVPs. Teams compete across fintech, agritech,
+                            edtech, and sustainability tracks.</div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-info"><i class="ri-group-line"></i> Open to all years</div><i
+                            class="ri-arrow-right-line event-arrow"></i>
+                    </div>
+                </div>
+                <div class="event-card" data-scroll data-scroll-delay="0.15">
+                    <div class="event-thumb" style="background:linear-gradient(135deg,#101010,#1c1c1c);">
+                        <i class="event-thumb-icon ri-presentation-line"></i>
+                        <span class="event-tag tag-past"><i class="ri-checkbox-circle-line"></i> Completed</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> March 2024</div>
+                        <div class="event-name">Pitch Perfect</div>
+                        <div class="event-desc">Annual inter-college pitch competition with real investor panels, live
+                            feedback, and prizes for the top 3 ideas.</div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-info"><i class="ri-group-line"></i> 60+ participants</div><i
+                            class="ri-arrow-right-line event-arrow"></i>
+                    </div>
+                </div>
+                <div class="event-card" data-scroll data-scroll-delay="0.05">
+                    <div class="event-thumb" style="background:linear-gradient(135deg,#0c0c0c,#181818);">
+                        <i class="event-thumb-icon ri-rocket-2-line"></i>
+                        <span class="event-tag tag-past"><i class="ri-checkbox-circle-line"></i> Completed</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> January 2024</div>
+                        <div class="event-name">Startup Bootcamp</div>
+                        <div class="event-desc">Intensive 2-day workshop on lean startup methodology, customer
+                            discovery, MVPs, and go-to-market strategy.</div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-info"><i class="ri-group-line"></i> 120+ attendees</div><i
+                            class="ri-arrow-right-line event-arrow"></i>
+                    </div>
+                </div>
+                <div class="event-card" data-scroll data-scroll-delay="0.1">
+                    <div class="event-thumb" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">
+                        <i class="event-thumb-icon ri-handshake-line"></i>
+                        <span class="event-tag tag-past"><i class="ri-checkbox-circle-line"></i> Completed</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> November 2023</div>
+                        <div class="event-name">Founders Networking Night</div>
+                        <div class="event-desc">An evening connecting students with founders, VCs, and professionals
+                            from the Kolhapur and Pune startup ecosystems.</div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-info"><i class="ri-group-line"></i> 25+ mentors</div><i
+                            class="ri-arrow-right-line event-arrow"></i>
+                    </div>
+                </div>
+                <div class="event-card" data-scroll data-scroll-delay="0.15">
+                    <div class="event-thumb" style="background:linear-gradient(135deg,#0a0a0a,#171717);">
+                        <i class="event-thumb-icon ri-robot-2-line"></i>
+                        <span class="event-tag tag-upcoming"><i class="ri-time-line"></i> Upcoming</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> July 2025</div>
+                        <div class="event-name">AI for Entrepreneurs Workshop</div>
+                        <div class="event-desc">Hands-on workshop exploring how founders can leverage AI tools for
+                            product building, marketing, and operations.</div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-info"><i class="ri-group-line"></i> Limited seats</div><i
+                            class="ri-arrow-right-line event-arrow"></i>
+                    </div>
                 </div>
             </div>
-            <div class="footer-col">
-                <h5>Navigate</h5>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#vision-mission">Vision &amp; Mission</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery" data-scroll-section>
+            <div class="section-header" data-scroll>
+                <div class="section-label">Moments</div>
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="section-sub">Snapshots from events, competitions, and the journey that made us.</p>
             </div>
-            <div class="footer-col">
-                <h5>Programs</h5>
-                <ul>
-                    <li><a href="#">NEC IIT Bombay</a></li>
-                    <li><a href="#">Hackathons</a></li>
-                    <li><a href="#">Pitch Competitions</a></li>
-                    <li><a href="#">Bootcamps</a></li>
-                    <li><a href="#">Networking Events</a></li>
-                    <li><a href="#">Mentorship Program</a></li>
-                </ul>
+            <div class="gallery-grid">
+                <div class="gallery-item span-2 span-row" style="background:linear-gradient(135deg,#111,#1d1d1d);"
+                    data-scroll data-scroll-delay="0.05">
+                    <i class="gallery-item-icon ri-trophy-line"></i>
+                    <span class="gallery-label">NEC IIT Bombay — Award Ceremony</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);" data-scroll
+                    data-scroll-delay="0.1">
+                    <i class="gallery-item-icon ri-presentation-line"></i><span class="gallery-label">Pitch
+                        Perfect</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);" data-scroll
+                    data-scroll-delay="0.15">
+                    <i class="gallery-item-icon ri-code-s-slash-line"></i><span class="gallery-label">Hackathon</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0c0c0c,#181818);" data-scroll
+                    data-scroll-delay="0.05">
+                    <i class="gallery-item-icon ri-rocket-2-line"></i><span class="gallery-label">Bootcamp</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);" data-scroll
+                    data-scroll-delay="0.1">
+                    <i class="gallery-item-icon ri-handshake-line"></i><span class="gallery-label">Networking</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
+                <div class="gallery-item span-2" style="background:linear-gradient(135deg,#101010,#1e1e1e);" data-scroll
+                    data-scroll-delay="0.15">
+                    <i class="gallery-item-icon ri-team-line"></i><span class="gallery-label">Team E-Cell 2024</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View Photo</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0b0b0b,#181818);" data-scroll
+                    data-scroll-delay="0.05">
+                    <i class="gallery-item-icon ri-tools-line"></i><span class="gallery-label">Workshop</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);" data-scroll
+                    data-scroll-delay="0.1">
+                    <i class="gallery-item-icon ri-award-line"></i><span class="gallery-label">Awards Night</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
+                <div class="gallery-item" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);" data-scroll
+                    data-scroll-delay="0.15">
+                    <i class="gallery-item-icon ri-bar-chart-line"></i><span class="gallery-label">Investor Meet</span>
+                    <div class="gallery-overlay"><i class="ri-zoom-in-line"></i><span>View</span></div>
+                </div>
             </div>
-            <div class="footer-col">
-                <h5>Connect</h5>
-                <ul>
-                    <li><a href="#">Join as Member</a></li>
-                    <li><a href="#">Become a Mentor</a></li>
-                    <li><a href="#">Partner with Us</a></li>
-                    <li><a href="#">GCOE Official</a></li>
-                    <li><a href="#">CESSA GCOE</a></li>
-                </ul>
+        </section>
+
+        <!-- TEAM -->
+        <section id="team" data-scroll-section>
+            <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 64px;" data-scroll>
+                <div class="section-label" style="justify-content:center;">The People</div>
+                <h2 class="section-title">Meet the Team</h2>
+                <p class="section-sub" style="margin:0 auto;">The builders and dreamers powering E-Cell GCOE Kolhapur.
+                </p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 E-Cell GCOE Kolhapur. Made with ♥ by students, for students.</p>
-            <div class="nec-trophy"><i class="ri-trophy-line"></i> NEC IIT Bombay — 2× Second Runner-up</div>
-        </div>
-    </footer>
+            <div class="team-grid">
+                <div class="team-card" data-scroll data-scroll-delay="0.05">
+                    <div class="team-avatar">AK</div>
+                    <div class="team-name">Aarav Kulkarni</div>
+                    <div class="team-role">President</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.1">
+                    <div class="team-avatar" style="background:#e0e0e0;">PM</div>
+                    <div class="team-name">Priya Mahajan</div>
+                    <div class="team-role">Vice President</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.15">
+                    <div class="team-avatar" style="background:#d0d0d0;">RS</div>
+                    <div class="team-name">Rohit Shinde</div>
+                    <div class="team-role">Head of Events</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.05">
+                    <div class="team-avatar" style="background:#c8c8c8;">ND</div>
+                    <div class="team-name">Neha Deshmukh</div>
+                    <div class="team-role">Head of Marketing</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.1">
+                    <div class="team-avatar" style="background:#e8e8e8;">KP</div>
+                    <div class="team-name">Kunal Patil</div>
+                    <div class="team-role">Head of Tech</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-github-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.15">
+                    <div class="team-avatar" style="background:#dcdcdc;">SM</div>
+                    <div class="team-name">Sakshi More</div>
+                    <div class="team-role">Finance Lead</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.05">
+                    <div class="team-avatar" style="background:#d4d4d4;">AG</div>
+                    <div class="team-name">Arjun Gaikwad</div>
+                    <div class="team-role">Design Lead</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-instagram-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+                <div class="team-card" data-scroll data-scroll-delay="0.1">
+                    <div class="team-avatar" style="background:#e4e4e4;">VJ</div>
+                    <div class="team-name">Vishal Jadhav</div>
+                    <div class="team-role">Outreach Lead</div>
+                    <div class="team-socials"><a href="#"><i class="ri-linkedin-box-line"></i></a><a href="#"><i
+                                class="ri-twitter-x-line"></i></a><a href="#"><i class="ri-mail-line"></i></a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" data-scroll-section>
+            <div class="contact-grid">
+                <div class="contact-info" data-scroll data-scroll-delay="0.05">
+                    <div class="section-label">Get In Touch</div>
+                    <h2 class="section-title">Let's Build Something Together</h2>
+                    <p>Whether you're a student with an idea, a mentor who wants to give back, or a company looking to
+                        partner — we'd love to connect.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
+                            <div class="contact-detail"><strong>Address</strong><span>Government College of Engineering,
+                                    Kolhapur, Maharashtra 416004</span></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="ri-mail-line"></i></div>
+                            <div class="contact-detail"><strong>Email</strong><span>ecell@gcoekolhapur.ac.in</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="ri-instagram-line"></i></div>
+                            <div class="contact-detail"><strong>Instagram</strong><span>@ecell.gcoe.kolhapur</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="ri-linkedin-box-line"></i></div>
+                            <div class="contact-detail"><strong>LinkedIn</strong><span>E-Cell GCOE Kolhapur</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-scroll data-scroll-delay="0.15">
+                    <h3>Send us a message</h3>
+                    <div class="form-row">
+                        <div class="form-group"><label>First name</label><input type="text" placeholder="Aarav" /></div>
+                        <div class="form-group"><label>Last name</label><input type="text" placeholder="Kulkarni" />
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Email address</label><input type="email"
+                            placeholder="aarav@example.com" /></div>
+                    <div class="form-group"><label>I'm reaching out as a</label><select>
+                            <option>Student with an idea</option>
+                            <option>Mentor / Industry Expert</option>
+                            <option>Company / Sponsor</option>
+                            <option>Media / Press</option>
+                            <option>Other</option>
+                        </select></div>
+                    <div class="form-group"><label>Message</label><textarea
+                            placeholder="Tell us about yourself or your idea..."></textarea></div>
+                    <button class="btn-primary" style="width:100%;justify-content:center;" onclick="handleSubmit()"><i
+                            class="ri-send-plane-line"></i> Send Message</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer data-scroll-section>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom:4px;">
+                        <div class="logo-mark">EC</div><span class="logo-text">E-Cell <span>GCOE</span></span>
+                    </div>
+                    <p>Entrepreneurship Cell of Government College of Engineering, Kolhapur. Building the next wave of
+                        innovators from Maharashtra.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-linkedin-box-line"></i></a>
+                        <a href="#"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#"><i class="ri-youtube-line"></i></a>
+                        <a href="#"><i class="ri-whatsapp-line"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Navigate</h5>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#vision-mission">Vision &amp; Mission</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Programs</h5>
+                    <ul>
+                        <li><a href="#">NEC IIT Bombay</a></li>
+                        <li><a href="#">Hackathons</a></li>
+                        <li><a href="#">Pitch Competitions</a></li>
+                        <li><a href="#">Bootcamps</a></li>
+                        <li><a href="#">Networking Events</a></li>
+                        <li><a href="#">Mentorship Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#">Join as Member</a></li>
+                        <li><a href="#">Become a Mentor</a></li>
+                        <li><a href="#">Partner with Us</a></li>
+                        <li><a href="#">GCOE Official</a></li>
+                        <li><a href="#">CESSA GCOE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 E-Cell GCOE Kolhapur. Made with <i class="ri-heart-fill" style="color:var(--silver)"></i> by
+                    students, for students.</p>
+                <div class="nec-trophy"><i class="ri-trophy-line"></i> NEC IIT Bombay — 2× Second Runner-up</div>
+            </div>
+        </footer>
+
+    </div><!-- /scroll-container -->
 
     <!-- THREE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <!-- Locomotive Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
     <!-- BACKGROUND PARTICLES -->
     <script>
@@ -1965,12 +1993,9 @@
             const R = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
             R.setPixelRatio(Math.min(devicePixelRatio, 2));
             R.setSize(innerWidth, innerHeight);
-
             const scene = new THREE.Scene();
             const cam = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 100);
             cam.position.z = 6;
-
-            // Particles — pure white/grey
             const N = 400, pos = new Float32Array(N * 3);
             for (let i = 0; i < N; i++) {
                 pos[i * 3] = (Math.random() - .5) * 22;
@@ -1981,330 +2006,206 @@
             pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
             const pm = new THREE.PointsMaterial({ color: 0x444444, size: 0.022, transparent: true, opacity: 0.6 });
             scene.add(new THREE.Points(pg, pm));
-
-            // Subtle grid
             const grid = new THREE.GridHelper(50, 50, 0x1e1e1e, 0x141414);
-            grid.material.transparent = true;
-            grid.material.opacity = 0.5;
-            grid.position.y = -6;
+            grid.material.transparent = true; grid.material.opacity = 0.5; grid.position.y = -6;
             scene.add(grid);
-
-            // Moving cross-lines
-            const lineMat = new THREE.LineBasicMaterial({ color: 0x222222, transparent: true, opacity: 0.4 });
-            for (let i = 0; i < 5; i++) {
-                const geo = new THREE.BufferGeometry().setFromPoints([
-                    new THREE.Vector3(-14, (Math.random() - .5) * 8, -5),
-                    new THREE.Vector3(14, (Math.random() - .5) * 8, -5),
-                ]);
-                scene.add(new THREE.Line(geo, lineMat));
-            }
-
-            window.addEventListener('resize', () => {
-                R.setSize(innerWidth, innerHeight);
-                cam.aspect = innerWidth / innerHeight;
-                cam.updateProjectionMatrix();
-            });
-
+            window.addEventListener('resize', () => { R.setSize(innerWidth, innerHeight); cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); });
             const clk = new THREE.Clock();
-            (function loop() {
-                requestAnimationFrame(loop);
-                const t = clk.getElapsedTime();
-                scene.children[1].rotation.y = t * 0.008;
-                R.render(scene, cam);
-            })();
+            (function loop() { requestAnimationFrame(loop); scene.children[1].rotation.y = clk.getElapsedTime() * 0.008; R.render(scene, cam); })();
         })();
     </script>
 
-    <!-- METALLIC B&W CUBE -->
+    <!-- METALLIC CUBE -->
     <script>
         (function () {
             function init() {
                 const wrapper = document.getElementById('cubeWrapper');
                 const canvas = document.getElementById('cube-canvas');
-                const W = wrapper.offsetWidth || 500;
-                const H = wrapper.offsetHeight || 500;
-
+                const W = wrapper.offsetWidth || 500, H = wrapper.offsetHeight || 500;
                 const R = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
                 R.setPixelRatio(Math.min(devicePixelRatio, 2));
                 R.setSize(W, H);
                 R.toneMapping = THREE.ACESFilmicToneMapping;
                 R.toneMappingExposure = 1.4;
-
                 const scene = new THREE.Scene();
                 const cam = new THREE.PerspectiveCamera(36, W / H, 0.1, 100);
-                cam.position.set(0, 0.5, 5.8);
-                cam.lookAt(0, 0, 0);
-
-                // ── CHROME LIGHTING SETUP ──
+                cam.position.set(0, 0.5, 5.8); cam.lookAt(0, 0, 0);
                 scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+                const key = new THREE.DirectionalLight(0xffffff, 5.0); key.position.set(5, 8, 6); scene.add(key);
+                const fill = new THREE.DirectionalLight(0xeeeeee, 2.0); fill.position.set(-6, -3, 4); scene.add(fill);
+                const rim = new THREE.DirectionalLight(0xffffff, 2.5); rim.position.set(2, -6, -5); scene.add(rim);
+                const pt1 = new THREE.PointLight(0xffffff, 6, 12); pt1.position.set(3, 3, 3); scene.add(pt1);
+                const pt2 = new THREE.PointLight(0xe0e0e0, 3, 10); pt2.position.set(-4, 1, 2); scene.add(pt2);
 
-                // Key: very bright white
-                const key = new THREE.DirectionalLight(0xffffff, 5.0);
-                key.position.set(5, 8, 6);
-                scene.add(key);
-
-                // Fill: soft white from opposite
-                const fill = new THREE.DirectionalLight(0xeeeeee, 2.0);
-                fill.position.set(-6, -3, 4);
-                scene.add(fill);
-
-                // Rim: cold white
-                const rim = new THREE.DirectionalLight(0xffffff, 2.5);
-                rim.position.set(2, -6, -5);
-                scene.add(rim);
-
-                // Dynamic point — creates that chrome "moving reflection" feel
-                const pt1 = new THREE.PointLight(0xffffff, 6, 12);
-                pt1.position.set(3, 3, 3);
-                scene.add(pt1);
-
-                const pt2 = new THREE.PointLight(0xe0e0e0, 3, 10);
-                pt2.position.set(-4, 1, 2);
-                scene.add(pt2);
-
-                // ── FACE TEXTURE BUILDER ──
                 function makeFace(cfg) {
-                    const SZ = 512;
-                    const c = document.createElement('canvas');
+                    const SZ = 512, c = document.createElement('canvas');
                     c.width = c.height = SZ;
                     const ctx = c.getContext('2d');
-
-                    // Rich black base with subtle gradient
                     const bg = ctx.createLinearGradient(0, 0, SZ, SZ);
                     bg.addColorStop(0, cfg.bgDark || '#0a0a0a');
                     bg.addColorStop(1, cfg.bgLight || '#161616');
-                    ctx.fillStyle = bg;
-                    ctx.fillRect(0, 0, SZ, SZ);
-
-                    // Sheen overlay
+                    ctx.fillStyle = bg; ctx.fillRect(0, 0, SZ, SZ);
                     const sheen = ctx.createRadialGradient(SZ * .35, SZ * .3, 0, SZ * .35, SZ * .3, SZ * .9);
                     sheen.addColorStop(0, 'rgba(255,255,255,0.06)');
                     sheen.addColorStop(0.5, 'rgba(255,255,255,0.02)');
                     sheen.addColorStop(1, 'rgba(0,0,0,0)');
-                    ctx.fillStyle = sheen;
-                    ctx.fillRect(0, 0, SZ, SZ);
-
-                    // Outer border — bright white line
-                    ctx.strokeStyle = 'rgba(255,255,255,0.9)';
-                    ctx.lineWidth = 6;
-                    ctx.strokeRect(3, 3, SZ - 6, SZ - 6);
-
-                    // Inner thin border
-                    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
-                    ctx.lineWidth = 1.5;
-                    ctx.strokeRect(18, 18, SZ - 36, SZ - 36);
-
-                    // Micro corner marks
+                    ctx.fillStyle = sheen; ctx.fillRect(0, 0, SZ, SZ);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.lineWidth = 6; ctx.strokeRect(3, 3, SZ - 6, SZ - 6);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1.5; ctx.strokeRect(18, 18, SZ - 36, SZ - 36);
                     const cm = 36;
                     [[24, 24], [SZ - 24, 24], [24, SZ - 24], [SZ - 24, SZ - 24]].forEach(([cx, cy], i) => {
                         const sx = i < 2 ? 1 : -1, sy = i % 2 === 0 ? 1 : -1;
-                        ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 3;
                         ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + sx * cm, cy); ctx.stroke();
                         ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx, cy + sy * cm); ctx.stroke();
                     });
-
-                    // Draw text lines
                     (cfg.lines || []).forEach(ln => {
                         ctx.save();
-                        if (ln.shadow) {
-                            ctx.shadowColor = ln.shadowColor || 'rgba(255,255,255,0.6)';
-                            ctx.shadowBlur = ln.shadowBlur || 24;
-                        }
+                        if (ln.shadow) { ctx.shadowColor = ln.shadowColor || 'rgba(255,255,255,0.6)'; ctx.shadowBlur = ln.shadowBlur || 24; }
                         ctx.font = ln.font || 'bold 72px "Space Grotesk",Arial,sans-serif';
-                        ctx.fillStyle = ln.color || '#ffffff';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(ln.text, SZ / 2, ln.y);
-                        ctx.restore();
+                        ctx.fillStyle = ln.color || '#ffffff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                        ctx.fillText(ln.text, SZ / 2, ln.y); ctx.restore();
                     });
-
-                    // Optional icon
-                    if (cfg.icon) {
-                        ctx.font = '88px serif';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(cfg.icon, SZ / 2, cfg.iconY || 140);
-                    }
-
                     return new THREE.CanvasTexture(c);
                 }
 
-                // ── SIX FACES ──
                 const texFront = makeFace({
-                    bgDark: '#050505', bgLight: '#131313',
-                    lines: [
+                    bgDark: '#050505', bgLight: '#131313', lines: [
                         { text: 'E-CELL', font: '700 100px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 178, shadow: true, shadowBlur: 32 },
                         { text: 'GCOEK', font: '700 84px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.75)', y: 288, shadow: true, shadowColor: 'rgba(255,255,255,0.4)', shadowBlur: 16 },
                         { text: 'EST. 2019', font: '400 30px "Space Mono",monospace', color: 'rgba(255,255,255,0.35)', y: 390 },
                     ]
                 });
-
                 const texBack = makeFace({
-                    bgDark: '#060606', bgLight: '#141414',
-                    icon: '🏆', iconY: 155,
-                    lines: [
-                        { text: 'NEC', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 298, shadow: true, shadowBlur: 28 },
-                        { text: 'IIT BOMBAY', font: '500 38px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.6)', y: 382 },
+                    bgDark: '#060606', bgLight: '#141414', lines: [
+                        { text: 'NEC', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 220, shadow: true, shadowBlur: 28 },
+                        { text: 'IIT BOMBAY', font: '500 38px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.6)', y: 310 },
+                        { text: '2x RUNNER-UP', font: '500 28px "Space Mono",monospace', color: 'rgba(255,255,255,0.4)', y: 385 },
                     ]
                 });
-
                 const texTop = makeFace({
-                    bgDark: '#040404', bgLight: '#111111',
-                    lines: [
+                    bgDark: '#040404', bgLight: '#111111', lines: [
                         { text: 'INNOVATE', font: '700 68px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 182, shadow: true, shadowBlur: 22 },
                         { text: '&', font: '700 86px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.4)', y: 280 },
                         { text: 'BUILD', font: '700 68px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 378, shadow: true, shadowBlur: 22 },
                     ]
                 });
-
                 const texBottom = makeFace({
-                    bgDark: '#060606', bgLight: '#121212',
-                    lines: [
-                        { text: '2×', font: '700 136px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 210, shadow: true, shadowBlur: 36 },
+                    bgDark: '#060606', bgLight: '#121212', lines: [
+                        { text: '2x', font: '700 136px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 210, shadow: true, shadowBlur: 36 },
                         { text: 'RUNNER-UP', font: '600 46px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.7)', y: 340 },
                     ]
                 });
-
                 const texRight = makeFace({
-                    bgDark: '#050505', bgLight: '#131313',
-                    icon: '🚀', iconY: 150,
-                    lines: [
-                        { text: 'IDEAS', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 295, shadow: true, shadowBlur: 24 },
-                        { text: 'TAKE OFF', font: '500 52px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.55)', y: 385 },
+                    bgDark: '#050505', bgLight: '#131313', lines: [
+                        { text: 'IDEAS', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 220, shadow: true, shadowBlur: 24 },
+                        { text: 'TAKE OFF', font: '500 52px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.55)', y: 320 },
+                        { text: 'GCOE 2025', font: '400 28px "Space Mono",monospace', color: 'rgba(255,255,255,0.3)', y: 400 },
                     ]
                 });
-
                 const texLeft = makeFace({
-                    bgDark: '#040404', bgLight: '#111111',
-                    lines: [
+                    bgDark: '#040404', bgLight: '#111111', lines: [
                         { text: 'GCOE', font: '700 84px "Space Grotesk",Arial,sans-serif', color: '#ffffff', y: 210, shadow: true, shadowBlur: 26 },
                         { text: 'KOLHAPUR', font: '600 48px "Space Grotesk",Arial,sans-serif', color: 'rgba(255,255,255,0.65)', y: 316 },
-                        { text: '🎓', font: '64px serif', color: 'rgba(255,255,255,0.8)', y: 416 },
+                        { text: 'MAHARASHTRA', font: '400 26px "Space Mono",monospace', color: 'rgba(255,255,255,0.3)', y: 400 },
                     ]
                 });
 
-                // ── PURE CHROME MATERIAL ──
                 function chromeMat(tex) {
-                    return new THREE.MeshStandardMaterial({
-                        map: tex,
-                        metalness: 0.98,    // near-perfect metal
-                        roughness: 0.03,    // mirror-like
-                        envMapIntensity: 1.2,
-                    });
+                    return new THREE.MeshStandardMaterial({ map: tex, metalness: 0.98, roughness: 0.03, envMapIntensity: 1.2 });
                 }
-
-                // BoxGeometry face order: +X, -X, +Y, -Y, +Z, -Z
-                const mats = [
-                    chromeMat(texRight),
-                    chromeMat(texLeft),
-                    chromeMat(texTop),
-                    chromeMat(texBottom),
-                    chromeMat(texFront),  // faces camera
-                    chromeMat(texBack),
-                ];
-
+                const mats = [chromeMat(texRight), chromeMat(texLeft), chromeMat(texTop), chromeMat(texBottom), chromeMat(texFront), chromeMat(texBack)];
                 const geo = new THREE.BoxGeometry(2.4, 2.4, 2.4);
-                const cube = new THREE.Mesh(geo, mats);
-                scene.add(cube);
-
-                // Bright white edge lines
+                const cube = new THREE.Mesh(geo, mats); scene.add(cube);
                 const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95 });
                 cube.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat));
-
-                // Orbiting light orbs (white/silver) — they create dynamic reflections on chrome
                 const orbs = [];
                 for (let i = 0; i < 14; i++) {
                     const m = new THREE.Mesh(
                         new THREE.SphereGeometry(0.015 + Math.random() * 0.02, 8, 8),
                         new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? 0xffffff : 0xaaaaaa, transparent: true, opacity: 0.85 })
                     );
-                    const angle = (i / 14) * Math.PI * 2;
-                    const r = 1.9 + Math.random() * 0.8;
+                    const angle = (i / 14) * Math.PI * 2, r = 1.9 + Math.random() * 0.8;
                     m.userData = { angle, speed: 0.18 + Math.random() * 0.38, r, yo: (Math.random() - .5) * 1.5 };
                     scene.add(m); orbs.push(m);
                 }
-
-                // Reflection ring — thin white torus behind cube for depth
                 const ring = new THREE.Mesh(
                     new THREE.TorusGeometry(2.6, 0.008, 8, 80),
                     new THREE.MeshBasicMaterial({ color: 0x333333, transparent: true, opacity: 0.5 })
                 );
-                ring.rotation.x = Math.PI * 0.3;
-                scene.add(ring);
-
-                // Mouse tracking
+                ring.rotation.x = Math.PI * 0.3; scene.add(ring);
                 const mouse = { x: 0, y: 0 };
-                window.addEventListener('mousemove', e => {
-                    mouse.x = (e.clientX / innerWidth - .5) * 2;
-                    mouse.y = (e.clientY / innerHeight - .5) * 2;
-                });
-
-                window.addEventListener('resize', () => {
-                    const nW = wrapper.offsetWidth, nH = wrapper.offsetHeight;
-                    R.setSize(nW, nH);
-                    cam.aspect = nW / nH;
-                    cam.updateProjectionMatrix();
-                });
-
+                window.addEventListener('mousemove', e => { mouse.x = (e.clientX / innerWidth - .5) * 2; mouse.y = (e.clientY / innerHeight - .5) * 2; });
+                window.addEventListener('resize', () => { const nW = wrapper.offsetWidth, nH = wrapper.offsetHeight; R.setSize(nW, nH); cam.aspect = nW / nH; cam.updateProjectionMatrix(); });
                 const clk = new THREE.Clock();
                 (function loop() {
                     requestAnimationFrame(loop);
                     const t = clk.getElapsedTime();
-
-                    // Smooth rotate + mouse tilt
                     cube.rotation.y = t * 0.38 + mouse.x * 0.3;
                     cube.rotation.x = Math.sin(t * 0.22) * 0.22 + mouse.y * 0.14;
-
-                    // Animate key point light in circle — creates shifting specular on chrome
                     pt1.position.set(Math.sin(t * 0.9) * 4, Math.cos(t * 0.55) * 3, 3);
                     pt2.position.set(Math.cos(t * 0.7) * 3.5, Math.sin(t * 0.4) * 2, 2);
-
-                    // Ring pulse
-                    ring.rotation.z = t * 0.05;
-                    ring.rotation.y = t * 0.02;
-
-                    // Orbs
+                    ring.rotation.z = t * 0.05; ring.rotation.y = t * 0.02;
                     orbs.forEach(o => {
                         o.userData.angle += o.userData.speed * 0.016;
                         const a = o.userData.angle;
-                        o.position.set(
-                            Math.cos(a) * o.userData.r,
-                            o.userData.yo + Math.sin(t * 0.6 + a) * 0.3,
-                            Math.sin(a) * o.userData.r
-                        );
+                        o.position.set(Math.cos(a) * o.userData.r, o.userData.yo + Math.sin(t * 0.6 + a) * 0.3, Math.sin(a) * o.userData.r);
                     });
-
                     R.render(scene, cam);
                 })();
             }
-
-            if (document.readyState === 'complete') init();
-            else window.addEventListener('load', init);
+            if (document.readyState === 'complete') init(); else window.addEventListener('load', init);
         })();
     </script>
 
-    <!-- NAV BEHAVIOR -->
+    <!-- NAV + LOCOMOTIVE SCROLL -->
     <script>
+        // ── Locomotive Scroll init ──
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector('#scroll-container'),
+            smooth: true,
+            multiplier: 0.9,
+            lerp: 0.07,
+            smartphone: { smooth: false },
+            tablet: { smooth: false }
+        });
+
+        // Nav active + scrolled state via locomotive
+        locoScroll.on('scroll', ({ scroll }) => {
+            document.getElementById('navbar').classList.toggle('scrolled', scroll.y > 60);
+        });
+
+        // Anchor links — delegate to locomotive
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    locoScroll.scrollTo(target);
+                }
+            });
+        });
+
+        // ── Nav hamburger ──
         const navbar = document.getElementById('navbar');
         const navLinks = document.getElementById('navLinks');
         const hamburger = document.getElementById('hamburgerBtn');
 
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', scrollY > 60);
-        });
         hamburger.addEventListener('click', () => {
             const open = navLinks.classList.toggle('open');
             hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>';
+            // Pause/resume locomotive when menu open to avoid conflicts
+            open ? locoScroll.stop() : locoScroll.start();
         });
         navLinks.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 navLinks.classList.remove('open');
                 hamburger.innerHTML = '<i class="ri-menu-3-line"></i>';
+                locoScroll.start();
             });
         });
 
-        // Active nav
+        // Active nav highlight via IntersectionObserver (fallback works alongside loco)
         const secs = document.querySelectorAll('section[id]');
         secs.forEach(s => {
             new IntersectionObserver(entries => {
@@ -2317,18 +2218,12 @@
             }, { threshold: 0.3 }).observe(s);
         });
 
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const revealObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-            });
-        }, { threshold: 0.12 });
-        reveals.forEach(r => revealObs.observe(r));
-
         function handleSubmit() {
-            alert("Thank you for reaching out! We'll get back to you shortly. 🚀");
+            alert("Thank you for reaching out! We'll get back to you shortly.");
         }
+
+        // Refresh locomotive after fonts load
+        window.addEventListener('load', () => { locoScroll.update(); });
     </script>
 
 </body>
