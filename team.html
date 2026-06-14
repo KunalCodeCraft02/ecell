@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Team | E-Cell GCOE Kolhapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #080808;
+      --bg2:     #0f0f0f;
+      --bg3:     #161616;
+      --white:   #f5f5f5;
+      --white2:  #d0d0d0;
+      --muted:   #888;
+      --muted2:  #555;
+      --border:  rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.14);
+      --silver:  #c8c8c8;
+      --radius:  8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #scroll-container { overflow: hidden; }
+
+    ::selection { background: rgba(255,255,255,0.15); }
+    ::-webkit-scrollbar { width: 2px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 5%; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,8,8,0.55);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    nav.scrolled { background: rgba(8,8,8,0.96); border-bottom-color: rgba(255,255,255,0.1); }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark {
+      width: 32px; height: 32px; background: var(--white); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: 12px; color: #000; letter-spacing: -0.5px;
+    }
+    .logo-text { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--white); letter-spacing: -0.3px; }
+    .logo-text span { color: var(--muted); }
+
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 13px; font-weight: 400; letter-spacing: 0.1px;
+      padding: 6px 13px; border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      background: var(--white) !important; color: #000 !important;
+      font-weight: 600 !important; font-size: 12.5px !important;
+      padding: 7px 18px !important; border-radius: 6px !important; letter-spacing: 0.2px;
+    }
+    .nav-cta:hover { background: var(--white2) !important; }
+
+    .nav-hamburger { display: none; cursor: pointer; color: var(--white); font-size: 22px; background: none; border: none; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative;
+      padding: 160px 5% 80px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Subtle noise background */
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 160px; opacity: 0.025;
+    }
+
+    /* Radial glow */
+    .page-hero::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 20% 60%, rgba(255,255,255,0.025) 0%, transparent 65%);
+    }
+
+    .page-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+    }
+
+    .page-hero-label {
+      font-family: var(--font-mono); font-size: 10px; color: var(--muted);
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .page-hero-label::before { content: ''; width: 20px; height: 1px; background: var(--muted2); }
+
+    .page-hero-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1.02; letter-spacing: -3px; color: var(--white);
+    }
+    .page-hero-title .hollow {
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
+      color: transparent;
+    }
+
+    .page-hero-meta {
+      display: flex; flex-direction: column; gap: 8px; padding-bottom: 6px;
+    }
+    .page-hero-stat {
+      font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 1px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .page-hero-stat i { color: var(--silver); font-size: 13px; }
+    .page-hero-stat strong { color: var(--white2); font-weight: 500; }
+
+    /* Scrolling line below hero */
+    .hero-line {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    }
+
+    /* ── TEAM SECTION ── */
+    #team {
+      padding: 80px 5% 100px;
+      background: var(--bg);
+    }
+
+    /* Department group label */
+    .dept-label {
+      font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 3px; color: var(--muted2);
+      margin-bottom: 24px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+      max-width: 1100px; margin-left: auto; margin-right: auto;
+    }
+    .dept-label i { color: var(--silver); font-size: 13px; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+    }
+
+    .team-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; transition: all 0.35s; position: relative;
+    }
+    .team-card:hover { border-color: var(--border2); transform: translateY(-6px); box-shadow: 0 28px 64px rgba(0,0,0,0.55); }
+
+    .team-photo { width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--bg3); }
+    .team-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      display: block; transition: transform 0.45s ease; filter: grayscale(15%);
+    }
+    .team-card:hover .team-photo img { transform: scale(1.05); filter: grayscale(0%); }
+
+    .team-photo::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+      background: linear-gradient(to top, rgba(12,12,12,0.97) 0%, rgba(12,12,12,0.55) 45%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .team-info { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 22px 18px 18px; }
+
+    .team-name {
+      font-family: var(--font-display); font-weight: 700; font-size: 15px;
+      color: var(--white); margin-bottom: 3px; letter-spacing: -0.2px;
+    }
+    .team-role {
+      font-size: 10px; color: var(--silver);
+      font-family: var(--font-mono); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 11px;
+    }
+    .team-socials { display: flex; gap: 6px; }
+    .team-socials a {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      color: var(--white2); font-size: 13px; transition: all 0.2s; text-decoration: none;
+    }
+    .team-socials a:hover { background: rgba(255,255,255,0.2); color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg); border-top: 1px solid var(--border); padding: 60px 5% 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px;
+    }
+    .footer-brand p { font-size: 13px; color: var(--muted); line-height: 1.8; margin-top: 12px; margin-bottom: 20px; font-weight: 300; }
+    .footer-socials { display: flex; gap: 6px; }
+    .footer-socials a {
+      width: 32px; height: 32px; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 14px; text-decoration: none; transition: all 0.2s;
+    }
+    .footer-socials a:hover { color: var(--white); border-color: var(--border2); }
+    .footer-col h5 { font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { text-decoration: none; color: var(--muted); font-size: 13.5px; transition: color 0.2s; font-weight: 300; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 12px; color: var(--muted2); font-family: var(--font-mono); }
+    .nec-trophy { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--silver); background: rgba(255,255,255,0.04); border: 1px solid var(--border2); border-radius: 5px; padding: 5px 12px; }
+
+    /* ── SCROLL REVEAL ── */
+    [data-scroll] { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    [data-scroll].is-inview { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .page-hero-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 860px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+    @media (max-width: 640px) {
+      .nav-hamburger { display: block; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 64px; left: 0; right: 0;
+        background: rgba(8,8,8,0.99); padding: 28px 6% 36px;
+        border-bottom: 1px solid var(--border2); gap: 0;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      }
+      .nav-links.open li { border-bottom: 1px solid var(--border); }
+      .nav-links.open a {
+        font-size: 17px !important; font-weight: 500 !important;
+        color: var(--white2) !important; padding: 16px 4px !important;
+        display: block; border-radius: 0 !important; background: transparent !important;
+      }
+      .nav-links.open a:hover { color: var(--white) !important; }
+      .nav-links.open .nav-cta {
+        margin-top: 16px !important; background: var(--white) !important; color: #000 !important;
+        text-align: center !important; border-radius: 8px !important;
+        padding: 15px 4px !important; font-size: 15px !important; font-weight: 700 !important;
+      }
+      .footer-top { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .page-hero { padding: 130px 5% 56px; }
+      .page-hero-title { font-size: 2.4rem; letter-spacing: -2px; }
+    }
+    @media (max-width: 480px) {
+      .team-name { font-size: 13px; }
+      .team-role { font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-container" data-scroll-container>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="./index.html" class="nav-logo">
+      <div class="logo-mark">EC</div>
+      <span class="logo-text">E-Cell <span>GCOE</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./index.html#about">About</a></li>
+      <li><a href="./index.html#vision-mission">Vision</a></li>
+      <li><a href="./index.html#events">Events</a></li>
+      <li><a href="./index.html#gallery">Gallery</a></li>
+      <li><a href="./team.html" class="active">Team</a></li>
+      <li><a href="./index.html#contact" class="nav-cta">Join Us</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburgerBtn"><i class="ri-menu-3-line"></i></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" data-scroll-section>
+    <div class="page-hero-inner">
+      <div>
+        <div class="page-hero-label">The People</div>
+        <h1 class="page-hero-title">
+          Meet the<br><span class="hollow">Team</span>
+        </h1>
+      </div>
+      <div class="page-hero-meta">
+        <div class="page-hero-stat"><i class="ri-group-line"></i> <strong>6</strong> Core Members</div>
+        <div class="page-hero-stat"><i class="ri-map-pin-line"></i> GCOE Kolhapur, Maharashtra</div>
+        <div class="page-hero-stat"><i class="ri-trophy-line"></i> NEC IIT Bombay — 2× Runner-up</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-line"></div>
+
+  <!-- TEAM SECTION -->
+  <section id="team" data-scroll-section>
+
+    <!-- Leadership -->
+    <div class="dept-label" data-scroll><i class="ri-vip-crown-line"></i> Leadership</div>
+    <div class="team-grid" style="margin-bottom:56px;">
+
+      <div class="team-card" data-scroll data-scroll-delay="0.05">
+        <div class="team-photo">
+          <img src="./public/assets/raj.jpeg" alt="Raj" />
+          <div class="team-info">
+            <div class="team-name">Raj</div>
+            <div class="team-role">President</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-twitter-x-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card" data-scroll data-scroll-delay="0.1">
+        <div class="team-photo">
+          <img src="./public/assets/pruthvi.jpeg" alt="Pruthviraj" />
+          <div class="team-info">
+            <div class="team-name">Pruthviraj</div>
+            <div class="team-role">Vice President</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/ameya.jpeg" alt="Ameya" />
+          <div class="team-info">
+            <div class="team-name">Ameya</div>
+            <div class="team-role">Vice President</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Core Team -->
+    <div class="dept-label" data-scroll><i class="ri-settings-3-line"></i> Core Team</div>
+    <div class="team-grid">
+
+      <div class="team-card" data-scroll data-scroll-delay="0.05">
+        <div class="team-photo">
+          <img src="./public/assets/kunal.jpeg" alt="Kunal" />
+          <div class="team-info">
+            <div class="team-name">Kunal</div>
+            <div class="team-role">Head of Web &amp; Media</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-github-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card" data-scroll data-scroll-delay="0.1">
+        <div class="team-photo">
+          <img src="./public/assets/pratik.jpeg" alt="Pratik" />
+          <div class="team-info">
+            <div class="team-name">Pratik</div>
+            <div class="team-role">Head of Events &amp; PR</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <div class="team-info">
+            <div class="team-name">Prerna</div>
+            <div class="team-role">Member</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <div class="team-info">
+            <div class="team-name">Prerna</div>
+            <div class="team-role">Member</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <div class="team-info">
+            <div class="team-name">Prerna</div>
+            <div class="team-role">Member</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <div class="team-info">
+            <div class="team-name">Prerna</div>
+            <div class="team-role">Member</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <div class="team-info">
+            <div class="team-name">Prerna</div>
+            <div class="team-role">Member</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <div class="team-info">
+            <div class="team-name">Prerna</div>
+            <div class="team-role">Member</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-scroll-section>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:4px;">
+          <div class="logo-mark">EC</div>
+          <span class="logo-text">E-Cell <span>GCOE</span></span>
+        </div>
+        <p>Entrepreneurship Cell of Government College of Engineering, Kolhapur. Building the next wave of innovators from Maharashtra.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-linkedin-box-line"></i></a>
+          <a href="#"><i class="ri-twitter-x-line"></i></a>
+          <a href="#"><i class="ri-youtube-line"></i></a>
+          <a href="#"><i class="ri-whatsapp-line"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="./index.html#about">About</a></li>
+          <li><a href="./index.html#vision-mission">Vision &amp; Mission</a></li>
+          <li><a href="./index.html#events">Events</a></li>
+          <li><a href="./index.html#gallery">Gallery</a></li>
+          <li><a href="./team.html">Team</a></li>
+          <li><a href="./index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#">NEC IIT Bombay</a></li>
+          <li><a href="#">Hackathons</a></li>
+          <li><a href="#">Pitch Competitions</a></li>
+          <li><a href="#">Bootcamps</a></li>
+          <li><a href="#">Networking Events</a></li>
+          <li><a href="#">Mentorship Program</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="#">Join as Member</a></li>
+          <li><a href="#">Become a Mentor</a></li>
+          <li><a href="#">Partner with Us</a></li>
+          <li><a href="#">GCOE Official</a></li>
+          <li><a href="#">CESSA GCOE</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 E-Cell GCOE Kolhapur. Made with <i class="ri-heart-fill" style="color:var(--silver)"></i> by students, for students.</p>
+      <div class="nec-trophy"><i class="ri-trophy-line"></i> NEC IIT Bombay — 2× Second Runner-up</div>
+    </div>
+  </footer>
+
+</div><!-- /scroll-container -->
+
+<!-- Locomotive Scroll -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+<script>
+  // ── Locomotive Scroll ──
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector('#scroll-container'),
+    smooth: true,
+    multiplier: 0.9,
+    lerp: 0.07,
+    smartphone: { smooth: false },
+    tablet:     { smooth: false }
+  });
+
+  locoScroll.on('scroll', ({ scroll }) => {
+    document.getElementById('navbar').classList.toggle('scrolled', scroll.y > 60);
+  });
+
+  // Anchor links on this page
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); locoScroll.scrollTo(target); }
+    });
+  });
+
+  // ── Hamburger ──
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburgerBtn');
+
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>';
+    open ? locoScroll.stop() : locoScroll.start();
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.innerHTML = '<i class="ri-menu-3-line"></i>';
+      locoScroll.start();
+    });
+  });
+
+  window.addEventListener('load', () => { locoScroll.update(); });
+</script>
+
+</body>
+</html>
