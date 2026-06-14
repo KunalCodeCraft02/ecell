@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #080808; color: #f5f5f5; font-family: 'Space Grotesk', sans-serif; padding: 40px 20px; }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 { font-size: 1.8rem; margin-bottom: 8px; }
+        .back { color: #888; text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: 32px; }
+        .back:hover { color: #f5f5f5; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+        input, textarea, select {
+            width: 100%; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px; padding: 11px 13px; color: #f5f5f5;
+            font-family: 'Space Grotesk', sans-serif; font-size: 14px; outline: none;
+        }
+        input:focus, textarea:focus, select:focus { border-color: rgba(255,255,255,0.2); }
+        textarea { min-height: 120px; resize: vertical; }
+        select option { background: #0f0f0f; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .btn { background: #f5f5f5; color: #000; border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn:hover { background: #d0d0d0; }
+        .error { color: #ff6b6b; font-size: 13px; margin-top: 4px; }
+        .current-image { margin-top: 8px; font-size: 13px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/admin/events" class="back">← Back to Events</a>
+        <h1>Edit Event</h1>
+        <br>
+
+        <% if (errors && errors.length > 0) { %>
+            <% errors.forEach(function(e) { %><p class="error"><%= e %></p><% }); %>
+            <br>
+        <% } %>
+
+        <form action="/admin/events/<%= event._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="_method" value="PUT">
+
+            <div class="form-group">
+                <label>Event Title</label>
+                <input type="text" name="title" value="<%= event.title %>" required>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" required><%= event.description %></textarea>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" name="date" value="<%= event.eventDate ? new Date(event.eventDate).toISOString().split('T')[0] : '' %>">
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" name="time" value="<%= event.time || '' %>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Venue</label>
+                <input type="text" name="venue" value="<%= event.venue || '' %>">
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Fee (₹)</label>
+                    <input type="number" name="fee" min="0" value="<%= event.fee || 0 %>">
+                </div>
+                <div class="form-group">
+                    <label>Max Participants</label>
+                    <input type="number" name="maxParticipants" min="0" value="<%= event.maxParticipants || 0 %>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+                <select name="status">
+                    <option value="upcoming" <%= event.status === 'upcoming' ? 'selected' : '' %>>Upcoming</option>
+                    <option value="live"     <%= event.status === 'live'     ? 'selected' : '' %>>Live</option>
+                    <option value="completed"<%= event.status === 'completed'? 'selected' : '' %>>Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Event Image</label>
+                <input type="file" name="image" accept="image/*">
+                <% if (event.image) { %>
+                    <p class="current-image">Current: <%= event.image %></p>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label>Registration Form Fields (Hold Ctrl to select multiple)</label>
+                <select name="formFields" multiple size="5">
+                    <option value="name" <%= (!formConfig || formConfig.fields?.includes('name')) ? 'selected' : '' %>>Name *</option>
+                    <option value="email" <%= (!formConfig || formConfig.fields?.includes('email')) ? 'selected' : '' %>>Email *</option>
+                    <option value="phone" <%= (!formConfig || formConfig.fields?.includes('phone')) ? 'selected' : '' %>>Phone *</option>
+                    <option value="college" <%= formConfig?.fields?.includes('college') ? 'selected' : '' %>>College</option>
+                    <option value="branch" <%= formConfig?.fields?.includes('branch') ? 'selected' : '' %>>Branch</option>
+                    <option value="year" <%= formConfig?.fields?.includes('year') ? 'selected' : '' %>>Year</option>
+                    <option value="prn" <%= formConfig?.fields?.includes('prn') ? 'selected' : '' %>>PRN</option>
+                    <option value="department" <%= formConfig?.fields?.includes('department') ? 'selected' : '' %>>Department</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
