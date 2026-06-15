@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery · E-Cell GCOE Kolhapur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #080808;
+            --bg2: #0f0f0f;
+            --bg3: #161616;
+            --white: #f5f5f5;
+            --white2: #d0d0d0;
+            --muted: #888;
+            --muted2: #555;
+            --border: rgba(255, 255, 255, 0.07);
+            --border2: rgba(255, 255, 255, 0.14);
+            --silver: #c8c8c8;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: var(--font-body);
+            overflow-x: hidden
+        }
+
+        ::selection {
+            background: rgba(255, 255, 255, 0.15)
+        }
+
+        ::-webkit-scrollbar {
+            width: 2px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 2px
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 12px;
+            color: #000;
+            letter-spacing: -0.5px
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--white);
+            letter-spacing: -0.3px
+        }
+
+        .logo-text span {
+            color: var(--muted)
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13px;
+            padding: 6px 13px;
+            border-radius: 6px;
+            transition: all .2s
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05)
+        }
+
+        .nav-cta {
+            background: var(--white) !important;
+            color: #000 !important;
+            font-weight: 600 !important;
+            font-size: 12.5px !important;
+            padding: 7px 18px !important;
+            border-radius: 6px !important
+        }
+
+        .nav-cta:hover {
+            background: var(--white2) !important
+        }
+
+        .nav-hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 22px;
+            background: none;
+            border: none
+        }
+
+        #gallery {
+            padding: 110px 5% 100px;
+            max-width: 1300px;
+            margin: 0 auto
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--muted2)
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 10px;
+            color: var(--white)
+        }
+
+        .section-sub {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 480px;
+            margin-bottom: 48px
+        }
+
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 36px
+        }
+
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .2s;
+            white-space: nowrap
+        }
+
+        .filter-btn:hover {
+            border-color: var(--border2);
+            color: var(--white2);
+            background: rgba(255, 255, 255, 0.04)
+        }
+
+        .filter-btn.active {
+            background: var(--white);
+            color: #000;
+            border-color: var(--white);
+            font-weight: 700
+        }
+
+        .filter-btn i {
+            font-size: 12px
+        }
+
+        .filter-count {
+            margin-left: auto;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted2);
+            letter-spacing: 1px
+        }
+
+        .masonry {
+            columns: 3;
+            column-gap: 14px
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 14px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            background: var(--bg2);
+            transition: border-color .25s, transform .3s, box-shadow .3s
+        }
+
+        .masonry-item:hover {
+            border-color: var(--border2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8)
+        }
+
+        .masonry-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform .5s cubic-bezier(.22, 1, .36, 1), opacity .3s;
+            opacity: .85
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.04);
+            opacity: .97
+        }
+
+        .img-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--bg3);
+            color: var(--muted2)
+        }
+
+        .img-placeholder i {
+            font-size: 32px
+        }
+
+        .img-placeholder span {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase
+        }
+
+        /* Overlay — only shown when title/sub exist */
+        .item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .2) 50%, transparent 75%);
+            opacity: 0;
+            transition: opacity .3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 18px
+        }
+
+        .masonry-item:hover .item-overlay {
+            opacity: 1
+        }
+
+        .item-cat-tag {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 4px
+        }
+
+        .item-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: .9rem;
+            line-height: 1.25;
+            color: var(--white)
+        }
+
+        .item-sub {
+            font-size: 10px;
+            color: var(--white2);
+            margin-top: 3px;
+            font-family: var(--font-mono);
+            letter-spacing: .4px
+        }
+
+        /* Category chip — only rendered when cat is set */
+        .item-chip {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border2);
+            color: var(--white2)
+        }
+
+        .item-zoom {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--white2);
+            opacity: 0;
+            transition: opacity .25s
+        }
+
+        .masonry-item:hover .item-zoom {
+            opacity: 1
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .55s ease, transform .55s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            display: none
+        }
+
+        .empty-state i {
+            font-size: 44px;
+            color: var(--muted2);
+            margin-bottom: 14px;
+            display: block
+        }
+
+        .empty-state p {
+            color: var(--muted);
+            font-size: 13px;
+            font-family: var(--font-mono)
+        }
+
+        .lb-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            background: rgba(0, 0, 0, .96);
+            backdrop-filter: blur(16px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .lb-overlay.active {
+            opacity: 1;
+            pointer-events: all
+        }
+
+        .lb-box {
+            position: relative;
+            max-width: 92vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px
+        }
+
+        .lb-img-wrap {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border2);
+            max-height: 78vh;
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9)
+        }
+
+        .lb-img-wrap img {
+            display: block;
+            max-width: 88vw;
+            max-height: 78vh;
+            object-fit: contain
+        }
+
+        .lb-caption {
+            text-align: center;
+            max-width: 540px
+        }
+
+        .lb-caption-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -.3px
+        }
+
+        .lb-caption-sub {
+            font-size: 11px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            letter-spacing: .5px;
+            margin-top: 3px
+        }
+
+        .lb-close {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            z-index: 9001;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--white2);
+            font-size: 20px;
+            transition: all .2s
+        }
+
+        .lb-close:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: var(--white)
+        }
+
+        .lb-nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--white2);
+            font-size: 20px;
+            transition: all .2s;
+            z-index: 9001
+        }
+
+        .lb-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: var(--white)
+        }
+
+        #lbPrev {
+            left: 16px
+        }
+
+        #lbNext {
+            right: 16px
+        }
+
+        .lb-counter {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 2px;
+            z-index: 9001
+        }
+
+        @media(max-width:1024px) {
+            .masonry {
+                columns: 2
+            }
+        }
+
+        @media(max-width:640px) {
+            .nav-hamburger {
+                display: block
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(8, 8, 8, 0.99);
+                padding: 28px 6% 36px;
+                border-bottom: 1px solid var(--border2);
+                gap: 0;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8)
+            }
+
+            .nav-links.open li {
+                border-bottom: 1px solid var(--border)
+            }
+
+            .nav-links.open a {
+                font-size: 17px !important;
+                font-weight: 500 !important;
+                color: var(--white2) !important;
+                padding: 16px 4px !important;
+                display: block;
+                border-radius: 0 !important;
+                background: transparent !important
+            }
+
+            .nav-links.open .nav-cta {
+                margin-top: 16px !important;
+                background: var(--white) !important;
+                color: #000 !important;
+                text-align: center !important;
+                border-radius: 8px !important;
+                padding: 15px 4px !important;
+                font-size: 15px !important;
+                font-weight: 700 !important
+            }
+
+            .masonry {
+                columns: 1
+            }
+
+            .filter-bar {
+                gap: 5px
+            }
+
+            .lb-nav-btn {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="./index.html" class="nav-logo">
+            <!-- <div class="logo-mark">EC</div> -->
+            <span class="logo-text">E-Cell <span>GCOE</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./index.html#events">Events</a></li>
+            <li><a href="./gallery.html" class="active">Gallery</a></li>
+            <li><a href="./team.html">Team</a></li>
+            <li><a href="./upcomming.html">Upcoming</a></li>
+            <li><a href="./index.html#contact" class="nav-cta">Join Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburgerBtn"><i class="ri-menu-3-line"></i></button>
+    </nav>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery">
+        <div class="section-label">Visual Archive</div>
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-sub">Every frame is a milestone — events, achievements, and the people who made it happen.</p>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-cat="all"><i class="ri-layout-grid-line"></i> All</button>
+            <span class="filter-count" id="filterCount">18 photos</span>
+        </div>
+
+        <div class="masonry" id="masonryGrid"></div>
+        <div class="empty-state" id="emptyState">
+            <i class="ri-image-2-line"></i>
+            <p>No photos in this category yet.</p>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lb-overlay" id="lbOverlay">
+        <button class="lb-close" id="lbClose"><i class="ri-close-line"></i></button>
+        <button class="lb-nav-btn" id="lbPrev"><i class="ri-arrow-left-line"></i></button>
+        <button class="lb-nav-btn" id="lbNext"><i class="ri-arrow-right-line"></i></button>
+        <div class="lb-box">
+            <div class="lb-img-wrap"><img id="lbImg" src="" alt="" /></div>
+            <div class="lb-caption">
+                <div class="lb-caption-title" id="lbTitle"></div>
+                <div class="lb-caption-sub" id="lbSub"></div>
+            </div>
+        </div>
+        <div class="lb-counter" id="lbCounter"></div>
+    </div>
+
+    <script>
+        const photos = [
+            { src: "./public/assets/img18.jpeg", size: "tall" },
+            { src: "./public/assets/img17.jpeg", size: "wide" },
+            { src: "./public/assets/img16.jpeg", size: "wide" },
+            { src: "./public/assets/img15.jpeg", size: "tall" },
+            { src: "./public/assets/img14.jpeg", size: "wide" },
+            { src: "./public/assets/img13.jpeg", size: "wide" },
+            { src: "./public/assets/img12.jpeg", size: "tall" },
+            { src: "./public/assets/img11.jpeg", size: "wide" },
+            { src: "./public/assets/img10.jpeg", size: "wide" },
+            { src: "./public/assets/img9.jpeg", size: "tall" },
+            { src: "./public/assets/img8.jpeg", size: "wide" },
+            { src: "./public/assets/img7.jpeg", size: "wide" },
+            { src: "./public/assets/img6.jpeg", size: "wide" },
+            { src: "./public/assets/img5.jpeg", size: "wide" },
+            { src: "./public/assets/img4.jpeg", size: "tall" },
+            { src: "./public/assets/img3.jpeg", size: "wide" },
+            { src: "./public/assets/img2.jpeg", size: "tall" },
+            { src: "./public/assets/img1.jpeg", size: "tall" },
+        ];
+
+        const catLabel = {
+            achievements: "Achievement", workshops: "Workshop",
+            competitions: "Competition", recruitment: "Recruitment",
+            finance: "Finance", creative: "Creative"
+        };
+
+        let currentCat = "all", currentIndex = 0, filteredPhotos = [...photos];
+
+        function buildGrid(cat) {
+            const grid = document.getElementById("masonryGrid");
+            const empty = document.getElementById("emptyState");
+            filteredPhotos = cat === "all" ? [...photos] : photos.filter(p => p.cat === cat);
+            grid.innerHTML = "";
+            document.getElementById("filterCount").textContent = filteredPhotos.length + " photos";
+
+            if (!filteredPhotos.length) {
+                grid.style.display = "none"; empty.style.display = "block"; return;
+            }
+            grid.style.display = ""; empty.style.display = "none";
+
+            filteredPhotos.forEach((photo, idx) => {
+                const item = document.createElement("div");
+                item.className = "masonry-item reveal";
+
+                // Image or placeholder
+                const mediaHTML = photo.src
+                    ? `<img src="${photo.src}" alt="" loading="lazy" onerror="this.style.display='none'">`
+                    : `<div class="img-placeholder"><i class="ri-image-add-line"></i><span>Add image src</span></div>`;
+
+                // Only render chip when cat is defined
+                const chipHTML = photo.cat
+                    ? `<div class="item-chip">${catLabel[photo.cat] || photo.cat}</div>`
+                    : '';
+
+                // Only render overlay when title or sub is defined
+                const hasOverlay = photo.title || photo.sub;
+                const overlayHTML = hasOverlay
+                    ? `<div class="item-overlay">
+                        ${photo.cat ? `<div class="item-cat-tag">${catLabel[photo.cat] || photo.cat}</div>` : ''}
+                        ${photo.title ? `<div class="item-title">${photo.title}</div>` : ''}
+                        ${photo.sub ? `<div class="item-sub">${photo.sub}</div>` : ''}
+                       </div>`
+                    : '';
+
+                item.innerHTML = `
+                    ${mediaHTML}
+                    ${chipHTML}
+                    <div class="item-zoom"><i class="ri-zoom-in-line"></i></div>
+                    ${overlayHTML}`;
+
+                item.addEventListener("click", () => { if (photo.src) openLightbox(idx); });
+                grid.appendChild(item);
+                setTimeout(() => item.classList.add("in"), idx * 40);
+            });
+
+            setTimeout(observeReveal, 50);
+        }
+
+        // ── LIGHTBOX ──
+        const lbOverlay = document.getElementById("lbOverlay");
+
+        function openLightbox(idx) {
+            currentIndex = idx; showLbPhoto();
+            lbOverlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+        function showLbPhoto() {
+            const p = filteredPhotos[currentIndex];
+            document.getElementById("lbImg").src = p.src;
+            document.getElementById("lbImg").alt = p.title || '';
+            document.getElementById("lbTitle").textContent = p.title || '';
+            document.getElementById("lbSub").textContent = p.sub || '';
+            document.getElementById("lbCounter").textContent = (currentIndex + 1) + " / " + filteredPhotos.length;
+        }
+        function closeLightbox() {
+            lbOverlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+        document.getElementById("lbClose").onclick = closeLightbox;
+        document.getElementById("lbPrev").onclick = () => { currentIndex = (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length; showLbPhoto(); };
+        document.getElementById("lbNext").onclick = () => { currentIndex = (currentIndex + 1) % filteredPhotos.length; showLbPhoto(); };
+        lbOverlay.addEventListener("click", e => { if (e.target === lbOverlay) closeLightbox(); });
+        document.addEventListener("keydown", e => {
+            if (!lbOverlay.classList.contains("active")) return;
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") { currentIndex = (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length; showLbPhoto(); }
+            if (e.key === "ArrowRight") { currentIndex = (currentIndex + 1) % filteredPhotos.length; showLbPhoto(); }
+        });
+        let lbTouchX = null;
+        lbOverlay.addEventListener("touchstart", e => { lbTouchX = e.touches[0].clientX; });
+        lbOverlay.addEventListener("touchend", e => {
+            if (lbTouchX === null) return;
+            const dx = e.changedTouches[0].clientX - lbTouchX;
+            if (Math.abs(dx) > 50) { currentIndex = dx < 0 ? (currentIndex + 1) % filteredPhotos.length : (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length; showLbPhoto(); }
+            lbTouchX = null;
+        });
+
+        // ── SCROLL REVEAL ──
+        const revObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+        }, { threshold: 0.06 });
+        function observeReveal() { document.querySelectorAll(".reveal").forEach(el => revObs.observe(el)); }
+
+        // ── FILTERS ──
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                currentCat = btn.dataset.cat;
+                buildGrid(currentCat);
+            });
+        });
+
+        // ── NAV HAMBURGER ──
+        const navLinks = document.getElementById("navLinks");
+        const hamburger = document.getElementById("hamburgerBtn");
+        hamburger.addEventListener("click", () => {
+            const open = navLinks.classList.toggle("open");
+            hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>';
+        });
+        navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            hamburger.innerHTML = '<i class="ri-menu-3-line"></i>';
+        }));
+
+        // ── INIT ──
+        buildGrid("all");
+        observeReveal();
+    </script>
+</body>
+
+</html>

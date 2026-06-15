@@ -748,10 +748,37 @@
             flex-shrink: 0;
         }
 
+        /* ── EVENT THUMB IMAGE ── */
+        .event-thumb-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.82;
+            transition: opacity 0.3s, transform 0.4s;
+        }
+
+        .event-card:hover .event-thumb-img {
+            opacity: 0.95;
+            transform: scale(1.04);
+        }
+
+        /* Dark overlay on top of image for readability */
+        .event-thumb-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.55) 100%);
+            z-index: 1;
+        }
+
         .event-thumb-icon {
             font-size: 64px;
             color: rgba(255, 255, 255, 0.15);
             transition: transform 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
         }
 
         .event-card:hover .event-thumb-icon {
@@ -764,13 +791,15 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0%, transparent 60%);
+            z-index: 2;
+            pointer-events: none;
         }
 
         .event-tag {
             position: absolute;
             top: 12px;
             right: 12px;
-            z-index: 1;
+            z-index: 3;
             font-family: var(--font-mono);
             font-size: 9px;
             text-transform: uppercase;
@@ -973,7 +1002,6 @@
             flex-shrink: 0;
         }
 
-        /* ── FLAGSHIP SEE MORE BUTTON ── */
         .flagship-see-more {
             margin-top: 28px;
             padding-top: 20px;
@@ -1046,12 +1074,9 @@
             will-change: transform;
         }
 
-        /* ── WIDER, TALLER SLIDES ── */
         .slide {
             flex: 0 0 calc(50% - 8px);
-            /* 2 per row instead of 3 */
             height: 480px;
-            /* taller from 380px */
             position: relative;
             border-radius: 12px;
             overflow: hidden;
@@ -1068,6 +1093,13 @@
             align-items: center;
             justify-content: center;
             position: relative;
+        }
+
+        .slide-inner img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .slide-icon {
@@ -1207,24 +1239,39 @@
         }
 
         .panel-hero {
-            height: 240px;
+            height: 260px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            overflow: hidden;
         }
 
-        .panel-hero-icon {
-            font-size: 80px;
-            color: rgba(255, 255, 255, 0.12);
+        /* Panel hero image */
+        .panel-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.75;
         }
 
         .panel-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, transparent 40%, var(--bg2) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, var(--bg2) 100%);
+            z-index: 1;
+        }
+
+        .panel-hero-icon {
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.12);
+            position: relative;
+            z-index: 2;
         }
 
         .panel-close {
@@ -1964,13 +2011,13 @@
         <!-- NAV -->
         <nav id="navbar">
             <a href="#hero" class="nav-logo">
-                <div class="logo-mark">EC</div>
+                <!-- <div class="logo-mark">EC</div> -->
                 <span class="logo-text">E-Cell <span>GCOE</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="./gallery.html">Gallery</a></li>
                 <li><a href="./team.html">Team</a></li>
                 <li><a href="./upcomming.html">Upcoming</a></li>
                 <li><a href="#contact" class="nav-cta">Join Us</a></li>
@@ -2142,6 +2189,92 @@
             </div>
         </section>
 
+        <!-- GALLERY SLIDER -->
+        <section id="gallery" data-scroll-section>
+            <div class="section-header" data-scroll>
+                <div class="section-label">Moments</div>
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="section-sub">Snapshots from events, competitions, and the journey that made us.</p>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide" style="background:linear-gradient(135deg,#111,#1d1d1d);">
+                        <div class="slide-inner"><img src="./public/assets/iitwin.jpeg" alt=""></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">NEC IIT Bombay Advanced Track</div>
+                            <div class="slide-sub">2× Runner-up · 2024 &amp; 2025</div>
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">
+                        <div class="slide-inner"><img src="./public/assets/wec.jpeg" alt=""></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">WEC 2025</div>
+                            <div class="slide-sub">Runner-up · KIT Kolhapur</div>
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">
+                        <div class="slide-inner"><img src="./public/assets/chadracantdada flicited.png" alt=""></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">Shri Chandrakant (Dada) PatilHon’ble Minister of Higher & Technical
+                                Education</div>
+                            <!-- <div class="slide-sub">60+ participants · March 2025</div> -->
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">
+                        <div class="slide-inner"><img src="./public/assets/collectro.jpeg" alt=""></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">Felicitated By Shri Amol Yedge , IAS</div>
+                            <!-- <div class="slide-sub">22+ startups pitched · Aug 2025</div> -->
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#0c0c0c,#181818);">
+                        <div class="slide-inner"><img src="./public/assets/mahadiksir.jpeg" alt=""></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">Felicitated By Shri Dhananjay Mahadik , Member of Parliament (Rajya
+                                Sabha)</div>
+                            <!-- <div class="slide-sub">5 startups funded · Oct 2025</div> -->
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">
+                        <div class="slide-inner"><img src="./public/assets/vinodsir.jpeg" alt=""></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">Dr. Vinod M. MohitkarDirector, Technical Education (DTE),
+                                Maharashtra State & Chairman, MSBTE</div>
+                            <!-- <div class="slide-sub">100+ students · Sep 2025</div> -->
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#101010,#1e1e1e);">
+                        <div class="slide-inner"><img src="./public/assets/iitbasc.jpg" alt="">
+                        </div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">NEC IIT Bombay Basic Track Runner up 2024–25</div>
+                            <div class="slide-sub">The people behind the mission</div>
+                        </div>
+                    </div>
+                    <!-- <div class="slide" style="background:linear-gradient(135deg,#0b0b0b,#181818);">
+                        <div class="slide-inner"><i class="slide-icon ri-tools-line"></i></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">Illuminate 2.0</div>
+                            <div class="slide-sub">IIT Bombay collab · Sep 2025</div>
+                        </div>
+                    </div>
+                    <div class="slide" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">
+                        <div class="slide-inner"><i class="slide-icon ri-women-line"></i></div>
+                        <div class="slide-overlay">
+                            <div class="slide-title">Future Queens</div>
+                            <div class="slide-sub">70+ girls · Empowerment drive</div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-btn" id="sliderPrev"><i class="ri-arrow-left-line"></i></button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-btn" id="sliderNext"><i class="ri-arrow-right-line"></i></button>
+            </div>
+        </section>
+
         <!-- EVENTS -->
         <section id="events" data-scroll-section>
             <div class="section-header" data-scroll>
@@ -2217,86 +2350,7 @@
             </div>
         </section>
 
-        <!-- GALLERY SLIDER -->
-        <section id="gallery" data-scroll-section>
-            <div class="section-header" data-scroll>
-                <div class="section-label">Moments</div>
-                <h2 class="section-title">Our Gallery</h2>
-                <p class="section-sub">Snapshots from events, competitions, and the journey that made us.</p>
-            </div>
-            <div class="slider-wrapper">
-                <div class="slider-track" id="sliderTrack">
-                    <div class="slide" style="background:linear-gradient(135deg,#111,#1d1d1d);">
-                        <div class="slide-inner"><i class="slide-icon ri-trophy-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">NEC IIT Bombay — Award Ceremony</div>
-                            <div class="slide-sub">2× Runner-up · 2024 &amp; 2025</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">
-                        <div class="slide-inner"><i class="slide-icon ri-presentation-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Founder's Forum</div>
-                            <div class="slide-sub">60+ participants · March 2025</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">
-                        <div class="slide-inner"><i class="slide-icon ri-lightbulb-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Idea Ignite 2.0</div>
-                            <div class="slide-sub">22+ startups pitched · Aug 2025</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0c0c0c,#181818);">
-                        <div class="slide-inner"><i class="slide-icon ri-rocket-2-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Founders Expo 2025</div>
-                            <div class="slide-sub">5 startups funded · Oct 2025</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0e0e0e,#1b1b1b);">
-                        <div class="slide-inner"><i class="slide-icon ri-stock-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Uplearn by Upstox</div>
-                            <div class="slide-sub">100+ students · Sep 2025</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#101010,#1e1e1e);">
-                        <div class="slide-inner"><i class="slide-icon ri-team-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Team E-Cell 2025–26</div>
-                            <div class="slide-sub">The people behind the mission</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0b0b0b,#181818);">
-                        <div class="slide-inner"><i class="slide-icon ri-tools-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Illuminate 2.0</div>
-                            <div class="slide-sub">IIT Bombay collab · Sep 2025</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">
-                        <div class="slide-inner"><i class="slide-icon ri-women-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">Future Queens</div>
-                            <div class="slide-sub">70+ girls · Empowerment drive</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background:linear-gradient(135deg,#0f0f0f,#1c1c1c);">
-                        <div class="slide-inner"><i class="slide-icon ri-bar-chart-line"></i></div>
-                        <div class="slide-overlay">
-                            <div class="slide-title">WEC 2025</div>
-                            <div class="slide-sub">Runner-up · KIT Kolhapur</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-nav">
-                <button class="slider-btn" id="sliderPrev"><i class="ri-arrow-left-line"></i></button>
-                <div class="slider-dots" id="sliderDots"></div>
-                <button class="slider-btn" id="sliderNext"><i class="ri-arrow-right-line"></i></button>
-            </div>
-        </section>
+
 
         <!-- CONTACT -->
         <section id="contact" data-scroll-section>
@@ -2424,7 +2478,9 @@
     <div class="event-overlay" id="eventOverlay" onclick="closePanel()"></div>
     <div class="event-panel" id="eventPanel">
         <button class="panel-close" onclick="closePanel()"><i class="ri-close-line"></i></button>
-        <div class="panel-hero" id="panelHero"><i class="panel-hero-icon" id="panelHeroIcon"></i></div>
+        <div class="panel-hero" id="panelHero">
+            <i class="panel-hero-icon" id="panelHeroIcon"></i>
+        </div>
         <div class="panel-content" id="panelContent"></div>
     </div>
 
@@ -2432,87 +2488,400 @@
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
     <script>
-        // ── EVENT DATA ──
+        // ─────────────────────────────────────────────
+        // EVENT DATA
+        // Add an `img` field with the path to your image
+        // for any event that has a photo.
+        // Example: img: "./images/events/illuminate-1.jpg"
+        // If `img` is omitted or empty, the icon fallback is shown.
+        // ─────────────────────────────────────────────
         const events = [
-            { id: 'illuminate-1', name: "Illuminate 1.0", subtitle: "Entrepreneurship Workshop · E-Cell IIT Bombay", date: "2024", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-bubble-chart-line", bgGrad: "linear-gradient(135deg,#0a0a0e,#14141e)", footerInfo: "100+ attendees", footerIcon: "ri-group-line", shortDesc: "An entrepreneurship workshop conducted in collaboration with E-Cell IIT Bombay. 100+ attendees received entrepreneurship kits and learned startup fundamentals.", vision: "To introduce the entrepreneurship mindset to GCOE students through expert guidance from IIT Bombay.", impact: ["100+ students attended", "Entrepreneurship kits distributed", "Foundation for Illuminate series", "IIT Bombay collaboration established"], speakers: [{ name: "E-Cell IIT Bombay Mentor", role: "Startup Mentor · IIT Bombay" }], flow: [{ time: "10:00 AM", act: "Welcome and Introduction" }, { time: "10:30 AM", act: "What is Entrepreneurship?" }, { time: "12:00 PM", act: "BMC Workshop" }, { time: "2:00 PM", act: "Pitching Session" }, { time: "4:00 PM", act: "Kit Distribution & Closing" }], quote: { text: "Illuminate 1.0 set the standard for how we collaborate with premier institutions.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'web-wizards', name: "Web Wizards Hackathon", subtitle: "Website Building Competition", date: "August 2024", venue: "GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-code-s-slash-line", bgGrad: "linear-gradient(135deg,#080e0a,#121e14)", footerInfo: "Teams competing", footerIcon: "ri-team-line", shortDesc: "A dedicated website building competition testing participants' technical skills, creativity, and ability to ship a product under pressure.", vision: "To celebrate technical talent and push students to apply their coding skills to real-world problems.", impact: ["Multiple student teams competed", "Cross-branch participation", "Winners showcased deployable projects", "Strengthened technical community"], speakers: [], flow: [{ time: "9:00 AM", act: "Problem statement reveal" }, { time: "9:30 AM", act: "Hacking begins" }, { time: "1:00 PM", act: "Lunch break" }, { time: "2:00 PM", act: "Final submissions" }, { time: "3:00 PM", act: "Judging & results" }], quote: { text: "Web Wizards brought out the best technical minds in GCOE.", cite: "— E-Cell Team" } },
-            { id: 'flyer-fiesta', name: "Flyer Fiesta", subtitle: "Creative Poster-Making Competition", date: "August 2024", venue: "Online / GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-palette-line", bgGrad: "linear-gradient(135deg,#0d0808,#1a1010)", footerInfo: "Creative entries", footerIcon: "ri-image-line", shortDesc: "A creative poster-making competition challenging students to design compelling event flyers.", vision: "To nurture the creative designers within E-Cell.", impact: ["Students across all years participated", "Winning designs used officially", "Design skill-building", "Increased social media presence"], speakers: [], flow: [{ time: "Day 1", act: "Competition announced" }, { time: "3 Days", act: "Design submission window" }, { time: "Day 4", act: "Evaluation" }, { time: "Day 5", act: "Winner announcement" }], quote: { text: "Flyer Fiesta proved that entrepreneurship needs great storytellers.", cite: "— E-Cell Team" } },
-            { id: 'ipl-auction-1', name: "IPL Auction 1.0", subtitle: "Sports Bidding Simulation Event", date: "December 7, 2024", venue: "GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-auction-line", bgGrad: "linear-gradient(135deg,#0e0a06,#1c1410)", footerInfo: "10+ teams", footerIcon: "ri-group-line", shortDesc: "The first edition of our IPL auction simulation. 10+ teams competed in a high-energy bidding simulation.", vision: "To teach entrepreneurial skills through an engaging sports-themed simulation.", impact: ["10+ participating teams", "Students experienced budget constraints", "Negotiation skills tested", "Set stage for IPL Auction 2.0"], speakers: [], flow: [{ time: "10:00 AM", act: "Teams registered & purses assigned" }, { time: "10:30 AM", act: "Rules explained" }, { time: "11:00 AM", act: "Bidding rounds begin" }, { time: "1:00 PM", act: "Break & scoreboard update" }, { time: "2:00 PM", act: "Winner announcement" }], quote: { text: "Students learned more about budgeting in 4 hours than most textbooks teach in a semester.", cite: "— E-Cell Team" } },
-            { id: 'future-queens', name: "Future Queens", subtitle: "Unbreakable Spirits — The Future Queens", date: "22nd March 2025", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-women-line", bgGrad: "linear-gradient(135deg,#0d0d0d,#1a1818)", footerInfo: "70+ girl participants", footerIcon: "ri-group-line", shortDesc: "A dedicated recruitment and empowerment drive welcoming girl students into E-Cell.", vision: "To create a space where girls are encouraged to lead, share ideas, and grow with confidence.", impact: ["70+ girl participants", "4 girl members recruited", "Sessions on Canva, Reel Making & Event Management", "Highest-attended professional event for girls"], speakers: [{ name: "Sushrut Deshmukh", role: "President, E-Cell" }, { name: "Shravani Kesarkar", role: "Vice-President, E-Cell" }], flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "10:40 AM", act: "Session on Corporate Relations" }, { time: "1:30 PM", act: "Session on Reel Making" }, { time: "2:30 PM", act: "Written Paper" }, { time: "5:00 PM", act: "Result & Recruitment Letter" }], quote: { text: "The 'Future Queens' drive is key to ensuring truly inclusive entrepreneurship.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'founders-forum', name: "Founder's Forum", subtitle: "An Ultimate Entrepreneurship Workshop", date: "27th March 2025", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-presentation-line", bgGrad: "linear-gradient(135deg,#0a0a0a,#181515)", footerInfo: "60+ participants", footerIcon: "ri-group-line", shortDesc: "An exclusive workshop connecting aspiring founders with real entrepreneurs — covering startup journeys, BMC, pitching, and networking.", vision: "To create a launchpad where aspiring founders find clarity, confidence, and connections.", impact: ["60+ participants", "Several members went on to form startups", "Reel crossed 7,000+ views", "Led to collaborative projects"], speakers: [{ name: "Akshay Shinde", role: "MD — Webroller.in" }, { name: "Aparna Chavhan", role: "Founder — Kalapuri Handcrafts" }], flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "10:45 AM", act: "Founders Speech by Aparna Chavhan" }, { time: "2:30 PM", act: "BMC Concepts" }, { time: "3:15 PM", act: "Pitching Session" }, { time: "4:00 PM", act: "Post-Event Networking" }], quote: { text: "E-Cell's efforts in nurturing innovation are truly commendable.", cite: "— Note from Dean" } },
-            { id: 'idea-ignite-2', name: "Idea Ignite 2.0", subtitle: "Business Idea Presentation · Eureka IIT Bombay Zonal", date: "19th August 2025", venue: "Board Room, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-lightbulb-flash-line", bgGrad: "linear-gradient(135deg,#0c0c0c,#1a1800)", footerInfo: "22+ startups", footerIcon: "ri-lightbulb-line", shortDesc: "22 startups pitched in front of expert judges. Top teams advanced to Eureka! IIT Bombay Zonals.", vision: "To spark something real — inspire young minds to dream bigger and turn ideas into reality.", impact: ["22+ startups pitched", "6 startups from GCOE formed", "Direct entry to Eureka! IIT Bombay Zonals", "First event drawing startups across Maharashtra"], speakers: [{ name: "Mr. Santosh Modi", role: "Founder — Sharwani Enterprises" }, { name: "Mr. Suryakant Dodmise", role: "CEO — SIBIC Incubation Centre" }], winners: [{ rank: "🥇", name: "Sushrut Deshmukh", detail: "Project: Shikshaarthi", prize: "₹2,000 + Certificate" }, { rank: "🥈", name: "Saiyam Patil & Aakash Mane", detail: "Project: InvestraAi", prize: "₹1,000 + Certificate" }], flow: [{ time: "9:30 AM", act: "Registration" }, { time: "10:10 AM", act: "Inauguration" }, { time: "10:45 AM", act: "First 10 teams pitching" }, { time: "2:15 PM", act: "Last 12 teams pitching" }, { time: "4:35 PM", act: "Result declaration" }], quote: { text: "Hosting Idea Ignite 2.0, drawing 24 startups across Maharashtra, underscores our regional leadership.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'creative-clash', name: "Creative Clash", subtitle: "Online Design & Content Creation Competition", date: "5th September 2025", venue: "Online", tag: "past", tagLabel: "Completed", icon: "ri-palette-line", bgGrad: "linear-gradient(135deg,#0d0808,#1a1010)", footerInfo: "20+ entries", footerIcon: "ri-image-line", shortDesc: "An online creative competition with Reel Rumble, Meme War, Brand Blast & Flyer Frenzy.", vision: "To spark imagination and celebrate the creative spirit.", impact: ["20+ students submitted", "Significant social media growth", "Winners received 925 Silver Trophies", "Enhanced designing skills"], speakers: [], winners: [{ rank: "🥇", name: "Rushal Pawar", detail: "SY ENTC", prize: "Silver Trophy" }, { rank: "🥈", name: "Krushna Chandak", detail: "SY CSE", prize: "Silver Memento" }], flow: [{ time: "29 Aug", act: "Event Flyer released" }, { time: "5 Sep", act: "Submission deadline" }, { time: "8 Sep", act: "Online Session on Content Creation" }, { time: "9 Sep", act: "Winner Declaration" }], quote: { text: "Creative Clash tapped into the digital fluency of our students.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'fetp', name: "SEBI Financial Education", subtitle: "SEBI Empaneled SMARTS Program", date: "8th September 2025", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-bank-line", bgGrad: "linear-gradient(135deg,#080810,#141420)", footerInfo: "150+ students", footerIcon: "ri-group-line", shortDesc: "A SEBI-partnered financial literacy workshop for 150+ students — the first E-Cell event with a Government body.", vision: "To create a financially aware generation who understand the true value of money.", impact: ["150+ students attended", "Awareness on Finance, Investment & Compounding", "70 selected offered 5-day SEBI intensive", "First E-Cell event with Government Body (SEBI)"], speakers: [{ name: "Devendra Tare", role: "SEBI Empaneled Trainer — SMARTS Program" }], flow: [{ time: "11:30 AM", act: "Registration" }, { time: "12:10 PM", act: "Inauguration" }, { time: "1:00 PM", act: "Keynote on Financial Literacy" }, { time: "2:40 PM", act: "Certificate distribution" }, { time: "3:35 PM", act: "5-day training announcement" }], quote: { text: "The FETP enhances our students' financial literacy — essential for future entrepreneurs.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'uplearn', name: "Uplearn by Upstox", subtitle: "Stock Market Basics — Industry Partnership", date: "9th September 2025", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-stock-line", bgGrad: "linear-gradient(135deg,#080e0a,#141e10)", footerInfo: "100+ students · 10+ faculty", footerIcon: "ri-group-line", shortDesc: "The Director of Content from Upstox India visited GCOE. Every participant received a free 6-month Upstox course worth ₹1,950.", vision: "To make finance simple, engaging, and accessible for students.", impact: ["100+ students and 10+ faculty attended", "Topics: Bullish & Bearish, Candlestick, Paper Trading", "6-month Upstox subscription worth ₹1,950 each", "Highest appreciated event by College Administration"], speakers: [{ name: "Milan Bavishi", role: "Director — Content, Upstox India" }], flow: [{ time: "10:30 AM", act: "Registration" }, { time: "11:10 AM", act: "Inauguration" }, { time: "12:00 PM", act: "Keynote on Stock Market" }, { time: "1:40 PM", act: "Offline Tasks" }, { time: "3:35 PM", act: "6-month Course access distributed" }], quote: { text: "The Uplearn Workshop gave students real-time analysis tools and a 6-month free subscription.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'illuminate-2', name: "Illuminate 2.0", subtitle: "Startup Workshop · E-Cell IIT Bombay", date: "26th September 2025", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-bubble-chart-line", bgGrad: "linear-gradient(135deg,#0a0a0e,#14141e)", footerInfo: "IIT Bombay Mentor", footerIcon: "ri-star-line", shortDesc: "A full-day workshop with an IIT Bombay startup mentor covering BMC, idea generation, team formation, and pitching.", vision: "To inspire young minds to dream big through expert guidance from IIT Bombay.", impact: ["BMC framework introduced", "Students pitched confidently", "Collaborative team-based activities", "Structured business plans developed"], speakers: [{ name: "Darpan Salunkhe", role: "Startup Mentor — Eureka, IIT Bombay | MD — Vishwa Education" }], flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "11:15 AM", act: "Team Formation" }, { time: "11:45 AM", act: "Idea Generation & Problem Identification" }, { time: "1:30 PM", act: "BMC Workshop" }, { time: "4:00 PM", act: "Pitching Workshop and Q&A" }], quote: { text: "The Illuminate workshop provided foundational training in BMC and Pitching.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'ipl-auction-2', name: "IPL Auction 2.0", subtitle: "Scaled-Up Sports Bidding Simulation", date: "October 11, 2025", venue: "GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-auction-line", bgGrad: "linear-gradient(135deg,#0e0a06,#1c1410)", footerInfo: "15+ teams", footerIcon: "ri-group-line", shortDesc: "The scaled-up second edition with 15+ teams — bigger purses, more players, more strategy.", vision: "To deliver an intense simulation of real-world financial decision-making.", impact: ["15+ teams — 50% more than 1.0", "Larger purses and diverse player pools", "Complex strategic decisions required", "Students applied negotiation from Founder's Forum"], speakers: [], flow: [{ time: "10:00 AM", act: "Teams registered & purses assigned" }, { time: "11:00 AM", act: "Auction rounds begin" }, { time: "1:00 PM", act: "Halftime review" }, { time: "2:00 PM", act: "Final rounds" }, { time: "3:00 PM", act: "Prize distribution & feedback" }], quote: { text: "IPL Auction 2.0 — the strategies were sharper, the bidding smarter, the energy electric.", cite: "— E-Cell Team" } },
-            { id: 'freshers-connect', name: "Freshers Connect 2.0", subtitle: "Annual Fresher Recruitment Drive", date: "6th October 2025", venue: "Seminar Hall, GCOE Kolhapur", tag: "past", tagLabel: "Completed", icon: "ri-user-add-line", bgGrad: "linear-gradient(135deg,#0a0d0a,#151a15)", footerInfo: "Highest fresher turnout", footerIcon: "ri-group-line", shortDesc: "The annual recruitment event to induct freshers into E-Cell through aptitude tests, pitching, and interviews.", vision: "To recruit new aspiring freshers who wish to enhance their college journey.", impact: ["Highest-attended professional event for freshers", "High-caliber candidates selected", "Students inducted into Events, PR, Marketing, Technical, Media", "Secured pipeline for E Summit 26"], speakers: [{ name: "Sushrut Deshmukh", role: "President, E-Cell" }, { name: "Shravani Kesarkar", role: "Vice-President, E-Cell" }], flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "10:40 AM", act: "Session on Corporate Relations" }, { time: "2:30 PM", act: "Written Paper 1" }, { time: "4:30 PM", act: "Interviews" }, { time: "5:00 PM", act: "Result & Recruitment Letter" }], quote: { text: "Fresher Connect 2.0 is vital for onboarding new talent into our core departments.", cite: "— Note from Dean, GCOE Kolhapur" } },
-            { id: 'founders-expo', name: "Founders Expo 2025", subtitle: "Largest Startup Expo in Kolhapur", date: "12th October 2025", venue: "Merry Weather Ground, Kolhapur", tag: "award", tagLabel: "Milestone", icon: "ri-rocket-2-line", bgGrad: "linear-gradient(135deg,#100808,#201010)", footerInfo: "5 startups funded", footerIcon: "ri-funds-line", shortDesc: "The largest startup expo in Kolhapur — 100+ startups applied, 20 selected. 5 received angel funding.", vision: "To create a vibrant platform where young entrepreneurs exhibit their ideas.", impact: ["20+ selected startups exhibited", "5 startups received funding", "Incubation at NETRA-RIT & SIBIC", "100+ startups applied from Maharashtra"], speakers: [{ name: "Vishwaraj Mahadik", role: "Board Member — Bhima Riddhi Infotainment" }, { name: "Pratap Patil", role: "MD — Walstar Technologies" }, { name: "Harshal Patil", role: "CEO — NETRA-RIT Foundation" }, { name: "Suryakant Dodmise", role: "Incubation Manager — SIBIC" }], flow: [{ time: "9:30 AM", act: "Registration" }, { time: "10:45 AM", act: "Startup Presentations" }, { time: "2:30 PM", act: "Networking Arena" }, { time: "4:35 PM", act: "Investment Deals announced" }, { time: "6:00 PM", act: "Conclusion" }], quote: { text: "Founders Expo 2025 successfully brought Angel Investors to Kolhapur, resulting in funding for five startups.", cite: "— Note from Dean, GCOE Kolhapur" } }
+            {
+                id: 'illuminate-1',
+                name: "Illuminate 1.0",
+                subtitle: "Entrepreneurship Workshop · E-Cell IIT Bombay",
+                date: "2024",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-bubble-chart-line",
+                bgGrad: "linear-gradient(135deg,#0a0a0e,#14141e)",
+                img: "./public/assets/illuminate1.jpeg",  // ← Add path: "./images/events/illuminate-1.jpg"
+                footerInfo: "100+ attendees", footerIcon: "ri-group-line",
+                shortDesc: "An entrepreneurship workshop conducted in collaboration with E-Cell IIT Bombay. 100+ attendees received entrepreneurship kits and learned startup fundamentals.",
+                vision: "To introduce the entrepreneurship mindset to GCOE students through expert guidance from IIT Bombay.",
+                impact: ["100+ students attended", "Entrepreneurship kits distributed", "Foundation for Illuminate series", "IIT Bombay collaboration established"],
+                speakers: [{ name: "E-Cell IIT Bombay Mentor", role: "Startup Mentor · IIT Bombay" }],
+                flow: [{ time: "10:00 AM", act: "Welcome and Introduction" }, { time: "10:30 AM", act: "What is Entrepreneurship?" }, { time: "12:00 PM", act: "BMC Workshop" }, { time: "2:00 PM", act: "Pitching Session" }, { time: "4:00 PM", act: "Kit Distribution & Closing" }],
+                quote: { text: "Illuminate 1.0 set the standard for how we collaborate with premier institutions.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'web-wizards',
+                name: "Web Wizards Hackathon",
+                subtitle: "Website Building Competition",
+                date: "August 2024",
+                venue: "GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-code-s-slash-line",
+                bgGrad: "linear-gradient(135deg,#080e0a,#121e14)",
+                img: "./public/assets/webwizard.png",   // ← Add path: "./images/events/web-wizards.jpg"
+                footerInfo: "Teams competing", footerIcon: "ri-team-line",
+                shortDesc: "A dedicated website building competition testing participants' technical skills, creativity, and ability to ship a product under pressure.",
+                vision: "To celebrate technical talent and push students to apply their coding skills to real-world problems.",
+                impact: ["Multiple student teams competed", "Cross-branch participation", "Winners showcased deployable projects", "Strengthened technical community"],
+                speakers: [],
+                flow: [{ time: "9:00 AM", act: "Problem statement reveal" }, { time: "9:30 AM", act: "Hacking begins" }, { time: "1:00 PM", act: "Lunch break" }, { time: "2:00 PM", act: "Final submissions" }, { time: "3:00 PM", act: "Judging & results" }],
+                quote: { text: "Web Wizards brought out the best technical minds in GCOE.", cite: "— E-Cell Team" }
+            },
+            {
+                id: 'flyer-fiesta',
+                name: "Flyer Fiesta",
+                subtitle: "Creative Poster-Making Competition",
+                date: "August 2024",
+                venue: "Online / GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-palette-line",
+                bgGrad: "linear-gradient(135deg,#0d0808,#1a1010)",
+                img: "./public/assets/flyerfista.png",   // ← Add path: "./images/events/flyer-fiesta.jpg"
+                footerInfo: "Creative entries", footerIcon: "ri-image-line",
+                shortDesc: "A creative poster-making competition challenging students to design compelling event flyers.",
+                vision: "To nurture the creative designers within E-Cell.",
+                impact: ["Students across all years participated", "Winning designs used officially", "Design skill-building", "Increased social media presence"],
+                speakers: [],
+                flow: [{ time: "Day 1", act: "Competition announced" }, { time: "3 Days", act: "Design submission window" }, { time: "Day 4", act: "Evaluation" }, { time: "Day 5", act: "Winner announcement" }],
+                quote: { text: "Flyer Fiesta proved that entrepreneurship needs great storytellers.", cite: "— E-Cell Team" }
+            },
+            {
+                id: 'ipl-auction-1',
+                name: "IPL Auction 1.0",
+                subtitle: "Sports Bidding Simulation Event",
+                date: "December 7, 2024",
+                venue: "GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-auction-line",
+                bgGrad: "linear-gradient(135deg,#0e0a06,#1c1410)",
+                img: "./public/assets/ipl1.jpeg",   // ← Add path: "./images/events/ipl-auction-1.jpg"
+                footerInfo: "10+ teams", footerIcon: "ri-group-line",
+                shortDesc: "The first edition of our IPL auction simulation. 10+ teams competed in a high-energy bidding simulation.",
+                vision: "To teach entrepreneurial skills through an engaging sports-themed simulation.",
+                impact: ["10+ participating teams", "Students experienced budget constraints", "Negotiation skills tested", "Set stage for IPL Auction 2.0"],
+                speakers: [],
+                flow: [{ time: "10:00 AM", act: "Teams registered & purses assigned" }, { time: "10:30 AM", act: "Rules explained" }, { time: "11:00 AM", act: "Bidding rounds begin" }, { time: "1:00 PM", act: "Break & scoreboard update" }, { time: "2:00 PM", act: "Winner announcement" }],
+                quote: { text: "Students learned more about budgeting in 4 hours than most textbooks teach in a semester.", cite: "— E-Cell Team" }
+            },
+            {
+                id: 'future-queens',
+                name: "Future Queens",
+                subtitle: "Unbreakable Spirits — The Future Queens",
+                date: "22nd March 2025",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-women-line",
+                bgGrad: "linear-gradient(135deg,#0d0d0d,#1a1818)",
+                img: "./public/assets/futuer.jpeg",   // ← Add path: "./images/events/future-queens.jpg"
+                footerInfo: "70+ girl participants", footerIcon: "ri-group-line",
+                shortDesc: "A dedicated recruitment and empowerment drive welcoming girl students into E-Cell.",
+                vision: "To create a space where girls are encouraged to lead, share ideas, and grow with confidence.",
+                impact: ["70+ girl participants", "4 girl members recruited", "Sessions on Canva, Reel Making & Event Management", "Highest-attended professional event for girls"],
+                speakers: [{ name: "Sushrut Deshmukh", role: "President, E-Cell" }, { name: "Shravani Kesarkar", role: "Vice-President, E-Cell" }],
+                flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "10:40 AM", act: "Session on Corporate Relations" }, { time: "1:30 PM", act: "Session on Reel Making" }, { time: "2:30 PM", act: "Written Paper" }, { time: "5:00 PM", act: "Result & Recruitment Letter" }],
+                quote: { text: "The 'Future Queens' drive is key to ensuring truly inclusive entrepreneurship.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'founders-forum',
+                name: "Founder's Forum",
+                subtitle: "An Ultimate Entrepreneurship Workshop",
+                date: "27th March 2025",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-presentation-line",
+                bgGrad: "linear-gradient(135deg,#0a0a0a,#181515)",
+                img: "./public/assets/founders.jpeg",   // ← Add path: "./images/events/founders-forum.jpg"
+                footerInfo: "60+ participants", footerIcon: "ri-group-line",
+                shortDesc: "An exclusive workshop connecting aspiring founders with real entrepreneurs — covering startup journeys, BMC, pitching, and networking.",
+                vision: "To create a launchpad where aspiring founders find clarity, confidence, and connections.",
+                impact: ["60+ participants", "Several members went on to form startups", "Reel crossed 7,000+ views", "Led to collaborative projects"],
+                speakers: [{ name: "Akshay Shinde", role: "MD — Webroller.in" }, { name: "Aparna Chavhan", role: "Founder — Kalapuri Handcrafts" }],
+                flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "10:45 AM", act: "Founders Speech by Aparna Chavhan" }, { time: "2:30 PM", act: "BMC Concepts" }, { time: "3:15 PM", act: "Pitching Session" }, { time: "4:00 PM", act: "Post-Event Networking" }],
+                quote: { text: "E-Cell's efforts in nurturing innovation are truly commendable.", cite: "— Note from Dean" }
+            },
+            {
+                id: 'idea-ignite-2',
+                name: "Idea Ignite 2.0",
+                subtitle: "Business Idea Presentation · Eureka IIT Bombay Zonal",
+                date: "19th August 2025",
+                venue: "Board Room, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-lightbulb-flash-line",
+                bgGrad: "linear-gradient(135deg,#0c0c0c,#1a1800)",
+                img: "./public/assets/idea2.jpeg",   // ← Add path: "./images/events/idea-ignite-2.jpg"
+                footerInfo: "22+ startups", footerIcon: "ri-lightbulb-line",
+                shortDesc: "22 startups pitched in front of expert judges. Top teams advanced to Eureka! IIT Bombay Zonals.",
+                vision: "To spark something real — inspire young minds to dream bigger and turn ideas into reality.",
+                impact: ["22+ startups pitched", "6 startups from GCOE formed", "Direct entry to Eureka! IIT Bombay Zonals", "First event drawing startups across Maharashtra"],
+                speakers: [{ name: "Mr. Santosh Modi", role: "Founder — Sharwani Enterprises" }, { name: "Mr. Suryakant Dodmise", role: "CEO — SIBIC Incubation Centre" }],
+                winners: [{ rank: "🥇", name: "Sushrut Deshmukh", detail: "Project: Shikshaarthi", prize: "₹2,000 + Certificate" }, { rank: "🥈", name: "Saiyam Patil & Aakash Mane", detail: "Project: InvestraAi", prize: "₹1,000 + Certificate" }],
+                flow: [{ time: "9:30 AM", act: "Registration" }, { time: "10:10 AM", act: "Inauguration" }, { time: "10:45 AM", act: "First 10 teams pitching" }, { time: "2:15 PM", act: "Last 12 teams pitching" }, { time: "4:35 PM", act: "Result declaration" }],
+                quote: { text: "Hosting Idea Ignite 2.0, drawing 24 startups across Maharashtra, underscores our regional leadership.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'creative-clash',
+                name: "Creative Clash",
+                subtitle: "Online Design & Content Creation Competition",
+                date: "5th September 2025",
+                venue: "Online",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-palette-line",
+                bgGrad: "linear-gradient(135deg,#0d0808,#1a1010)",
+                img: "./public/assets/creative.jpeg",   // ← Add path: "./images/events/creative-clash.jpg"
+                footerInfo: "20+ entries", footerIcon: "ri-image-line",
+                shortDesc: "An online creative competition with Reel Rumble, Meme War, Brand Blast & Flyer Frenzy.",
+                vision: "To spark imagination and celebrate the creative spirit.",
+                impact: ["20+ students submitted", "Significant social media growth", "Winners received 925 Silver Trophies", "Enhanced designing skills"],
+                speakers: [],
+                winners: [{ rank: "🥇", name: "Rushal Pawar", detail: "SY ENTC", prize: "Silver Trophy" }, { rank: "🥈", name: "Krushna Chandak", detail: "SY CSE", prize: "Silver Memento" }],
+                flow: [{ time: "29 Aug", act: "Event Flyer released" }, { time: "5 Sep", act: "Submission deadline" }, { time: "8 Sep", act: "Online Session on Content Creation" }, { time: "9 Sep", act: "Winner Declaration" }],
+                quote: { text: "Creative Clash tapped into the digital fluency of our students.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'fetp',
+                name: "SEBI Financial Education",
+                subtitle: "SEBI Empaneled SMARTS Program",
+                date: "8th September 2025",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-bank-line",
+                bgGrad: "linear-gradient(135deg,#080810,#141420)",
+                img: "./public/assets/sebi.jpeg",   // ← Add path: "./images/events/fetp.jpg"
+                footerInfo: "150+ students", footerIcon: "ri-group-line",
+                shortDesc: "A SEBI-partnered financial literacy workshop for 150+ students — the first E-Cell event with a Government body.",
+                vision: "To create a financially aware generation who understand the true value of money.",
+                impact: ["150+ students attended", "Awareness on Finance, Investment & Compounding", "70 selected offered 5-day SEBI intensive", "First E-Cell event with Government Body (SEBI)"],
+                speakers: [{ name: "Devendra Tare", role: "SEBI Empaneled Trainer — SMARTS Program" }],
+                flow: [{ time: "11:30 AM", act: "Registration" }, { time: "12:10 PM", act: "Inauguration" }, { time: "1:00 PM", act: "Keynote on Financial Literacy" }, { time: "2:40 PM", act: "Certificate distribution" }, { time: "3:35 PM", act: "5-day training announcement" }],
+                quote: { text: "The FETP enhances our students' financial literacy — essential for future entrepreneurs.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'uplearn',
+                name: "Uplearn by Upstox",
+                subtitle: "Stock Market Basics — Industry Partnership",
+                date: "9th September 2025",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-stock-line",
+                bgGrad: "linear-gradient(135deg,#080e0a,#141e10)",
+                img: "./public/assets/uplearn.jpeg",   // ← Add path: "./images/events/uplearn.jpg"
+                footerInfo: "100+ students · 10+ faculty", footerIcon: "ri-group-line",
+                shortDesc: "The Director of Content from Upstox India visited GCOE. Every participant received a free 6-month Upstox course worth ₹1,950.",
+                vision: "To make finance simple, engaging, and accessible for students.",
+                impact: ["100+ students and 10+ faculty attended", "Topics: Bullish & Bearish, Candlestick, Paper Trading", "6-month Upstox subscription worth ₹1,950 each", "Highest appreciated event by College Administration"],
+                speakers: [{ name: "Milan Bavishi", role: "Director — Content, Upstox India" }],
+                flow: [{ time: "10:30 AM", act: "Registration" }, { time: "11:10 AM", act: "Inauguration" }, { time: "12:00 PM", act: "Keynote on Stock Market" }, { time: "1:40 PM", act: "Offline Tasks" }, { time: "3:35 PM", act: "6-month Course access distributed" }],
+                quote: { text: "The Uplearn Workshop gave students real-time analysis tools and a 6-month free subscription.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'illuminate-2',
+                name: "Illuminate 2.0",
+                subtitle: "Startup Workshop · E-Cell IIT Bombay",
+                date: "26th September 2025",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-bubble-chart-line",
+                bgGrad: "linear-gradient(135deg,#0a0a0e,#14141e)",
+                img: "./public/assets/illiminate2.jpeg",   // ← Add path: "./images/events/illuminate-2.jpg"
+                footerInfo: "IIT Bombay Mentor", footerIcon: "ri-star-line",
+                shortDesc: "A full-day workshop with an IIT Bombay startup mentor covering BMC, idea generation, team formation, and pitching.",
+                vision: "To inspire young minds to dream big through expert guidance from IIT Bombay.",
+                impact: ["BMC framework introduced", "Students pitched confidently", "Collaborative team-based activities", "Structured business plans developed"],
+                speakers: [{ name: "Darpan Salunkhe", role: "Startup Mentor — Eureka, IIT Bombay | MD — Vishwa Education" }],
+                flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "11:15 AM", act: "Team Formation" }, { time: "11:45 AM", act: "Idea Generation & Problem Identification" }, { time: "1:30 PM", act: "BMC Workshop" }, { time: "4:00 PM", act: "Pitching Workshop and Q&A" }],
+                quote: { text: "The Illuminate workshop provided foundational training in BMC and Pitching.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
+            {
+                id: 'ipl-auction-2',
+                name: "IPL Auction 2.0",
+                subtitle: "Scaled-Up Sports Bidding Simulation",
+                date: "October 11, 2025",
+                venue: "GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-auction-line",
+                bgGrad: "linear-gradient(135deg,#0e0a06,#1c1410)",
+                img: "./public/assets/ipl2.jpeg",   // ← Add path: "./images/events/ipl-auction-2.jpg"
+                footerInfo: "15+ teams", footerIcon: "ri-group-line",
+                shortDesc: "The scaled-up second edition with 15+ teams — bigger purses, more players, more strategy.",
+                vision: "To deliver an intense simulation of real-world financial decision-making.",
+                impact: ["15+ teams — 50% more than 1.0", "Larger purses and diverse player pools", "Complex strategic decisions required", "Students applied negotiation from Founder's Forum"],
+                speakers: [],
+                flow: [{ time: "10:00 AM", act: "Teams registered & purses assigned" }, { time: "11:00 AM", act: "Auction rounds begin" }, { time: "1:00 PM", act: "Halftime review" }, { time: "2:00 PM", act: "Final rounds" }, { time: "3:00 PM", act: "Prize distribution & feedback" }],
+                quote: { text: "IPL Auction 2.0 — the strategies were sharper, the bidding smarter, the energy electric.", cite: "— E-Cell Team" }
+            },
+            {
+                id: 'freshers-connect',
+                name: "Freshers Connect 2.0",
+                subtitle: "Annual Fresher Recruitment Drive",
+                date: "6th October 2025",
+                venue: "Seminar Hall, GCOE Kolhapur",
+                tag: "past", tagLabel: "Completed",
+                icon: "ri-user-add-line",
+                bgGrad: "linear-gradient(135deg,#0a0d0a,#151a15)",
+                img: "./public/assets/fresher.jpeg",   // ← Add path: "./images/events/freshers-connect.jpg"
+                footerInfo: "Highest fresher turnout", footerIcon: "ri-group-line",
+                shortDesc: "The annual recruitment event to induct freshers into E-Cell through aptitude tests, pitching, and interviews.",
+                vision: "To recruit new aspiring freshers who wish to enhance their college journey.",
+                impact: ["Highest-attended professional event for freshers", "High-caliber candidates selected", "Students inducted into Events, PR, Marketing, Technical, Media", "Secured pipeline for E Summit 26"],
+                speakers: [{ name: "Sushrut Deshmukh", role: "President, E-Cell" }, { name: "Shravani Kesarkar", role: "Vice-President, E-Cell" }],
+                flow: [{ time: "10:00 AM", act: "Welcome" }, { time: "10:40 AM", act: "Session on Corporate Relations" }, { time: "2:30 PM", act: "Written Paper 1" }, { time: "4:30 PM", act: "Interviews" }, { time: "5:00 PM", act: "Result & Recruitment Letter" }],
+                quote: { text: "Fresher Connect 2.0 is vital for onboarding new talent into our core departments.", cite: "— Note from Dean, GCOE Kolhapur" }
+            },
         ];
 
         // ── RENDER EVENT CARDS ──
         const grid = document.getElementById('eventsGrid');
         const tagClass = { past: 'tag-past', upcoming: 'tag-upcoming', award: 'tag-award', flagship: 'tag-flagship' };
         const tagIcon = { past: 'ri-checkbox-circle-line', upcoming: 'ri-time-line', award: 'ri-medal-line', flagship: 'ri-star-line' };
+
         events.forEach((ev, i) => {
             const card = document.createElement('div');
             card.className = 'event-card';
             card.setAttribute('data-scroll', '');
             card.setAttribute('data-scroll-delay', (0.05 * (i % 3)).toFixed(2));
             card.onclick = () => openPanel(ev);
+
+            // Build thumb: real image if available, icon fallback otherwise
+            const thumbContent = ev.img
+                ? `<img class="event-thumb-img" src="${ev.img}" alt="${ev.name}" loading="lazy">
+                   <div class="event-thumb-img-overlay"></div>`
+                : `<i class="event-thumb-icon ${ev.icon}"></i>`;
+
             card.innerHTML = `
-    <div class="event-thumb" style="background:${ev.bgGrad};">
-        <i class="event-thumb-icon ${ev.icon}"></i>
-        <span class="event-tag ${tagClass[ev.tag]}"><i class="${tagIcon[ev.tag]}"></i> ${ev.tagLabel}</span>
-    </div>
-    <div class="event-body">
-        <div class="event-date"><i class="ri-calendar-line"></i> ${ev.date}</div>
-        <div class="event-name">${ev.name}</div>
-        <div class="event-desc">${ev.shortDesc}</div>
-    </div>
-    <div class="event-footer">
-        <div class="event-footer-info"><i class="${ev.footerIcon}"></i> ${ev.footerInfo}</div>
-        <i class="ri-arrow-right-line event-arrow"></i>
-    </div>`;
+                <div class="event-thumb" style="background:${ev.bgGrad};">
+                    ${thumbContent}
+                    <span class="event-tag ${tagClass[ev.tag]}"><i class="${tagIcon[ev.tag]}"></i> ${ev.tagLabel}</span>
+                </div>
+                <div class="event-body">
+                    <div class="event-date"><i class="ri-calendar-line"></i> ${ev.date}</div>
+                    <div class="event-name">${ev.name}</div>
+                    <div class="event-desc">${ev.shortDesc}</div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-footer-info"><i class="${ev.footerIcon}"></i> ${ev.footerInfo}</div>
+                    <i class="ri-arrow-right-line event-arrow"></i>
+                </div>`;
             grid.appendChild(card);
         });
 
-        // ── PANEL ──
+        // ── PANEL OPEN / CLOSE ──
         function openPanel(ev) {
             const panel = document.getElementById('eventPanel');
             const overlay = document.getElementById('eventOverlay');
             const heroEl = document.getElementById('panelHero');
             const heroIcon = document.getElementById('panelHeroIcon');
             const content = document.getElementById('panelContent');
+
+            // Reset hero
             heroEl.style.background = ev.bgGrad;
-            heroIcon.className = `panel-hero-icon ${ev.icon}`;
+
+            // Remove any previously injected img element
+            const oldImg = heroEl.querySelector('.panel-hero-img');
+            if (oldImg) oldImg.remove();
+
+            if (ev.img) {
+                // Show image behind gradient overlay
+                const img = document.createElement('img');
+                img.src = ev.img;
+                img.alt = ev.name;
+                img.className = 'panel-hero-img';
+                heroEl.insertBefore(img, heroEl.firstChild);
+                heroIcon.className = '';
+                heroIcon.style.display = 'none';
+            } else {
+                heroIcon.className = `panel-hero-icon ${ev.icon}`;
+                heroIcon.style.display = '';
+            }
+
+            // Build panel HTML
             let html = `
-    <span class="panel-tag ${tagClass[ev.tag]}" style="border:1px solid var(--border2)"><i class="${tagIcon[ev.tag]}"></i> ${ev.tagLabel}</span>
-    <div class="panel-title">${ev.name}</div>
-    <div class="panel-subtitle"><span><i class="ri-calendar-line"></i> ${ev.date}</span><span><i class="ri-map-pin-line"></i> ${ev.venue}</span></div>
-    <div style="font-size:13.5px;color:var(--muted);font-style:italic;margin-bottom:6px;font-weight:300;">${ev.subtitle}</div>
-    <div class="panel-divider"></div>
-    <div class="panel-section-title">Vision</div>
-    <p class="panel-desc">${ev.vision}</p>
-    <div class="panel-divider"></div>
-    <div class="panel-section-title">Impact</div>
-    <div class="panel-impact-list">${ev.impact.map(i => `<div class="panel-impact-item"><i class="ri-check-line"></i><span>${i}</span></div>`).join('')}</div>`;
-            if (ev.winners) { html += `<div class="panel-divider"></div><div class="panel-section-title">Winners</div><div class="panel-winners">${ev.winners.map(w => `<div class="panel-winner"><span class="winner-rank">${w.rank}</span><div><div class="winner-name">${w.name}</div><div class="winner-detail">${w.detail}</div></div><span class="winner-prize">${w.prize}</span></div>`).join('')}</div>`; }
-            if (ev.speakers && ev.speakers.length > 0) { html += `<div class="panel-divider"></div><div class="panel-section-title">Speakers & Judges</div><div class="panel-speakers">${ev.speakers.map(s => `<div class="panel-speaker"><div class="speaker-avatar"><i class="ri-user-line"></i></div><div><div class="speaker-name">${s.name}</div><div class="speaker-role">${s.role}</div></div></div>`).join('')}</div>`; }
-            html += `<div class="panel-divider"></div><div class="panel-section-title">Event Flow</div><div class="panel-flow">${ev.flow.map((f, idx) => `<div class="panel-flow-item"><div class="flow-dot">${idx + 1}</div><div class="flow-text"><div class="flow-time">${f.time}</div><div class="flow-act">${f.act}</div></div></div>`).join('')}</div>`;
-            if (ev.quote) { html += `<div class="panel-divider"></div><div class="panel-quote"><p>${ev.quote.text}</p><cite>${ev.quote.cite}</cite></div>`; }
+                <span class="panel-tag ${tagClass[ev.tag]}" style="border:1px solid var(--border2)">
+                    <i class="${tagIcon[ev.tag]}"></i> ${ev.tagLabel}
+                </span>
+                <div class="panel-title">${ev.name}</div>
+                <div class="panel-subtitle">
+                    <span><i class="ri-calendar-line"></i> ${ev.date}</span>
+                    <span><i class="ri-map-pin-line"></i> ${ev.venue}</span>
+                </div>
+                <div style="font-size:13.5px;color:var(--muted);font-style:italic;margin-bottom:6px;font-weight:300;">${ev.subtitle}</div>
+                <div class="panel-divider"></div>
+                <div class="panel-section-title">Vision</div>
+                <p class="panel-desc">${ev.vision}</p>
+                <div class="panel-divider"></div>
+                <div class="panel-section-title">Impact</div>
+                <div class="panel-impact-list">
+                    ${ev.impact.map(item => `<div class="panel-impact-item"><i class="ri-check-line"></i><span>${item}</span></div>`).join('')}
+                </div>`;
+
+            if (ev.winners) {
+                html += `
+                <div class="panel-divider"></div>
+                <div class="panel-section-title">Winners</div>
+                <div class="panel-winners">
+                    ${ev.winners.map(w => `
+                        <div class="panel-winner">
+                            <span class="winner-rank">${w.rank}</span>
+                            <div><div class="winner-name">${w.name}</div><div class="winner-detail">${w.detail}</div></div>
+                            <span class="winner-prize">${w.prize}</span>
+                        </div>`).join('')}
+                </div>`;
+            }
+
+            if (ev.speakers && ev.speakers.length > 0) {
+                html += `
+                <div class="panel-divider"></div>
+                <div class="panel-section-title">Speakers & Judges</div>
+                <div class="panel-speakers">
+                    ${ev.speakers.map(s => `
+                        <div class="panel-speaker">
+                            <div class="speaker-avatar"><i class="ri-user-line"></i></div>
+                            <div><div class="speaker-name">${s.name}</div><div class="speaker-role">${s.role}</div></div>
+                        </div>`).join('')}
+                </div>`;
+            }
+
+            html += `
+                <div class="panel-divider"></div>
+                <div class="panel-section-title">Event Flow</div>
+                <div class="panel-flow">
+                    ${ev.flow.map((f, idx) => `
+                        <div class="panel-flow-item">
+                            <div class="flow-dot">${idx + 1}</div>
+                            <div class="flow-text">
+                                <div class="flow-time">${f.time}</div>
+                                <div class="flow-act">${f.act}</div>
+                            </div>
+                        </div>`).join('')}
+                </div>`;
+
+            if (ev.quote) {
+                html += `
+                <div class="panel-divider"></div>
+                <div class="panel-quote">
+                    <p>${ev.quote.text}</p>
+                    <cite>${ev.quote.cite}</cite>
+                </div>`;
+            }
+
             content.innerHTML = html;
             overlay.classList.add('active');
             panel.classList.add('active');
             document.body.style.overflow = 'hidden';
             if (window.locoScroll) locoScroll.stop();
         }
+
         function closePanel() {
             document.getElementById('eventPanel').classList.remove('active');
             document.getElementById('eventOverlay').classList.remove('active');
             document.body.style.overflow = '';
             if (window.locoScroll) locoScroll.start();
         }
+
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 
         // ── GALLERY SLIDER ──
@@ -2534,15 +2903,18 @@
                     dotsEl.appendChild(d);
                 }
             }
+
             function goTo(idx) {
                 current = Math.max(0, Math.min(idx, maxIndex));
                 const slideW = slides[0].offsetWidth + 16;
                 track.style.transform = `translateX(-${current * slideW}px)`;
                 dotsEl.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === current));
             }
+
             document.getElementById('sliderPrev').onclick = () => goTo(current - 1);
             document.getElementById('sliderNext').onclick = () => goTo(current + 1);
             setInterval(() => goTo(current >= maxIndex ? 0 : current + 1), 4000);
+
             window.addEventListener('resize', () => {
                 perView = window.innerWidth <= 900 ? 1 : 2;
                 maxIndex = total - perView;
@@ -2652,18 +3024,52 @@
 
     <!-- NAV + LOCOMOTIVE SCROLL -->
     <script>
-        const locoScroll = new LocomotiveScroll({ el: document.querySelector('#scroll-container'), smooth: true, multiplier: 0.9, lerp: 0.07, smartphone: { smooth: false }, tablet: { smooth: false } });
-        window.locoScroll = locoScroll;
-        locoScroll.on('scroll', ({ scroll }) => { document.getElementById('navbar').classList.toggle('scrolled', scroll.y > 60); });
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => { const target = document.querySelector(a.getAttribute('href')); if (target) { e.preventDefault(); locoScroll.scrollTo(target); } });
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector('#scroll-container'),
+            smooth: true, multiplier: 0.9, lerp: 0.07,
+            smartphone: { smooth: false }, tablet: { smooth: false }
         });
+        window.locoScroll = locoScroll;
+
+        locoScroll.on('scroll', ({ scroll }) => {
+            document.getElementById('navbar').classList.toggle('scrolled', scroll.y > 60);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) { e.preventDefault(); locoScroll.scrollTo(target); }
+            });
+        });
+
         const navLinks = document.getElementById('navLinks');
         const hamburger = document.getElementById('hamburgerBtn');
-        hamburger.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>'; open ? locoScroll.stop() : locoScroll.start(); });
-        navLinks.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger.innerHTML = '<i class="ri-menu-3-line"></i>'; locoScroll.start(); }); });
+
+        hamburger.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>';
+            open ? locoScroll.stop() : locoScroll.start();
+        });
+
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.innerHTML = '<i class="ri-menu-3-line"></i>';
+                locoScroll.start();
+            });
+        });
+
         const secs = document.querySelectorAll('section[id]');
-        secs.forEach(s => { new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) navLinks.querySelectorAll('a').forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); }); }); }, { threshold: 0.3 }).observe(s); });
+        secs.forEach(s => {
+            new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) navLinks.querySelectorAll('a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+                    });
+                });
+            }, { threshold: 0.3 }).observe(s);
+        });
+
         window.addEventListener('load', () => { locoScroll.update(); });
     </script>
 </body>
