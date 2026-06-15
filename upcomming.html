@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Events 2026–27 | E-Cell GCOE Kolhapur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #080808;
+            --bg2: #0f0f0f;
+            --bg3: #161616;
+            --bg4: #1e1e1e;
+            --white: #f5f5f5;
+            --white2: #d0d0d0;
+            --muted: #888;
+            --muted2: #555;
+            --border: rgba(255, 255, 255, 0.07);
+            --border2: rgba(255, 255, 255, 0.14);
+            --silver: #c8c8c8;
+            --radius: 8px;
+            --gold: #ffd464;
+            --gold-bg: rgba(255, 212, 100, 0.08);
+            --gold-border: rgba(255, 212, 100, 0.25);
+            --green: #7fd99a;
+            --green-bg: rgba(100, 200, 120, 0.08);
+            --green-border: rgba(100, 200, 120, 0.22);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 2px;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 12px;
+            color: #000;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--white);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            color: var(--muted);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 400;
+            padding: 6px 13px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links a.active {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--white) !important;
+            color: #000 !important;
+            font-weight: 600 !important;
+            font-size: 12.5px !important;
+            padding: 7px 18px !important;
+            border-radius: 6px !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--white2) !important;
+        }
+
+        .nav-hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 22px;
+            background: none;
+            border: none;
+        }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 130px 5% 80px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -160px;
+            right: -80px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 212, 100, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-hero-inner {
+            max-width: 860px;
+        }
+
+        .page-hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .page-hero-eyebrow-line {
+            width: 36px;
+            height: 1px;
+            background: var(--white2);
+        }
+
+        .page-hero-eyebrow-text {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .page-hero-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+            line-height: 1.04;
+            letter-spacing: -2.5px;
+            margin-bottom: 22px;
+        }
+
+        .page-hero-title .hollow {
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
+            color: transparent;
+        }
+
+        .page-hero-sub {
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 560px;
+            line-height: 1.85;
+            margin-bottom: 36px;
+        }
+
+        .page-hero-chips {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .page-hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border2);
+            border-radius: 6px;
+            padding: 7px 14px;
+            font-size: 11.5px;
+            color: var(--white2);
+            font-family: var(--font-mono);
+        }
+
+        .page-hero-chip i {
+            color: var(--silver);
+            font-size: 13px;
+        }
+
+        /* ── MARQUEE ── */
+        .marquee-section {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            background: var(--bg2);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 48px;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted2);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .marquee-item i {
+            color: var(--silver);
+            font-size: 14px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ── SECTION SHELL ── */
+        .events-section {
+            padding: 80px 5%;
+            background: var(--bg);
+        }
+
+        .events-section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--muted2);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .section-sub {
+            font-size: 15px;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 52px;
+        }
+
+        /* ── PHASE DIVIDER ── */
+        .phase-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            margin-top: 64px;
+        }
+
+        .phase-divider:first-child {
+            margin-top: 0;
+        }
+
+        .phase-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .phase-badge.internal {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border2);
+            color: var(--white2);
+        }
+
+        .phase-badge.flagship {
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            color: var(--gold);
+        }
+
+        .phase-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .phase-date {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted2);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* ── EVENTS GRID ── */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── EVENT CARD ── */
+        .event-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.28s;
+            cursor: default;
+        }
+
+        .event-card:hover {
+            border-color: var(--border2);
+            transform: translateY(-5px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+        }
+
+        .event-card.flagship-card {
+            border-color: rgba(255, 212, 100, 0.12);
+        }
+
+        .event-card.flagship-card:hover {
+            border-color: rgba(255, 212, 100, 0.28);
+            box-shadow: 0 24px 64px rgba(255, 212, 100, 0.06);
+        }
+
+        .event-card.placement-card {
+            border-color: rgba(100, 200, 120, 0.1);
+        }
+
+        .event-card.placement-card:hover {
+            border-color: rgba(100, 200, 120, 0.25);
+        }
+
+        /* Card thumb */
+        .event-thumb {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .event-thumb-icon {
+            font-size: 68px;
+            color: rgba(255, 255, 255, 0.12);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .event-card:hover .event-thumb-icon {
+            transform: scale(1.1);
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .flagship-card .event-thumb-icon {
+            color: rgba(255, 212, 100, 0.18);
+        }
+
+        .flagship-card:hover .event-thumb-icon {
+            color: rgba(255, 212, 100, 0.28);
+        }
+
+        .placement-card .event-thumb-icon {
+            color: rgba(127, 217, 154, 0.18);
+        }
+
+        .event-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 60%);
+        }
+
+        /* Tag */
+        .event-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 1;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 9px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tag-upcoming {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white2);
+            border: 1px solid var(--border2);
+        }
+
+        .tag-flagship {
+            background: var(--gold-bg);
+            color: var(--gold);
+            border: 1px solid var(--gold-border);
+        }
+
+        .tag-placement {
+            background: var(--green-bg);
+            color: var(--green);
+            border: 1px solid var(--green-border);
+        }
+
+        /* Card body */
+        .event-body {
+            padding: 22px 22px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .event-date {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+            line-height: 1.25;
+        }
+
+        .event-subtitle {
+            font-size: 11.5px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            margin-bottom: 12px;
+        }
+
+        .event-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        /* Highlights */
+        .event-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .event-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 4px 9px;
+            font-size: 10.5px;
+            color: var(--white2);
+            font-family: var(--font-mono);
+        }
+
+        .event-highlight i {
+            color: var(--silver);
+            font-size: 10px;
+        }
+
+        /* Placement rounds mini */
+        .placement-rounds-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .round-mini {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 9px 12px;
+        }
+
+        .round-num-mini {
+            width: 22px;
+            height: 22px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--silver);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .round-mini-text {
+            flex: 1;
+            font-size: 12px;
+            color: var(--white2);
+            font-weight: 500;
+        }
+
+        .round-mini-filter {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .round-mini.final {
+            border-color: var(--green-border);
+        }
+
+        .round-mini.final .round-num-mini {
+            border-color: var(--green-border);
+            color: var(--green);
+        }
+
+        /* Prize callout */
+        .prize-callout-mini {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-bg);
+            border: 1px solid var(--green-border);
+            border-radius: 6px;
+            padding: 9px 12px;
+            margin-bottom: 14px;
+        }
+
+        .prize-callout-mini i {
+            color: var(--green);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .prize-callout-mini span {
+            font-size: 11.5px;
+            color: var(--white2);
+            line-height: 1.5;
+        }
+
+        .prize-callout-mini strong {
+            color: var(--green);
+        }
+
+        /* Card footer */
+        .event-footer {
+            padding: 14px 22px 18px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .event-footer-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10.5px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+        }
+
+        .event-meta-item i {
+            font-size: 11px;
+            color: var(--silver);
+        }
+
+        /* ── REGISTER BUTTON ── */
+        .btn-register {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--white);
+            color: #000;
+            border: none;
+            padding: 9px 18px;
+            border-radius: var(--radius);
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.22s;
+            white-space: nowrap;
+        }
+
+        .btn-register:hover {
+            background: var(--white2);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+        }
+
+        .btn-register.flagship {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .btn-register.flagship:hover {
+            background: #f0c040;
+            box-shadow: 0 8px 24px rgba(255, 212, 100, 0.25);
+        }
+
+        .btn-register.placement-btn {
+            background: var(--green);
+            color: #000;
+        }
+
+        .btn-register.placement-btn:hover {
+            background: #65cc80;
+            box-shadow: 0 8px 24px rgba(127, 217, 154, 0.22);
+        }
+
+        .btn-register i {
+            font-size: 12px;
+        }
+
+        /* ── CTA STRIP ── */
+        .cta-strip {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 56px 5%;
+        }
+
+        .cta-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cta-strip-text h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .cta-strip-text p {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .cta-strip-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-display);
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.22s;
+        }
+
+        .btn-primary:hover {
+            background: var(--white2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--border2);
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-display);
+            font-size: 13.5px;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.22s;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 60px 5% 32px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 6px;
+        }
+
+        .footer-socials a {
+            width: 32px;
+            height: 32px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--white);
+            border-color: var(--border2);
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-mono);
+            font-size: 9.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-col ul a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13.5px;
+            transition: color 0.2s;
+            font-weight: 300;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: var(--muted2);
+            font-family: var(--font-mono);
+        }
+
+        .nec-trophy {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--silver);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border2);
+            border-radius: 5px;
+            padding: 5px 12px;
+        }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -47%) scale(0.96);
+            width: min(520px, 92vw);
+            background: var(--bg2);
+            border: 1px solid var(--border2);
+            border-radius: 16px;
+            z-index: 2001;
+            transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-header {
+            padding: 28px 28px 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .modal-close {
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 18px;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .modal-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 3px 9px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .modal-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .modal-sub {
+            font-size: 12px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+        }
+
+        .modal-body {
+            padding: 22px 28px 28px;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 16px 0;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 10px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 10px 13px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--border2);
+        }
+
+        .form-group select option {
+            background: var(--bg2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .modal-submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: var(--radius);
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.22s;
+            margin-top: 4px;
+        }
+
+        .modal-submit:hover {
+            transform: translateY(-1px);
+        }
+
+        .modal-note {
+            font-size: 11px;
+            color: var(--muted2);
+            text-align: center;
+            margin-top: 10px;
+            font-family: var(--font-mono);
+            letter-spacing: 0.3px;
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .events-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(8, 8, 8, 0.99);
+                padding: 28px 6% 36px;
+                border-bottom: 1px solid var(--border2);
+                gap: 0;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            }
+
+            .nav-links.open li {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open a {
+                font-size: 17px !important;
+                font-weight: 500 !important;
+                color: var(--white2) !important;
+                padding: 16px 4px !important;
+                display: block;
+                border-radius: 0 !important;
+                background: transparent !important;
+            }
+
+            .nav-links.open .nav-cta {
+                margin-top: 16px !important;
+                background: var(--white) !important;
+                color: #000 !important;
+                text-align: center !important;
+                border-radius: 8px !important;
+                padding: 15px 4px !important;
+                font-size: 15px !important;
+                font-weight: 700 !important;
+            }
+
+            .page-hero {
+                padding: 100px 5% 56px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-strip-inner {
+                flex-direction: column;
+            }
+
+            .event-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-register {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="./index.html" class="nav-logo">
+            <div class="logo-mark">EC</div>
+            <span class="logo-text">E-Cell <span>GCOE</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./index.html#gallery">Gallery</a></li>
+            <li><a href="./team.html">Team</a></li>
+            <li><a href="./upcomming.html" class="active">Upcoming</a></li>
+            <li><a href="./index.html#contact" class="nav-cta">Join Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburgerBtn"><i class="ri-menu-3-line"></i></button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="page-hero-eyebrow">
+                <div class="page-hero-eyebrow-line"></div>
+                <span class="page-hero-eyebrow-text">Academic Year 2026–27 · Ecosystem Roadmap</span>
+            </div>
+            <h1 class="page-hero-title">Upcoming<br><span class="hollow">Events &</span><br>Initiatives</h1>
+            <p class="page-hero-sub">The full roadmap for E-Cell GCOE Kolhapur's most ambitious year yet — from internal
+                college events to flagship summits shaping Maharashtra's startup ecosystem.</p>
+            <div class="page-hero-chips">
+                <div class="page-hero-chip"><i class="ri-calendar-event-line"></i> AY 2026–27</div>
+                <div class="page-hero-chip"><i class="ri-map-pin-line"></i> GCOE Kolhapur & beyond</div>
+                <div class="page-hero-chip"><i class="ri-group-line"></i> 2,500+ attendees targeted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><i class="ri-user-add-line"></i> Fresher's Connect 3.0</div>
+            <div class="marquee-item"><i class="ri-auction-line"></i> IPL Auction 3.0</div>
+            <div class="marquee-item"><i class="ri-lightbulb-line"></i> Startup 101</div>
+            <div class="marquee-item"><i class="ri-compass-3-line"></i> Career Crossroads</div>
+            <div class="marquee-item"><i class="ri-briefcase-line"></i> Placement Simulation</div>
+            <div class="marquee-item"><i class="ri-building-4-line"></i> E Summit 27</div>
+            <div class="marquee-item"><i class="ri-school-line"></i> NextGen Innovators</div>
+            <div class="marquee-item"><i class="ri-star-line"></i> 2,500+ Attendees Goal</div>
+            <div class="marquee-item"><i class="ri-user-add-line"></i> Fresher's Connect 3.0</div>
+            <div class="marquee-item"><i class="ri-auction-line"></i> IPL Auction 3.0</div>
+            <div class="marquee-item"><i class="ri-lightbulb-line"></i> Startup 101</div>
+            <div class="marquee-item"><i class="ri-compass-3-line"></i> Career Crossroads</div>
+            <div class="marquee-item"><i class="ri-briefcase-line"></i> Placement Simulation</div>
+            <div class="marquee-item"><i class="ri-building-4-line"></i> E Summit 27</div>
+            <div class="marquee-item"><i class="ri-school-line"></i> NextGen Innovators</div>
+            <div class="marquee-item"><i class="ri-star-line"></i> 2,500+ Attendees Goal</div>
+        </div>
+    </div>
+
+    <!-- EVENTS SECTION -->
+    <section class="events-section">
+        <div class="events-section-inner">
+
+            <div class="section-label reveal">Ecosystem Roadmap</div>
+            <h2 class="section-title reveal">2026–27 Events</h2>
+            <p class="section-sub reveal">Click "Register for Event" on any card to secure your spot. Confirmations sent
+                via WhatsApp within 24 hours.</p>
+
+            <!-- INTERNAL EVENTS PHASE -->
+            <div class="phase-divider reveal">
+                <span class="phase-badge internal"><i class="ri-building-line"></i> Internal College Events</span>
+                <div class="phase-line"></div>
+                <span class="phase-date">Aug 2026 — Mar 2027</span>
+            </div>
+
+            <div class="events-grid">
+
+                <!-- 1. FRESHER'S CONNECT -->
+                <div class="event-card reveal">
+                    <div class="event-thumb" style="background: linear-gradient(135deg,#0a0d0a,#151a15);">
+                        <i class="event-thumb-icon ri-user-add-line"></i>
+                        <span class="event-tag tag-upcoming"><i class="ri-time-line"></i> Upcoming</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> August 2026</div>
+                        <div class="event-name">Fresher's Connect 3.0</div>
+                        <div class="event-subtitle">Annual Onboarding & Skill Incubation Drive</div>
+                        <p class="event-desc">The third edition of our flagship onboarding drive — welcoming first-year
+                            students into the E-Cell ecosystem through aptitude tests, skill workshops, and direct
+                            recruitment into core departments.</p>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-map-pin-line"></i> Seminar Hall, GCOE</div>
+                            <div class="event-highlight"><i class="ri-group-line"></i> First-Year Students</div>
+                            <div class="event-highlight"><i class="ri-door-open-line"></i> All Branches</div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-time-line"></i> Aug 2026</div>
+                            <div class="event-meta-item"><i class="ri-team-line"></i> FY Students</div>
+                        </div>
+                        <button class="btn-register"
+                            onclick="openModal(&quot;Fresher's Connect 3.0&quot;, &quot;Annual Onboarding Drive&quot;, &quot;upcoming&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. IPL AUCTION 3.0 -->
+                <div class="event-card reveal" style="transition-delay:0.08s;">
+                    <div class="event-thumb" style="background: linear-gradient(135deg,#0e0a06,#1c1410);">
+                        <i class="event-thumb-icon ri-auction-line"></i>
+                        <span class="event-tag tag-upcoming"><i class="ri-time-line"></i> Upcoming</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> September 2026</div>
+                        <div class="event-name">IPL Auction 3.0</div>
+                        <div class="event-subtitle">Third Edition · Strategic Sports Bidding Simulation</div>
+                        <p class="event-desc">The biggest edition yet. Teams compete in a high-energy cricket auction
+                            simulation — mastering budget management, negotiation, and risk-taking under real financial
+                            pressure with larger purses and expanded player pools.</p>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-map-pin-line"></i> GCOE Kolhapur</div>
+                            <div class="event-highlight"><i class="ri-team-line"></i> 20+ Teams</div>
+                            <div class="event-highlight"><i class="ri-trophy-line"></i> Prizes</div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-time-line"></i> Sep 2026</div>
+                            <div class="event-meta-item"><i class="ri-group-line"></i> All Years</div>
+                        </div>
+                        <button class="btn-register"
+                            onclick="openModal(&quot;IPL Auction 3.0&quot;, &quot;Strategic Sports Bidding Simulation&quot;, &quot;upcoming&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. STARTUP 101 -->
+                <div class="event-card reveal" style="transition-delay:0.16s;">
+                    <div class="event-thumb" style="background: linear-gradient(135deg,#0c0c0c,#1a1800);">
+                        <i class="event-thumb-icon ri-lightbulb-flash-line"></i>
+                        <span class="event-tag tag-upcoming"><i class="ri-time-line"></i> Upcoming</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> October 2026</div>
+                        <div class="event-name">Startup 101</div>
+                        <div class="event-subtitle">Foundational Startup Workshop</div>
+                        <p class="event-desc">The definitive beginner's guide to building a startup. From spotting real
+                            problems and designing business models to MVP thinking and your first investor pitch — no
+                            experience required.</p>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-map-pin-line"></i> Seminar Hall, GCOE</div>
+                            <div class="event-highlight"><i class="ri-open-arm-line"></i> All Students</div>
+                            <div class="event-highlight"><i class="ri-file-list-3-line"></i> Certificate</div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-time-line"></i> Oct 2026</div>
+                            <div class="event-meta-item"><i class="ri-group-line"></i> All Branches</div>
+                        </div>
+                        <button class="btn-register"
+                            onclick="openModal(&quot;Startup 101&quot;, &quot;Foundational Startup Workshop&quot;, &quot;upcoming&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. CAREER CROSSROADS -->
+                <div class="event-card reveal" style="transition-delay:0.08s;">
+                    <div class="event-thumb" style="background: linear-gradient(135deg,#0a0a0a,#181515);">
+                        <i class="event-thumb-icon ri-compass-3-line"></i>
+                        <span class="event-tag tag-upcoming"><i class="ri-time-line"></i> Upcoming</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> January 2027</div>
+                        <div class="event-name">The Career Crossroads</div>
+                        <div class="event-subtitle">What Next? Jobs · Startups · Masters</div>
+                        <p class="event-desc">A candid, no-filters panel with founders who chose startups, professionals
+                            at top companies, and academics in higher studies — giving you an honest, multi-lens view to
+                            make a decision that's truly yours.</p>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-map-pin-line"></i> GCOE Kolhapur</div>
+                            <div class="event-highlight"><i class="ri-speak-line"></i> Panel + Q&A</div>
+                            <div class="event-highlight"><i class="ri-user-star-line"></i> Industry Experts</div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-time-line"></i> Jan 2027</div>
+                            <div class="event-meta-item"><i class="ri-group-line"></i> TY / Final Year</div>
+                        </div>
+                        <button class="btn-register"
+                            onclick="openModal(&quot;The Career Crossroads&quot;, &quot;Jobs · Startups · Masters Panel&quot;, &quot;upcoming&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5. PLACEMENT SIMULATION (full width) -->
+                <div class="event-card placement-card reveal" style="grid-column: 1 / -1; transition-delay:0.16s;">
+                    <div class="event-thumb"
+                        style="background: linear-gradient(135deg,#080f0a,#10180e); height: 180px;">
+                        <i class="event-thumb-icon ri-briefcase-line"
+                            style="color:rgba(127,217,154,0.2);font-size:80px;"></i>
+                        <span class="event-tag tag-placement"><i class="ri-award-line"></i> Internship Confirmed</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> February 2027</div>
+                        <div class="event-name">Placement Simulation</div>
+                        <div class="event-subtitle">Comprehensive 3-Round Mock Placement Drive — Confirmed Internships
+                            for Finalists</div>
+                        <p class="event-desc">The most high-stakes event in E-Cell history. A full end-to-end mock
+                            placement drive with industry experts as interviewers — replicating every stage of real
+                            campus hiring. Not just practice: the <strong style="color:var(--white);">top 5–10 finalists
+                                receive confirmed internship offers</strong> from our partner companies.</p>
+                        <div class="placement-rounds-mini">
+                            <div class="round-mini">
+                                <div class="round-num-mini">R1</div>
+                                <div class="round-mini-text">Aptitude Test — Quantitative, Logical & Verbal reasoning
+                                </div>
+                                <div class="round-mini-filter">Top 80–100 advance</div>
+                            </div>
+                            <div class="round-mini">
+                                <div class="round-num-mini">R2</div>
+                                <div class="round-mini-text">Group Discussion — Industry-relevant topics & leadership
+                                    assessment</div>
+                                <div class="round-mini-filter">Top 20 advance</div>
+                            </div>
+                            <div class="round-mini final">
+                                <div class="round-num-mini">R3</div>
+                                <div class="round-mini-text">Personal Interviews — One-on-one with industry experts from
+                                    partner companies</div>
+                                <div class="round-mini-filter" style="color:var(--green);">Top 5–10 selected</div>
+                            </div>
+                        </div>
+                        <div class="prize-callout-mini">
+                            <i class="ri-medal-line"></i>
+                            <span><strong>Confirmed internships</strong> at E-Cell partner companies guaranteed for the
+                                top 5–10 finalists — real offer, real experience, real career start.</span>
+                        </div>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-calendar-line"></i> February 2027</div>
+                            <div class="event-highlight"><i class="ri-building-line"></i> Partner Companies</div>
+                            <div class="event-highlight"><i class="ri-group-line"></i> Open to All Years</div>
+                            <div class="event-highlight"><i class="ri-shield-check-line"></i> Confirmed Internship Prize
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-time-line"></i> Feb 2027</div>
+                            <div class="event-meta-item"><i class="ri-briefcase-line"></i> All Years Welcome</div>
+                            <div class="event-meta-item"><i class="ri-award-line"></i> Internship Opportunity</div>
+                        </div>
+                        <button class="btn-register placement-btn"
+                            onclick="openModal(&quot;Placement Simulation&quot;, &quot;3-Round Mock Placement Drive&quot;, &quot;placement&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+            </div><!-- /events-grid internal -->
+
+            <!-- FLAGSHIP PHASE -->
+            <div class="phase-divider reveal" style="margin-top:72px;">
+                <span class="phase-badge flagship"><i class="ri-star-fill"></i> Flagship Initiatives</span>
+                <div class="phase-line"></div>
+                <span class="phase-date">Beyond the Campus</span>
+            </div>
+
+            <div class="events-grid">
+
+                <!-- E-SUMMIT 27 -->
+                <div class="event-card flagship-card reveal">
+                    <div class="event-thumb" style="background: linear-gradient(135deg,#100808,#1c1000);">
+                        <i class="event-thumb-icon ri-building-4-line" style="color:rgba(255,212,100,0.2);"></i>
+                        <span class="event-tag tag-flagship"><i class="ri-star-fill"></i> Grand Summit</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> April 2027</div>
+                        <div class="event-name">E-Summit 27</div>
+                        <div class="event-subtitle">Kolhapur Startup Fest — First Edition</div>
+                        <p class="event-desc">The grand first edition — bringing the entire entrepreneurship ecosystem
+                            of Kolhapur and Maharashtra under one roof. Investors, mentors, student founders, industry
+                            leaders, keynote speakers, pitch finals, and live funding deals. Maharashtra's most exciting
+                            startup fest, built by students.</p>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-map-pin-line"></i> Kolhapur, Maharashtra</div>
+                            <div class="event-highlight"><i class="ri-group-line"></i> 2,500+ Attendees</div>
+                            <div class="event-highlight"><i class="ri-funds-line"></i> Live Investor Meets</div>
+                            <div class="event-highlight"><i class="ri-trophy-line"></i> Pitch Finals</div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-time-line"></i> April 2027</div>
+                            <div class="event-meta-item"><i class="ri-group-line"></i> 2,500+ Expected</div>
+                        </div>
+                        <button class="btn-register flagship"
+                            onclick="openModal(&quot;E-Summit 27&quot;, &quot;Kolhapur Startup Fest · First Edition&quot;, &quot;flagship&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- NEXTGEN INNOVATORS -->
+                <div class="event-card flagship-card reveal" style="transition-delay:0.1s;">
+                    <div class="event-thumb" style="background: linear-gradient(135deg,#080e10,#101820);">
+                        <i class="event-thumb-icon ri-school-line" style="color:rgba(255,212,100,0.2);"></i>
+                        <span class="event-tag tag-flagship"><i class="ri-star-fill"></i> School Initiative</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date"><i class="ri-calendar-line"></i> AY 2026–27 · Ongoing</div>
+                        <div class="event-name">NextGen Innovators</div>
+                        <div class="event-subtitle">Plug-and-play Incubator for School Students</div>
+                        <p class="event-desc">A parallel incubator running through the entire academic year — taking
+                            entrepreneurship thinking directly into school classrooms across Kolhapur and Maharashtra
+                            through design sprints, innovation challenges, and startup culture immersion.</p>
+                        <div class="event-highlights">
+                            <div class="event-highlight"><i class="ri-map-pin-line"></i> Schools · Maharashtra</div>
+                            <div class="event-highlight"><i class="ri-group-line"></i> 500+ Students</div>
+                            <div class="event-highlight"><i class="ri-global-line"></i> nextgeninnovators.in</div>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-footer-meta">
+                            <div class="event-meta-item"><i class="ri-calendar-line"></i> Ongoing</div>
+                            <div class="event-meta-item"><i class="ri-school-line"></i> School Students</div>
+                        </div>
+                        <button class="btn-register flagship"
+                            onclick="openModal(&quot;NextGen Innovators&quot;, &quot;School Incubator Initiative&quot;, &quot;flagship&quot;)">
+                            <i class="ri-edit-line"></i> Register for Event
+                        </button>
+                    </div>
+                </div>
+
+            </div><!-- /events-grid flagship -->
+
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <div class="cta-strip">
+        <div class="cta-strip-inner">
+            <div class="cta-strip-text">
+                <h2>Ready to be part of it?</h2>
+                <p>Join E-Cell GCOE and help build Maharashtra's most ambitious student entrepreneurship community.</p>
+            </div>
+            <div class="cta-strip-actions">
+                <a href="/#contact" class="btn-primary"><i class="ri-user-add-line"></i> Join E-Cell</a>
+                <a href="/#events" class="btn-secondary"><i class="ri-calendar-event-line"></i> Past Events</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo" style="margin-bottom:4px;">
+                    <div class="logo-mark">EC</div><span class="logo-text">E-Cell <span>GCOE</span></span>
+                </div>
+                <p>Entrepreneurship Cell of Government College of Engineering, Kolhapur. Building the next wave of
+                    innovators from Maharashtra — Roadmap 2026–27.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-linkedin-box-line"></i></a>
+                    <a href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#"><i class="ri-youtube-line"></i></a>
+                    <a href="#"><i class="ri-whatsapp-line"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Navigate</h5>
+                <ul>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#vision-mission">Vision & Mission</a></li>
+                    <li><a href="/#events">Events</a></li>
+                    <li><a href="/#flagship">Flagship</a></li>
+                    <li><a href="/#gallery">Gallery</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Upcoming</h5>
+                <ul>
+                    <li><a href="#">Fresher's Connect 3.0</a></li>
+                    <li><a href="#">IPL Auction 3.0</a></li>
+                    <li><a href="#">Startup 101</a></li>
+                    <li><a href="#">Career Crossroads</a></li>
+                    <li><a href="#">Placement Simulation</a></li>
+                    <li><a href="#">E-Summit 27</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Partners</h5>
+                <ul>
+                    <li><a href="#">B Internet Kolhapur</a></li>
+                    <li><a href="#">Lokare's Infotech</a></li>
+                    <li><a href="#">Languageberg</a></li>
+                    <li><a href="#">Avison Industries</a></li>
+                    <li><a href="#">Upstox India</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025–26 E-Cell GCOE Kolhapur. Made with <i class="ri-heart-fill" style="color:var(--silver)"></i> by
+                students, for students.</p>
+            <div class="nec-trophy"><i class="ri-trophy-line"></i> NEC IIT Bombay · WEC — 3× National Podium</div>
+        </div>
+    </footer>
+
+    <!-- REGISTRATION MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+    <div class="modal" id="registerModal">
+        <div class="modal-header">
+            <div>
+                <div class="modal-tag tag-upcoming" id="modalTag"><i class="ri-time-line"></i> <span
+                        id="modalTagText">Upcoming</span></div>
+                <div class="modal-name" id="modalName">Event Name</div>
+                <div class="modal-sub" id="modalSub">Event Subtitle</div>
+            </div>
+            <button class="modal-close" onclick="closeModal()"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="modal-body">
+            <p style="font-size:13.5px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:14px;">Fill in
+                your details to register. Our team will confirm via WhatsApp within 24 hours.</p>
+            <div class="modal-divider"></div>
+            <div class="form-row">
+                <div class="form-group"><label>First Name</label><input type="text" placeholder="Aarav" /></div>
+                <div class="form-group"><label>Last Name</label><input type="text" placeholder="Kulkarni" /></div>
+            </div>
+            <div class="form-group"><label>College Email</label><input type="email"
+                    placeholder="you@gcoekolhapur.ac.in" /></div>
+            <div class="form-group">
+                <label>Year & Branch</label>
+                <select>
+                    <option>FY — Any Branch</option>
+                    <option>SY — CSE</option>
+                    <option>SY — IT</option>
+                    <option>SY — ENTC</option>
+                    <option>SY — Mechanical</option>
+                    <option>SY — Civil</option>
+                    <option>TY — CSE</option>
+                    <option>TY — IT</option>
+                    <option>TY — ENTC</option>
+                    <option>TY — Mechanical</option>
+                    <option>TY — Civil</option>
+                    <option>Final Year — Any Branch</option>
+                    <option>External / Other College</option>
+                </select>
+            </div>
+            <div class="form-group"><label>WhatsApp Number</label><input type="tel" placeholder="+91 98765 43210" />
+            </div>
+            <div class="modal-divider"></div>
+            <button class="modal-submit" id="modalSubmitBtn" onclick="handleSubmit()">
+                <i class="ri-send-plane-line"></i> Submit Registration
+            </button>
+            <p class="modal-note">You'll receive confirmation on WhatsApp within 24 hours.</p>
+        </div>
+    </div>
+
+    <script>
+        // NAV
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburgerBtn');
+        hamburger.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            hamburger.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-3-line"></i>';
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger.innerHTML = '<i class="ri-menu-3-line"></i>'; });
+        });
+
+        // SCROLL REVEAL
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // MODAL
+        let currentEvent = '';
+        function openModal(name, sub, type) {
+            currentEvent = name;
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalSub').textContent = sub;
+            const tag = document.getElementById('modalTag');
+            const tagText = document.getElementById('modalTagText');
+            const btn = document.getElementById('modalSubmitBtn');
+            tag.className = 'modal-tag';
+            if (type === 'flagship') {
+                tag.classList.add('tag-flagship');
+                tagText.textContent = 'Flagship Event';
+                btn.style.background = 'var(--gold)'; btn.style.color = '#000';
+            } else if (type === 'placement') {
+                tag.classList.add('tag-placement');
+                tagText.textContent = 'Internship Opportunity';
+                btn.style.background = 'var(--green)'; btn.style.color = '#000';
+            } else {
+                tag.classList.add('tag-upcoming');
+                tagText.textContent = 'Upcoming';
+                btn.style.background = 'var(--white)'; btn.style.color = '#000';
+            }
+            document.getElementById('modalOverlay').classList.add('active');
+            document.getElementById('registerModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.getElementById('registerModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function handleSubmit() {
+            closeModal();
+            setTimeout(() => alert('✅ Registered for "' + currentEvent + '"!\n\nWe\'ll confirm on WhatsApp within 24 hours. Follow @ecell_gcoe on Instagram for updates.'), 250);
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+</body>
+
+</html>

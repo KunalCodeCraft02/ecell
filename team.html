@@ -95,7 +95,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* Subtle noise background */
     .page-hero::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
@@ -103,7 +102,6 @@
       background-size: 160px; opacity: 0.025;
     }
 
-    /* Radial glow */
     .page-hero::after {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
@@ -143,7 +141,6 @@
     .page-hero-stat i { color: var(--silver); font-size: 13px; }
     .page-hero-stat strong { color: var(--white2); font-weight: 500; }
 
-    /* Scrolling line below hero */
     .hero-line {
       width: 100%; height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
@@ -155,7 +152,6 @@
       background: var(--bg);
     }
 
-    /* Department group label */
     .dept-label {
       font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 3px; color: var(--muted2);
@@ -174,6 +170,92 @@
       margin: 0 auto 60px;
     }
 
+    /* ── FACULTY COORDINATOR CARD — wider, landscape feel ── */
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+    }
+
+    .faculty-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      transition: all 0.35s;
+      position: relative;
+    }
+    .faculty-card:hover {
+      border-color: rgba(255,255,255,0.22);
+      transform: translateY(-4px);
+      box-shadow: 0 28px 64px rgba(0,0,0,0.6);
+    }
+
+    .faculty-photo-wrap {
+      width: 280px;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg3);
+    }
+    .faculty-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+      transition: transform 0.45s ease;
+      filter: grayscale(10%);
+    }
+    .faculty-card:hover .faculty-photo-wrap img { transform: scale(1.04); filter: grayscale(0%); }
+
+    .faculty-info {
+      padding: 36px 40px;
+      display: flex; flex-direction: column; justify-content: center; gap: 10px;
+      flex: 1;
+    }
+
+    .faculty-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2.5px; color: var(--silver);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border2);
+      border-radius: 5px; padding: 5px 12px;
+      width: fit-content; margin-bottom: 4px;
+    }
+    .faculty-badge i { font-size: 11px; }
+
+    .faculty-name {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      letter-spacing: -1px; color: var(--white); line-height: 1.1;
+    }
+
+    .faculty-role {
+      font-family: var(--font-mono); font-size: 10px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--silver); margin-top: 2px;
+    }
+
+    .faculty-bio {
+      font-size: 13.5px; color: var(--muted); line-height: 1.75;
+      font-weight: 300; margin-top: 6px;
+      max-width: 520px;
+    }
+
+    .faculty-socials { display: flex; gap: 6px; margin-top: 14px; }
+    .faculty-socials a {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border2);
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+      color: var(--white2); font-size: 14px; transition: all 0.2s; text-decoration: none;
+    }
+    .faculty-socials a:hover { background: rgba(255,255,255,0.18); color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+    /* ── REGULAR TEAM CARDS ── */
     .team-card {
       background: var(--bg2); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden; transition: all 0.35s; position: relative;
@@ -243,9 +325,16 @@
     @media (max-width: 900px) {
       .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
       .page-hero-inner { flex-direction: column; align-items: flex-start; }
+      .faculty-photo-wrap { width: 220px; }
+      .faculty-info { padding: 28px 28px; }
     }
     @media (max-width: 860px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+    @media (max-width: 680px) {
+      .faculty-card { flex-direction: column; }
+      .faculty-photo-wrap { width: 100%; height: 280px; }
+      .faculty-info { padding: 24px 22px 28px; }
     }
     @media (max-width: 640px) {
       .nav-hamburger { display: block; }
@@ -322,19 +411,40 @@
   <!-- TEAM SECTION -->
   <section id="team" data-scroll-section>
 
-    <!-- Leadership -->
+    <!-- ── Faculty Coordinator ── -->
+    <div class="dept-label" data-scroll><i class="ri-user-star-line"></i> Faculty Coordinator</div>
+    <div class="faculty-grid" data-scroll>
+      <div class="faculty-card">
+        <div class="faculty-photo-wrap">
+          <img src="/public/assets/dhoblesir.jpeg" alt="Prof. Y. S. Dhobale" />
+        </div>
+        <div class="faculty-info">
+          <div class="faculty-badge"><i class="ri-medal-line"></i> Faculty Administrator</div>
+          <div class="faculty-name">Prof. Y. S. Dhobale</div>
+          <div class="faculty-role">E-Cell Coordinator, GCOE Kolhapur</div>
+          <p class="faculty-bio">
+            The driving force behind E-Cell GCOE Kolhapur's remarkable journey. Under Prof. Dhobale's guidance, the cell secured Runner-Up at NEC IIT Bombay 2024 &amp; WEC 2025, earned a direct entry into NEC Advanced Track 2025, and hosted landmark events including Founders Forum, Idea Ignite 2.0, Founders Expo, and Uplearn by Upstox — empowering students to become the architects of tomorrow's startups.
+          </p>
+          <div class="faculty-socials">
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+            <a href="#"><i class="ri-mail-line"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Leadership ── -->
     <div class="dept-label" data-scroll><i class="ri-vip-crown-line"></i> Leadership</div>
     <div class="team-grid" style="margin-bottom:56px;">
 
       <div class="team-card" data-scroll data-scroll-delay="0.05">
         <div class="team-photo">
-          <img src="./public/assets/raj.jpeg" alt="Raj" />
+          <img src="/public/assets/raj.jpeg" alt="Raj" />
           <div class="team-info">
-            <div class="team-name">Raj</div>
+            <div class="team-name">Raj Belekar</div>
             <div class="team-role">President</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-twitter-x-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
@@ -343,9 +453,9 @@
 
       <div class="team-card" data-scroll data-scroll-delay="0.1">
         <div class="team-photo">
-          <img src="./public/assets/pruthvi.jpeg" alt="Pruthviraj" />
+          <img src="/public/assets/pruthvi.jpeg" alt="Pruthviraj" />
           <div class="team-info">
-            <div class="team-name">Pruthviraj</div>
+            <div class="team-name">Pruthviraj Patil</div>
             <div class="team-role">Vice President</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
@@ -357,13 +467,12 @@
 
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/ameya.jpeg" alt="Ameya" />
+          <img src="/public/assets/ameya.jpeg" alt="Ameya" />
           <div class="team-info">
-            <div class="team-name">Ameya</div>
+            <div class="team-name">Ameya Abhang</div>
             <div class="team-role">Vice President</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-instagram-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
@@ -372,19 +481,18 @@
 
     </div>
 
-    <!-- Core Team -->
+    <!-- ── Core Team ── -->
     <div class="dept-label" data-scroll><i class="ri-settings-3-line"></i> Core Team</div>
     <div class="team-grid">
 
       <div class="team-card" data-scroll data-scroll-delay="0.05">
         <div class="team-photo">
-          <img src="./public/assets/kunal.jpeg" alt="Kunal" />
+          <img src="/public/assets/kunal.jpeg" alt="Kunal" />
           <div class="team-info">
-            <div class="team-name">Kunal</div>
+            <div class="team-name">Kunal Bodkhe</div>
             <div class="team-role">Head of Web &amp; Media</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-github-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
@@ -393,13 +501,12 @@
 
       <div class="team-card" data-scroll data-scroll-delay="0.1">
         <div class="team-photo">
-          <img src="./public/assets/pratik.jpeg" alt="Pratik" />
+          <img src="/public/assets/pratik.jpeg" alt="Pratik" />
           <div class="team-info">
-            <div class="team-name">Pratik</div>
+            <div class="team-name">Pratik Narke</div>
             <div class="team-role">Head of Events &amp; PR</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-instagram-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
@@ -408,35 +515,49 @@
 
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/shravani.jpeg" alt="Shravani" />
+          <img src="/public/assets/shravani.jpeg" alt="Shravani" />
           <div class="team-info">
-            <div class="team-name">Shravani</div>
+            <div class="team-name">Shravani Kesarkar</div>
             <div class="team-role">Co-head of Events &amp; PR</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-instagram-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
         </div>
       </div>
+
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/maitree.jpeg" alt="Maitree" />
+          <img src="/public/assets/maitree.jpeg" alt="Maitree" />
           <div class="team-info">
             <div class="team-name">Maitreyee</div>
             <div class="team-role">Co-head of Marketing</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-instagram-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
         </div>
       </div>
+
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <img src="/public/assets/parth.jpg" alt="Parth" />
+          <div class="team-info">
+            <div class="team-name">Parth</div>
+            <div class="team-role">Co-Head of Film & Media</div>
+            <div class="team-socials">
+              <a href="#"><i class="ri-linkedin-box-line"></i></a>
+              <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card" data-scroll data-scroll-delay="0.15">
+        <div class="team-photo">
+          <img src="/public/assets/prerna.jpeg" alt="Prerna" />
           <div class="team-info">
             <div class="team-name">Prerna</div>
             <div class="team-role">Member</div>
@@ -448,9 +569,10 @@
           </div>
         </div>
       </div>
+
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/omkar.jpeg" alt="Omkar" />
+          <img src="/public/assets/omkar.jpeg" alt="Omkar" />
           <div class="team-info">
             <div class="team-name">Omkar</div>
             <div class="team-role">Member</div>
@@ -462,34 +584,35 @@
           </div>
         </div>
       </div>
+
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/piyush.png" alt="Piyush" />
+          <img src="/public/assets/piyush.png" alt="Piyush" />
           <div class="team-info">
             <div class="team-name">Piyush</div>
             <div class="team-role">Member</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-instagram-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
         </div>
       </div>
+
       <div class="team-card" data-scroll data-scroll-delay="0.15">
         <div class="team-photo">
-          <img src="./public/assets/prerna.jpeg" alt="Prerna" />
+          <img src="/public/assets/devshree.jpeg" alt="Devshree" />
           <div class="team-info">
-            <div class="team-name">Prerna</div>
+            <div class="team-name">Devshree</div>
             <div class="team-role">Member</div>
             <div class="team-socials">
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
-              <!-- <a href="#"><i class="ri-instagram-line"></i></a> -->
               <a href="#"><i class="ri-mail-line"></i></a>
             </div>
           </div>
         </div>
       </div>
+      
 
     </div>
   </section>
@@ -506,7 +629,6 @@
         <div class="footer-socials">
           <a href="#"><i class="ri-instagram-line"></i></a>
           <a href="#"><i class="ri-linkedin-box-line"></i></a>
-          <!-- <a href="#"><i class="ri-twitter-x-line"></i></a> -->
           <a href="#"><i class="ri-youtube-line"></i></a>
           <a href="#"><i class="ri-whatsapp-line"></i></a>
         </div>
@@ -552,11 +674,9 @@
 
 </div><!-- /scroll-container -->
 
-<!-- Locomotive Scroll -->
 <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
 <script>
-  // ── Locomotive Scroll ──
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector('#scroll-container'),
     smooth: true,
@@ -570,7 +690,6 @@
     document.getElementById('navbar').classList.toggle('scrolled', scroll.y > 60);
   });
 
-  // Anchor links on this page
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
@@ -578,7 +697,6 @@
     });
   });
 
-  // ── Hamburger ──
   const navLinks = document.getElementById('navLinks');
   const hamburger = document.getElementById('hamburgerBtn');
 
